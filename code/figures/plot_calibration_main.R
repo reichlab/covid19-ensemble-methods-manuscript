@@ -102,3 +102,38 @@ p_coverage <- ggplot(
 pdf("manuscript/figures/quantile_coverage_main.pdf", width = 7, height = 8)
 print(p_coverage)
 dev.off()
+
+
+
+# second version of the coverage plot with difference in empirical and 
+# nominal coverage
+# ------------------------------------------------------------------------------
+overall_means %>%
+  dplyr::mutate(difference = empirical_coverage - nominal_coverage) %>%
+  dplyr::filter(top_models %in% c("All Models", "Top 10")) %>%
+  ggplot() +
+  geom_line(mapping = aes(x = nominal_coverage, y = difference, 
+                          color = combine_method, linetype = top_models, 
+                          group = paste0(combine_method, top_models))) +
+  geom_point(mapping = aes(x = nominal_coverage, y = difference, 
+                           color = combine_method, shape = top_models)) +
+  facet_grid(window_size ~ target_variable) + #, scales = "free_x") +
+  geom_abline(intercept = 0, slope = 0) +
+  scale_color_manual(
+    "Combination Method",
+    values = c(
+      "Mean" = "#ef8a62",
+      "Median" = "#67a9cf",
+      "Weighted Mean" = "#b2182b",
+      "Weighted Median" = "#2166ac")
+  ) +
+  scale_shape_discrete("Number of\nComponent\nForecasters") +
+  scale_linetype_discrete("Number of\nComponent\nForecasters") +
+  xlim(c(0, 1)) +
+  xlab("Nominal Quantile Level") +
+  ylab("Empirical Coverage Rate") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+
+  
+  
