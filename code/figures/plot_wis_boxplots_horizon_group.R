@@ -192,3 +192,47 @@ for (target_var in c("Cases", "Deaths")) {
   print(p_wis_boxplots)
   dev.off()
 }
+
+
+# example plot for an alternative version that uses scattered points
+# ------------------------------------------------------------------------------
+target_var <- "Cases"
+
+df <- scores_others %>%
+  dplyr::left_join(plot_upper_bound, by = "target_variable") %>%
+  dplyr::mutate(
+    wis_diff_censored = ifelse(wis_diff_all_horizons > max_mwis, max_mwis, wis_diff_all_horizons),
+    value_censored = (wis_diff_all_horizons > max_mwis),
+    horizon = paste0("Horizon ", horizon)
+  ) %>%
+  dplyr::filter(
+    !value_censored,
+    target_variable == target_var,
+    top_models == "Top 10"
+  )
+
+p_wis_scatter <- df %>%
+  tidyr::pivot_wider(id_cols = c(combine_method, quantile_groups, top_models, 
+                                 window_size, horizon_group, target_variable, 
+                                 forecast_date, horizon), 
+                     names_from = horizon_group, values_from = mwis) %>%
+  dplyr::mutate(`Parameter sharing` = ifelse(`All Horizons` > `By Horizon`, 
+                             "By Horizon better", "By Horizon worse")) %>%
+  ggplot() +
+  geom_point(aes(y = `All Horizons`, x = `By Horizon`, color = `Parameter sharing`)) + 
+  geom_abline(intercept = 1, slope = 1) + 
+  facet_grid(horizon ~ window_size + combine_method, scales = "fixed") +
+  xlab("Mean WIS - Weights Shared Across Horizons") +
+  ylab("Mean WIS - Weights Specific For Given Horizon") +
+  ggtitle(target_var) +
+  theme_bw() +
+  scale_x_log10() +
+  scale_y_log10() +
+  theme(axis.text.x = element_text(angle = 90, hjust=1, vjust=0.5)) + 
+  coord_cartesian(xlim = c(100, 20000), ylim = c(100, 20000))
+  
+  
+
+
+
+
