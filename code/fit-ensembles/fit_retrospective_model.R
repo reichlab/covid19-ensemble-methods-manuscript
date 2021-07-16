@@ -17,6 +17,7 @@ Sys.setenv(LANG = "en_US.UTF-8")
 # extract arguments specifying details of analysis
 #args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_quantile", "sort", "4", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 #args <- c("cluster_single_node", "inc_death", "2020-07-27", "FALSE", "convex", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
+#args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "4", "10", "TRUE", "FALSE", "FALSE", "state", "TRUE", "all")
 
 args <- commandArgs(trailingOnly = TRUE)
 run_setting <- args[1]
@@ -224,7 +225,7 @@ if (drop_anomalies) {
     dplyr::transmute(
       location = location,
       target_end_date = as.character(date))
-  if (nrow(target_end_date_locations_drop)) {
+  if (nrow(target_end_date_locations_drop) == 0) {
     target_end_date_locations_drop <- NULL
   }
 
@@ -233,8 +234,8 @@ if (drop_anomalies) {
     dplyr::filter(issue_date == forecast_date - 1) %>%
     dplyr::transmute(
       location = location,
-      forecast_date = as.character(date))
-  if (nrow(forecast_date_locations_drop)) {
+      forecast_week_end_date = as.character(date))
+  if (nrow(forecast_date_locations_drop) == 0) {
     forecast_date_locations_drop <- NULL
   }
 } else {
