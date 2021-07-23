@@ -317,7 +317,10 @@ if (!file.exists(forecast_filename)) {
     noncross = noncross,
     missingness = missingness,
     impute_method = impute_method,
-    backend = ifelse(combine_method == "rel_wis_weighted_median", "grid_search", "qenspy"),
+    backend = ifelse(
++      combine_method %in% c("rel_wis_weighted_median","rel_wis_weighted_mean"),
++      "grid_search",
++      "qenspy"),
     required_quantiles = required_quantiles,
     check_missingness_by_target = check_missingness_by_target,
     do_q10_check = do_q10_check,
@@ -344,7 +347,8 @@ if (!file.exists(forecast_filename)) {
   }
 
   # extract and save just the estimated weights in csv format
-  if (!(combine_method %in% c("ew", "mean", "median", "rel_wis_weighted_median", "mean_weights_weighted_median"))) {
+  if (!(combine_method %in% c("ew", "mean", "median", "rel_wis_weighted_median",
+    "rel_wis_weighted_mean", "mean_weights_weighted_median"))) {
     # save loss trace as a function of optimization iteration
     loss_trace <- results$location_groups$qra_fit[[1]]$loss_trace
     saveRDS(loss_trace, file = loss_trace_filename)
