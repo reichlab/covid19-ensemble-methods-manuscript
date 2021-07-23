@@ -38,13 +38,20 @@ all_scores <- dplyr::bind_rows(
   readRDS("code/scores/retrospective_scores-state-inc_case.rds")
 ) %>%
   dplyr::filter(
-    horizon_group == "All Horizons", quantile_groups == "Per Model",
-    combine_method %in% c("Mean", "Median", "Weighted Mean", "Weighted Median")) %>%
+    horizon_group == "All Horizons",
+    quantile_groups == "Per Model",
+    drop_anomalies == "FALSE",
+#    combine_method %in% c("Mean", "Median", "Weighted Mean", "Weighted Median"),
+    window_size %in% c("Untrained", "Trained on 12 weeks"),
+    !(combine_method == "Equal Weighted Mean" & window_size == "Trained on 12 weeks" &
+      top_models == "All Models"),
+    !(combine_method == "Equal Weighted Median" & window_size == "Trained on 12 weeks" &
+      top_models == "All Models")) %>%
   dplyr::mutate(
-    window_size = factor(
-      window_size,
-      levels = c("Untrained", "Trained on 4 weeks", "Trained on 8 weeks", "Trained on 12 weeks", "Trained on full history")
-    ),
+    # window_size = factor(
+    #   window_size,
+    #   levels = c("Untrained", "Trained on 4 weeks", "Trained on 8 weeks", "Trained on 12 weeks", "Trained on full history")
+    # ),
     model_brief = paste0(combine_method, "-",
       quantile_groups, "-",
       window_size, "-",
@@ -71,7 +78,7 @@ overall_means <- all_scores %>%
 # overall means for the equally weighted median method
 overall_means_base <- overall_means %>%
   dplyr::ungroup() %>%
-  dplyr::filter(model_brief == "Median-Per Model-Untrained-All Models-All Horizons") %>%
+  dplyr::filter(model_brief == "Equal Weighted Median-Per Model-Untrained-All Models-All Horizons") %>%
   dplyr::transmute(target_variable, base_mwis = mwis)
 
 # differences in means relative to equally weighted median method
@@ -95,7 +102,7 @@ by_horizon_means <- all_scores %>%
 # by horizon means for the equally weighted median method
 by_horizon_means_base <- by_horizon_means %>%
   dplyr::ungroup() %>%
-  dplyr::filter(model_brief == "Median-Per Model-Untrained-All Models-All Horizons") %>%
+  dplyr::filter(model_brief == "Equal Weighted Median-Per Model-Untrained-All Models-All Horizons") %>%
   dplyr::transmute(target_variable, horizon, base_mwis = mwis)
 
 # differences in by horizon means relative to equally weighted median method
@@ -119,7 +126,7 @@ summarized_scores <- all_scores %>%
 
 scores_base <- summarized_scores %>%
   dplyr::ungroup() %>%
-  dplyr::filter(model_brief == "Median-Per Model-Untrained-All Models-All Horizons") %>%
+  dplyr::filter(model_brief == "Equal Weighted Median-Per Model-Untrained-All Models-All Horizons") %>%
   dplyr::transmute(target_variable, forecast_date, horizon, base_mwis = mwis)
 
 scores_others <- summarized_scores %>%
@@ -131,9 +138,19 @@ scores_others <- summarized_scores %>%
   )
 
 plot_upper_bound <- scores_others %>%
-  dplyr::filter(combine_method != "Mean") %>%
+  dplyr::filter(combine_method != "Equal Weighted Mean") %>%
   dplyr::group_by(target_variable) %>%
   dplyr::summarize(max_mwis = max(wis_diff_unweighted_median))
+
+# scores_others <- scores_others %>%
+#   dplyr::mutate(
+#     effective_model = dplyr::case_when(
+#       combine_method == "Mean" & window_size == "Untrained" ~ "Equal-Weighted Mean of All Models",
+#       combine_method == "Median" & window_size == "Untrained" ~ "Equal-Weighted Median of All Models",
+#       combine_method == ""
+#     )
+#   )
+
 
 p_wis_boxplots <- ggplot() +
   geom_hline(yintercept = 0) +
@@ -181,7 +198,7 @@ p_wis_boxplots <- ggplot() +
   scale_color_discrete(
     "Number of\nComponent\nForecasters"
   ) +
-  facet_grid(target_variable ~ window_size, scales = "free") +
+  facet_wrap( ~ target_variable, scales = "free", nrow = 1) +
   xlab("Combination Method") +
   ylab("Mean WIS for Method - Mean WIS for Unweighted Median") +
   theme_bw() +
@@ -192,6 +209,43 @@ pdf(
   width=9, height=8)
 print(p_wis_boxplots)
 dev.off()
+
+
+
+
+# boxplots of "raw" scores, not differences from unweighted median
+p_wis_boxplots <- ggplot() +
+  geom_hline(yintercept = 0) +
+  geom_boxplot(
+    data = summarized_scores,
+    # data = all_scores %>%
+#      dplyr::left_join(plot_upper_bound, by = "target_variable") %>%
+      # dplyr::mutate(
+      #   wis_diff_censored = ifelse(wis_diff_unweighted_median > max_mwis, max_mwis, wis_diff_unweighted_median),
+      #   value_censored = (wis_diff_unweighted_median > max_mwis)
+      # ) %>%
+      # dplyr::filter(!value_censored),
+    mapping = aes(
+      x = combine_method,
+      y = mwis,
+  #    y = scales::oob_squish(wis_diff_unweighted_median, range = c(-Inf, max_mwis)),
+      color = top_models)) +
+  scale_color_discrete(
+    "Number of\nComponent\nForecasters"
+  ) +
+  facet_wrap( ~ target_variable, scales = "free", nrow = 1) +
+  xlab("Combination Method") +
+  ylab("Mean WIS") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust=1, vjust=0.5))
+
+pdf(
+  'manuscript/figures/wis_boxplots_main.pdf',
+  width=9, height=8)
+print(p_wis_boxplots)
+dev.off()
+
+
 
 
 # plots for cases and deaths separately, facetting by horizon

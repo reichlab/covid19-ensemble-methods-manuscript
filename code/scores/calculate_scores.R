@@ -34,7 +34,7 @@ for (spatial_scale in c("state")) {
   }
   for (response_var in response_vars) {
     all_scores <- calc_retrospective_ensemble_scores(
-      submissions_root = "~/research/epi/covid/covidEnsembles/code/application/retrospective-qra-comparison/retrospective-forecasts/",
+      submissions_root = "~/research/epi/covid/covid19-ensemble-methods-manuscript/code/retrospective-forecasts/",
       forecast_dates = forecast_dates,
       spatial_scales = spatial_scale,
     #  spatial_scales = "state",
@@ -69,13 +69,18 @@ for (spatial_scale in c("state")) {
           TRUE ~ paste0("Trained on ", window_size, " weeks")
         ),
         combine_method = dplyr::case_when(
-          combine_method == "ew" ~ "Mean",
-          combine_method == "median" ~ "Median",
+          combine_method == "ew" ~ "Equal Weighted Mean",
+          combine_method == "median" ~ "Equal Weighted Median",
+          combine_method == "rel_wis_weighted_mean" ~ "Rel. WIS Weighted Mean",
+          combine_method == "rel_wis_weighted_median" ~ "Rel. WIS Weighted Median",
           combine_method == "convex" ~ "Weighted Mean",
-          combine_method == "rel_wis_weighted_median" ~ "Weighted Median",
-          combine_method == "mean_weights_weighted_median" ~ "Weighted Median, Mean Weights Transfer",
-          TRUE ~ combine_method
+          combine_method == "mean_weights_weighted_median" ~ "Mean Weights Weighted Median"
         ),
+        combine_method = factor(
+          combine_method,
+          levels = c("Equal Weighted Mean", "Equal Weighted Median",
+            "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median",
+            "Weighted Mean", "Mean Weights Weighted Median")),
         quantile_groups = dplyr::case_when(
           quantile_groups == "per_model" ~ "Per Model",
           quantile_groups == "per_quantile" ~ "Per Quantile",
