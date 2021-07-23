@@ -18,6 +18,8 @@ Sys.setenv(LANG = "en_US.UTF-8")
 #args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_quantile", "sort", "4", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 #args <- c("cluster_single_node", "inc_death", "2020-07-27", "FALSE", "convex", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 #args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "4", "10", "TRUE", "FALSE", "FALSE", "state", "TRUE", "all")
+#args <- c("local", "inc_case", "2021-06-07", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "12", "5", "TRUE", "FALSE", "FALSE", "euro_countries", "TRUE", "all")
+#args <- c("local", "inc_death", "2021-03-01", "FALSE", "ew", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 
 args <- commandArgs(trailingOnly = TRUE)
 run_setting <- args[1]
@@ -39,11 +41,23 @@ horizon_group <- args[16]
 
 if (run_setting == "local") {
   # used by covidHubUtils::load_latest_forecasts for loading locally
-  submissions_root <- "~/research/epi/covid/covid19-forecast-hub/data-processed/"
-  hub_repo_path <- "~/research/epi/covid/covid19-forecast-hub/"
+  hub_repo_path <- paste0(
+    "~/research/epi/covid/",
+    ifelse(
+      spatial_resolution_arg == "euro_countries",
+      "covid19-forecast-hub-europe",
+      "covid19-forecast-hub"),
+    "/")
+  submissions_root <- paste0(hub_repo_path, "data-processed/")
 } else {
-  submissions_root <- "/project/uma_nicholas_reich/covid19-forecast-hub/data-processed/"
-  hub_repo_path <- "/project/uma_nicholas_reich/covid19-forecast-hub/"
+  hub_repo_path <- paste0(
+    "/project/uma_nicholas_reich/",
+    ifelse(
+      spatial_resolution_arg == "euro_countries",
+      "covid19-forecast-hub-europe",
+      "covid19-forecast-hub"),
+    "/")
+  submissions_root <- paste0(hub_repo_path, "data-processed/")
   reticulate::use_python("/usr/bin/python3.8")
 }
 
@@ -54,11 +68,11 @@ candidate_model_abbreviations_to_include <- get_candidate_models(
   include_COVIDhub_ensemble = FALSE,
   include_COVIDhub_baseline = TRUE)
 
-# Drop hospitalizations ensemble from JHU APL and ensemble from FDANIHASU
+# Drop models that are themselves ensembles of other hub models
 candidate_model_abbreviations_to_include <-
   candidate_model_abbreviations_to_include[
     !(candidate_model_abbreviations_to_include %in%
-      c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-trained_ensemble", "KITmetricslab-select_ensemble"))
+      c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-trained_ensemble", "KITmetricslab-select_ensemble", "EuroCOVIDhub-ensemble"))
   ]
 
 
@@ -95,7 +109,12 @@ if (response_var == "inc_death") {
   forecast_week_end_date <- forecast_date - 2
   full_history_start <- lubridate::ymd("2020-06-22") - 7 * 10
 } else if (response_var == "inc_case") {
-  required_quantiles <- c(0.025, 0.100, 0.250, 0.500, 0.750, 0.900, 0.975)
+  if (spatial_resolution_arg == "euro_countries") {
+    required_quantiles <- c(0.01, 0.025, seq(0.05, 0.95, by = 0.05), 0.975, 0.99)
+  } else {
+    required_quantiles <- c(0.025, 0.100, 0.250, 0.500, 0.750, 0.900, 0.975)
+  }
+
   if (spatial_resolution_arg == "all") {
     spatial_resolution <- c("county", "state", "national")
   } else if (spatial_resolution_arg == "state_national") {
@@ -211,11 +230,39 @@ forecast_filename <- paste0(
 
 if (drop_anomalies) {
   if (response_var == "inc_case") {
-    outliers_path <- "code/data-anomalies/outliers-inc-cases.csv"
-    revisions_path <- "code/data-anomalies/revisions-to-drop-inc-cases.csv"
+    outliers_path <- paste0(
+      "code/data-anomalies/outliers-inc-cases",
+      ifelse(
+        spatial_resolution_arg == "euro_countries",
+        "-euro",
+        ""
+      ),
+      ".csv")
+    revisions_path <- paste0(
+      "code/data-anomalies/revisions-to-drop-inc-cases",
+      ifelse(
+        spatial_resolution_arg == "euro_countries",
+        "-euro",
+        ""
+      ),
+      ".csv")
   } else if (response_var == "inc_death") {
-    outliers_path <- "code/data-anomalies/outliers-inc-deaths.csv"
-    revisions_path <- "code/data-anomalies/revisions-to-drop-inc-deaths.csv"
+    outliers_path <- paste0(
+      "code/data-anomalies/outliers-inc-deaths",
+      ifelse(
+        spatial_resolution_arg == "euro_countries",
+        "-euro",
+        ""
+      ),
+      ".csv")
+    revisions_path <- paste0(
+      "code/data-anomalies/revisions-to-drop-inc-deaths",
+      ifelse(
+        spatial_resolution_arg == "euro_countries",
+        "-euro",
+        ""
+      ),
+      ".csv")
   }
   target_end_date_locations_drop <-
     readr::read_csv(outliers_path) %>%
@@ -249,7 +296,7 @@ if (!file.exists(forecast_filename)) {
 
   tictic <- Sys.time()
   results <- build_covid_ensemble(
-    hub = "US",
+    hub = ifelse(spatial_resolution_arg == "euro_countries", "ECDC", "US"),
     source = "local_hub_repo",
     hub_repo_path = hub_repo_path,
     candidate_model_abbreviations_to_include =
@@ -276,7 +323,7 @@ if (!file.exists(forecast_filename)) {
     do_q10_check = do_q10_check,
     do_nondecreasing_quantile_check = do_nondecreasing_quantile_check,
     do_baseline_check = do_baseline_check,
-    do_sd_check = FALSE,
+    do_sd_check = "exclude_none",
     baseline_tol = 1.0,
     top_models = top_models,
     manual_eligibility_adjust = NULL,
