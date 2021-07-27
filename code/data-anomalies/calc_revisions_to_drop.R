@@ -4,7 +4,7 @@ library(here)
 setwd(here())
 
 first_as_of_date <- as.Date("2020-04-26")
-last_as_of_date <- as.Date("2021-07-04")
+last_as_of_date <- as.Date("2021-07-25")
 all_as_ofs <- seq.Date(
   from = first_as_of_date,
   to = last_as_of_date,
@@ -41,8 +41,8 @@ get_adjacent_revisions <- function(
 
 
 # plot death outliers
-#for (measure in c("cases", "deaths")) {
-for (measure in "deaths") {
+for (measure in c("cases", "deaths")) {
+#for (measure in "deaths") {
   outliers <- readr::read_csv(
     paste0("code/data-anomalies/outliers-inc-", measure, ".csv"),
     col_types = cols(

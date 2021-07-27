@@ -15,23 +15,16 @@ options(error = recover)
 
 # Dates of forecast submission for forecasts included in this analysis
 first_forecast_date <- lubridate::ymd("2020-07-27")
-last_forecast_date <- lubridate::ymd("2021-06-14")
+last_forecast_date <- lubridate::ymd("2021-07-12")
 num_forecast_weeks <- as.integer(last_forecast_date -
                          first_forecast_date) / 7 + 1
 
 forecast_dates <- first_forecast_date +
   seq(from = 0, length = num_forecast_weeks) * 7
 
-#for (spatial_scale in c("national", "state", "state_national", "county")) {
-for (spatial_scale in c("state")) {
-  if (spatial_scale %in% c("national", "state_national")) {
-    response_vars <- c("cum_death", "inc_death", "inc_case", "inc_hosp")
-  } else if (spatial_scale == "state") {
-#    response_vars <- c("cum_death", "inc_death", "inc_case", "inc_hosp")
-    response_vars <- c("inc_death", "inc_case")
-  } else if (spatial_scale == "county") {
-    response_vars <- "inc_case"
-  }
+for (spatial_scale in c("euro_countries", "state")) {
+  response_vars <- c("inc_death", "inc_case")
+
   for (response_var in response_vars) {
     all_scores <- calc_retrospective_ensemble_scores(
       submissions_root = "~/research/epi/covid/covid19-ensemble-methods-manuscript/code/retrospective-forecasts/",
@@ -103,7 +96,8 @@ for (spatial_scale in c("state")) {
       all_scores,
       paste0("code/scores/retrospective_scores-",
         spatial_scale, "-",
-        response_var, ".rds")
+        response_var,
+        ".rds")
     )
   }
 }
