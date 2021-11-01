@@ -62,17 +62,22 @@ if (run_setting == "local") {
 }
 
 # List of candidate models for inclusion in ensemble
-candidate_model_abbreviations_to_include <- get_candidate_models(
-  submissions_root = submissions_root,
-  include_designations = c("primary", "secondary"),
-  include_COVIDhub_ensemble = FALSE,
-  include_COVIDhub_baseline = TRUE)
+if (spatial_resolution_arg == "euro_countries") {
+  candidate_model_abbreviations_to_include <-
+    list.dirs(submissions_root, full.names=FALSE, recursive=FALSE)
+} else {
+  candidate_model_abbreviations_to_include <- get_candidate_models(
+    submissions_root = submissions_root,
+    include_designations = c("primary", "secondary"),
+    include_COVIDhub_ensemble = FALSE,
+    include_COVIDhub_baseline = TRUE)
+}
 
 # Drop models that are themselves ensembles of other hub models
 candidate_model_abbreviations_to_include <-
   candidate_model_abbreviations_to_include[
     !(candidate_model_abbreviations_to_include %in%
-      c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-trained_ensemble", "KITmetricslab-select_ensemble", "EuroCOVIDhub-ensemble"))
+      c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-trained_ensemble", "COVIDhub-4_week_ensemble", "KITmetricslab-select_ensemble", "EuroCOVIDhub-ensemble"))
   ]
 
 
@@ -291,7 +296,8 @@ if (drop_anomalies) {
 }
 
 tic <- Sys.time()
-if (!file.exists(forecast_filename)) {
+#if (!file.exists(forecast_filename)) {
+if (TRUE) {
   do_q10_check <- do_nondecreasing_quantile_check <- do_standard_checks
 
   tictic <- Sys.time()
@@ -318,9 +324,9 @@ if (!file.exists(forecast_filename)) {
     missingness = missingness,
     impute_method = impute_method,
     backend = ifelse(
-+      combine_method %in% c("rel_wis_weighted_median","rel_wis_weighted_mean"),
-+      "grid_search",
-+      "qenspy"),
+      combine_method %in% c("rel_wis_weighted_median","rel_wis_weighted_mean"),
+      "grid_search",
+      "qenspy"),
     required_quantiles = required_quantiles,
     check_missingness_by_target = check_missingness_by_target,
     do_q10_check = do_q10_check,
