@@ -15,7 +15,7 @@ options(error = recover)
 
 # Dates of forecast submission for forecasts included in this analysis
 first_forecast_date <- lubridate::ymd("2020-07-27")
-last_forecast_date <- lubridate::ymd("2021-07-12")
+last_forecast_date <- lubridate::ymd("2021-10-11")
 num_forecast_weeks <- as.integer(last_forecast_date -
                          first_forecast_date) / 7 + 1
 
@@ -23,6 +23,7 @@ forecast_dates <- first_forecast_date +
   seq(from = 0, length = num_forecast_weeks) * 7
 
 for (spatial_scale in c("euro_countries", "state")) {
+#for (spatial_scale in c("state")) {
   response_vars <- c("inc_death", "inc_case")
 
   for (response_var in response_vars) {
@@ -36,7 +37,7 @@ for (spatial_scale in c("euro_countries", "state")) {
     #  response_vars = "inc_case",
     #  response_vars = NULL,
     #  response_vars = c("inc_case", "inc_death", "cum_death", "inc_hosp"),
-      truth_as_of = Sys.Date() - 1
+      truth_as_of = as.Date("2021-12-05")
     )
 
     unique_models <- unique(all_scores$model)
@@ -127,6 +128,28 @@ all_scores %>%
   dplyr::count(model_brief, target_variable) %>%
   tidyr::pivot_wider(names_from = "target_variable", values_from = "n") %>%
   as.data.frame()
+
+s1 <- all_scores %>%
+  dplyr::mutate(
+    top_models = ifelse(top_models == "top_0", "all", top_models),
+    model_brief = paste0(combine_method, "-", quantile_groups, "-", window_size, "-", top_models)
+  ) %>%
+  dplyr::filter(
+    target_variable == "Deaths",
+    forecast_date >= "2020-07-27",
+    model_brief == "Equal Weighted Median-Per Model-Trained on 8 weeks-All Models"
+  )
+
+s2 <- all_scores %>%
+  dplyr::mutate(
+    top_models = ifelse(top_models == "top_0", "all", top_models),
+    model_brief = paste0(combine_method, "-", quantile_groups, "-", window_size, "-", top_models)
+  ) %>%
+  dplyr::filter(
+    target_variable == "Deaths",
+    forecast_date >= "2020-07-27",
+    model_brief == "Equal Weighted Median-Per Model-Trained on 8 weeks-Top 10"
+  )
 
 all_scores %>%
   dplyr::filter(target_variable == "inc death") %>%
