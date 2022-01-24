@@ -1,0 +1,16 @@
+For reproducibility, this file documents the git tags and commit hashes used for
+ensemble builds for the purpose of the manuscript. You can check out the state
+of the repo at the tag or commit via git checkout <tag id or commit hash>
+
+Tag used for model development fits -- covid19-forecast-hub:
+2021-04-26-COVIDhub-ensemble
+
+corresponds to commit 278fbc04c15f4ca782d8af8074408c4b037adee7
+
+
+Commit used for prospective estimation fits -- covid19-forecast-hub:
+c6c24d2feabd9f9550d51e6de336dad87ffc9477
+
+
+Commit used for prospective estimation fits -- covid19-forecast-hub-europe:
+6f8659c5a75ed42c2af93483807c1ee4177a8cd4

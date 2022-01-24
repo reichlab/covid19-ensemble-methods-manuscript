@@ -11,25 +11,27 @@ all_scores <- dplyr::bind_rows(
   readRDS("code/scores/retrospective_scores-state-inc_case.rds")
 ) %>%
   dplyr::filter(
-    horizon_group == "all", quantile_groups == "per_model",
-    (top_models == "top_10" & window_size == "12" & combine_method %in% c("convex", "rel_wis_weighted_median")) |
-    (top_models == "all" & window_size == "0" & combine_method %in% c("ew", "median"))
+    horizon_group == "All Horizons", quantile_groups == "Per Model",
+    drop_anomalies == FALSE,
+    (top_models == "Top 10" & window_size == "Trained on 12 weeks" & combine_method %in% c("Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")) |
+    (top_models == "All Models" & window_size == "Untrained" & combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median"))
   ) %>%
   dplyr::mutate(
     combine_method = factor(
-      dplyr::case_when(
-        combine_method == "ew" ~ "Mean",
-        combine_method == "median" ~ "Median",
-        combine_method == "convex" ~ "Weighted Mean",
-        combine_method == "rel_wis_weighted_median" ~ "Weighted Median"
-      ),
-      levels = c("Mean", "Median", "Weighted Mean", "Weighted Median")),
-    target_variable = dplyr::case_when(
-      target_variable == "inc case" ~ "Cases",
-      target_variable == "inc death" ~ "Deaths",
-      TRUE ~ NA_character_
-    )
+      combine_method,
+      levels = c("Equal Weighted Mean", "Equal Weighted Median", "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median"))
   )
+
+# Verify all models have the same counts of scores
+all_scores %>%
+  dplyr::filter(forecast_date >= "2020-07-27") %>%
+  dplyr::mutate(
+    top_models = ifelse(top_models == "top_0", "all", top_models),
+    model_brief = paste0(combine_method, "-", quantile_groups, "-", window_size, "-", top_models)
+  ) %>%
+  dplyr::count(model_brief, target_variable) %>%
+  tidyr::pivot_wider(names_from = "target_variable", values_from = "n") %>%
+  as.data.frame()
 
 
 plot_data <- dplyr::bind_rows(
@@ -82,10 +84,7 @@ p_cases <- ggplot() +
     data = plot_data %>%
       dplyr::filter(
         target_variable == "Cases", model_brief == "Reported Incidence", forecast_date >= "2020-06-22"
-      ), # %>%
-      # dplyr::mutate(
-      #   model_brief = factor(model_brief, levels = c("Mean", "Median", "Weighted, Window Size 4", "Weighted, Full History"))
-      # ),
+      ),
     mapping = aes(x = forecast_date, y = value, color = model_brief, group = model_brief)) +
   scale_color_manual("National Data", values = "black") +
   ggnewscale::new_scale_color() +
@@ -93,46 +92,38 @@ p_cases <- ggplot() +
     data = plot_data %>%
       dplyr::filter(
         target_variable == "Cases", forecast_date >= "2020-07-27",
-        combine_method %in% c("Mean", "Median", "Weighted Mean", "Weighted Median")
-      ) %>%
-      dplyr::mutate(
-        combine_method = factor(combine_method, levels = c("Mean", "Median", "Weighted Mean", "Weighted Median"))
+        combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median",
+          "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")
       ),
     mapping = aes(x = forecast_date, y = value, color = combine_method, linetype = combine_method, group = combine_method)) +
+  geom_vline(xintercept = as.Date("2021-05-01"), linetype = 2) +
   facet_wrap( ~ quantity, scales = "free_y", ncol = 1) +
   scale_color_manual(
     "Combination Method",
     values = c(
-      "Mean" = "#ef8a62",
-      "Median" = "#67a9cf",
-      "Weighted Mean" = "#b2182b",
-      "Weighted Median" = "#2166ac")
+      "Equal Weighted Mean" = "#ef8a62",
+      "Equal Weighted Median" = "#67a9cf",
+      "Rel. WIS Weighted Mean" = "#b2182b",
+      "Rel. WIS Weighted Median" = "#2166ac")
   ) +
   scale_linetype_manual(
     "Combination Method",
     values = c(
-      "Mean" = 4,
-      "Median" = 5,
-      "Weighted Mean" = 2,
-      "Weighted Median" = 1)
+      "Equal Weighted Mean" = 4,
+      "Equal Weighted Median" = 5,
+      "Rel. WIS Weighted Mean" = 2,
+      "Rel. WIS Weighted Median" = 1)
   ) +
-#  scale_color_discrete("Combination\nMethod") +
-  # scale_color_manual(
-  #   "Model",
-  #   values = c(
-  #     "Median" = "black",
-  #     "Mean" = "orange",
-  #     "Weighted Mean" = blues[6],
-  #     "Weighted Median" = blues[8])
-  # ) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b %Y") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
+    limits = c(as.Date("2020-07-25"), as.Date("2021-11-15")),
+    expand = expansion()) +
   scale_y_continuous(labels = comma) +
   ylab("") +
   xlab("") +
   ggtitle("Cases") +
   theme_bw() +
   theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.x = element_text(angle = 45, hjust = 1.05),
     plot.title = element_text(hjust = 0.5),
     plot.margin = margin(0, 0, -0.5, -0.25, "cm"),
     legend.position = "none")
@@ -142,10 +133,7 @@ p_deaths <- ggplot() +
     data = plot_data %>%
       dplyr::filter(
         target_variable == "Deaths", model_brief == "Reported Incidence", forecast_date >= "2020-07-27"
-      ), # %>%
-      # dplyr::mutate(
-      #   model_brief = factor(model_brief, levels = c("Mean", "Median", "Weighted, Window Size 4", "Weighted, Full History"))
-      # ),
+      ),
     mapping = aes(x = forecast_date, y = value, color = model_brief, group = model_brief)) +
   scale_color_manual("National Data", values = "black") +
   ggnewscale::new_scale_color() +
@@ -153,28 +141,27 @@ p_deaths <- ggplot() +
     data = plot_data %>%
       dplyr::filter(
         target_variable == "Deaths", forecast_date >= "2020-07-27",
-        combine_method %in% c("Mean", "Median", "Weighted Mean", "Weighted Median")
-      ) %>%
-      dplyr::mutate(
-        combine_method = factor(combine_method, levels = c("Mean", "Median", "Weighted Mean", "Weighted Median"))
+        combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median",
+          "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")
       ),
     mapping = aes(x = forecast_date, y = value, color = combine_method, linetype = combine_method, group = combine_method)) +
+  geom_vline(xintercept = as.Date("2021-05-01"), linetype = 2) +
   facet_wrap( ~ quantity, scales = "free_y", ncol = 1) +
   scale_color_manual(
     "Combination\nMethod",
     values = c(
-      "Mean" = "#ef8a62",
-      "Median" = "#67a9cf",
-      "Weighted Mean" = "#b2182b",
-      "Weighted Median" = "#2166ac")
+      "Equal Weighted Mean" = "#ef8a62",
+      "Equal Weighted Median" = "#67a9cf",
+      "Rel. WIS Weighted Mean" = "#b2182b",
+      "Rel. WIS Weighted Median" = "#2166ac")
   ) +
   scale_linetype_manual(
     "Combination Method",
     values = c(
-      "Mean" = 4,
-      "Median" = 5,
-      "Weighted Mean" = 2,
-      "Weighted Median" = 1
+      "Equal Weighted Mean" = 4,
+      "Equal Weighted Median" = 5,
+      "Rel. WIS Weighted Mean" = 2,
+      "Rel. WIS Weighted Median" = 1
     )
   ) +
   # scale_color_manual(
@@ -185,14 +172,16 @@ p_deaths <- ggplot() +
   #     "Weighted Median" = blues[6],
   #     "Trained, Full History" = blues[8])
   # ) +
-  scale_x_date(date_breaks = "1 month", date_labels = "%b %Y") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
+    limits = c(as.Date("2020-07-25"), as.Date("2021-11-15")),
+    expand = expansion()) +
   scale_y_continuous(labels = comma) +
   ylab("") +
   xlab("") +
   ggtitle("Deaths") +
   theme_bw() +
   theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.x = element_text(angle = 45, hjust = 1.05),
     plot.title = element_text(hjust = 0.5),
     plot.margin = margin(0, 0, -0.5, -0.25, "cm"),
     legend.position = "none")
@@ -218,27 +207,25 @@ p_wis_temp <- ggplot() +
     data = plot_data %>%
       dplyr::filter(
         target_variable == "Deaths", forecast_date >= "2020-07-27",
-        combine_method %in% c("Mean", "Median", "Weighted Mean", "Weighted Median")
-      ) %>%
-      dplyr::mutate(
-        combine_method = factor(combine_method, levels = c("Mean", "Median", "Weighted Mean", "Weighted Median"))
+        combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median",
+          "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")
       ),
     mapping = aes(x = forecast_date, y = value, color = combine_method, linetype = combine_method, group = combine_method)) +
   scale_color_manual(
     "Combination Method",
     values = c(
-      "Mean" = "#ef8a62",
-      "Median" = "#67a9cf",
-      "Weighted Mean" = "#b2182b",
-      "Weighted Median" = "#2166ac")
+      "Equal\nWeighted Mean" = "#ef8a62",
+      "Equal\nWeighted Median" = "#67a9cf",
+      "Rel. WIS\nWeighted Mean" = "#b2182b",
+      "Rel. WIS\nWeighted Median" = "#2166ac")
   ) +
   scale_linetype_manual(
     "Combination Method",
     values = c(
-      "Mean" = 4,
-      "Median" = 5,
-      "Weighted Mean" = 2,
-      "Weighted Median" = 1
+      "Equal\nWeighted Mean" = 4,
+      "Equal\nWeighted Median" = 5,
+      "Rel. WIS\nWeighted Mean" = 2,
+      "Rel. WIS\nWeighted Median" = 1
     )
   ) +
   theme_bw()
@@ -248,27 +235,27 @@ legend_wis_horiz <- ggpubr::get_legend(p_wis_temp, position = "bottom")
 
 
 #png("manuscript/figures/scores_by_week.png", width = 8, height = 8, units = "in", res = 600)
-pdf("manuscript/figures/scores_by_week.pdf", width = 8, height = 8)
+pdf("manuscript/figures/scores_by_week.pdf", width = 8, height = 10)
 plot_layout <- grid.layout(
-  nrow = 8, ncol = 4,
+  nrow = 9, ncol = 4,
   widths = unit(c(2, 0.925, 0.9, 0.01), c("lines", rep("null", 3))),
-  heights = unit(c(1.5, rep(1, 5), 1.5, 3), c("lines", rep("null", 5), "lines", "lines")))
+  heights = unit(c(0.1, 1.75, rep(1, 5), 1.5, 2), c("lines", "lines", rep("null", 5), "lines", "lines")))
 
 grid.newpage()
 pushViewport(viewport(layout = plot_layout))
 
 print(as_ggplot(legend_wis_horiz), vp = viewport(layout.pos.row = 8, layout.pos.col = 2:3))
-print(p_cases, vp = viewport(layout.pos.row = 1:6, layout.pos.col = 2))
-print(p_deaths, vp = viewport(layout.pos.row = 1:6, layout.pos.col = 3))
+print(p_cases, vp = viewport(layout.pos.row = 1 + 1:6, layout.pos.col = 2))
+print(p_deaths, vp = viewport(layout.pos.row = 1 + 1:6, layout.pos.col = 3))
 grid.text("Forecast Creation Date",
   just = "center",
   gp = gpar(fontsize = 11),
-  vp = viewport(layout.pos.row = 7, layout.pos.col = 2:3))
+  vp = viewport(layout.pos.row = 1 + 8, layout.pos.col = 2:3))
 grid.text("    Weekly\n    Cases or Deaths",
   just = "center",
   rot = 90,
   gp = gpar(fontsize = 11),
-  vp = viewport(layout.pos.row = 2, layout.pos.col = 1))
+  vp = viewport(layout.pos.row = 1 + 2, layout.pos.col = 1))
 
 print(
   ggplot() +
@@ -278,12 +265,14 @@ print(
     xlim(0, 1) +
     scale_y_continuous(limits = c(0, 1), expand = expansion(0, 0)) +
     theme_void(),
-  vp = viewport(layout.pos.row = 3:6, layout.pos.col = 1)
+  vp = viewport(layout.pos.row = 1 + 3:6, layout.pos.col = 1)
 )
 grid.text("                 Mean WIS",
   just = "center",
   rot = 90,
   gp = gpar(fontsize = 11),
-  vp = viewport(layout.pos.row = 3:6, layout.pos.col = 1))
+  vp = viewport(layout.pos.row = 1 + 3:6, layout.pos.col = 1))
 
 dev.off()
+
+# load baseline forecasts and get relative wIS

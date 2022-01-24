@@ -14,7 +14,8 @@ library(zeallot)
 
 setwd(here())
 
-us_locations <- c("39", "48")
+#us_locations <- c("39", "48")
+us_locations <- c("29", "48")
 euro_locations <- c("FR")
 
 last_as_of <- as.Date("2021-12-05")
@@ -93,7 +94,15 @@ us_data <- get_first_and_final_revisions(
   as_ofs = as_ofs)
 
 combined_data <- us_data %>%
-  dplyr::mutate(location_name = paste0(location_name, ", U.S."))#,
+  dplyr::mutate(location_name = paste0(location_name, ", U.S."))
+combined_data <- dplyr::bind_rows(
+  combined_data,
+  combined_data %>%
+    ungroup() %>%
+    slice_max(date) %>%
+    mutate(as_of_binary = "First Reported")
+)
+
 
 # load component forecasts
 # Location of main covid19-forecast-hub repo where component model submissions
@@ -208,6 +217,7 @@ forecast_intervals <- combined_forecasts %>%
   tidyr::pivot_wider(names_from = "quantile", values_from = "value", names_prefix = "q_")
 
 p_both <- ggplot() +
+  geom_hline(yintercept = 0) +
   geom_ribbon(
     data = forecast_intervals %>%
       dplyr::filter(
@@ -216,7 +226,8 @@ p_both <- ggplot() +
       dplyr::mutate(
         facet_var = factor(
           paste0(target_variable, " in ", location_name),
-          levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          # levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          levels = c("Cases in Missouri, U.S.", "Deaths in Missouri, U.S.",
                      "Cases in Texas, U.S.", "Deaths in Texas, U.S.")
         )
       ),
@@ -238,7 +249,8 @@ p_both <- ggplot() +
       dplyr::mutate(
         facet_var = factor(
           paste0(target_variable, " in ", location_name),
-          levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          # levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          levels = c("Cases in Missouri, U.S.", "Deaths in Missouri, U.S.",
                      "Cases in Texas, U.S.", "Deaths in Texas, U.S.")
         )
       ),
@@ -260,7 +272,8 @@ p_both <- ggplot() +
       dplyr::mutate(
         facet_var = factor(
           paste0(target_variable, " in ", location_name),
-          levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          # levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          levels = c("Cases in Missouri, U.S.", "Deaths in Missouri, U.S.",
                      "Cases in Texas, U.S.", "Deaths in Texas, U.S.")
         )
       ),
@@ -279,7 +292,8 @@ p_both <- ggplot() +
       dplyr::mutate(
         facet_var = factor(
           paste0(target_variable, " in ", location_name),
-          levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          # levels = c("Cases in Ohio, U.S.", "Deaths in Ohio, U.S.",
+          levels = c("Cases in Missouri, U.S.", "Deaths in Missouri, U.S.",
                      "Cases in Texas, U.S.", "Deaths in Texas, U.S.")
         )
       ),

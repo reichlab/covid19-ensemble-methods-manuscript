@@ -4,6 +4,8 @@ library(covidHubUtils)
 library(covidEnsembles)
 library(tidyverse)
 library(gridExtra)
+library(grid)
+library(ggpubr)
 library(knitr)
 library(here)
 
@@ -36,7 +38,8 @@ all_scores <- dplyr::bind_rows(
 ) %>%
   dplyr::filter(
     horizon_group == "All Horizons",
-    combine_method %in% c("Weighted Mean", "Weighted Median")) %>%
+    combine_method %in% c("Rel. WIS Weighted Median", "Weighted Mean"),
+    top_models == "Top 10") %>%
   dplyr::mutate(
     window_size = factor(
       window_size,
@@ -53,8 +56,15 @@ all_scores <- dplyr::bind_rows(
 orig_score_count <- nrow(all_scores)
 common_scores <- subset_scores_to_common(all_scores)
 common_score_count <- nrow(common_scores)
-orig_score_count == common_score_count
 
+dropped_scores <- dplyr::anti_join(
+  all_scores, common_scores,
+  by = colnames(all_scores)
+)
+unique(dropped_scores$forecast_date) # dropping prospective evaluation set scores
+
+# proceed with the subset of scores for forecasts made in common
+all_scores <- common_scores
 
 # by horizon mean scores by horizon and target variable
 by_horizon_means <- all_scores %>%
@@ -75,7 +85,7 @@ by_horizon_means_others <- by_horizon_means %>%
   dplyr::select(model_brief, combine_method, quantile_groups, window_size, top_models, horizon_group, horizon, target_variable, mwis) %>%
   dplyr::left_join(by_horizon_means_base, by = c("combine_method", "window_size", "top_models", "horizon", "target_variable")) %>%
   dplyr::mutate(
-    wis_diff_per_model = mwis - base_mwis,
+    wis_diff_all_horizons = mwis - base_mwis,
   )
 
 # mean across locations for each forecast date and horizon
@@ -97,89 +107,95 @@ scores_others <- summarized_scores %>%
   dplyr::select(model_brief, combine_method, quantile_groups, top_models, window_size, horizon_group, target_variable, forecast_date, horizon, mwis) %>%
   dplyr::left_join(scores_base, by = c("target_variable", "forecast_date", "horizon", "combine_method", "top_models", "window_size")) %>%
   dplyr::mutate(
-    wis_diff_per_model = mwis - base_mwis,
+    wis_diff_all_horizons = mwis - base_mwis,
   )
 
 
-
-plot_upper_bound <- scores_others %>%
-  dplyr::group_by(target_variable) %>%
-  dplyr::summarize(max_mwis = max(wis_diff_per_model))
-
-
 # plots for cases and deaths separately, facetting by horizon
-for (target_var in c("Cases", "Deaths")) {
+get_boxplots_one_target_var_and_combine_method <- function(target_var, combine_method) {
   p_wis_boxplots <- ggplot() +
     geom_hline(yintercept = 0) +
     geom_boxplot(
       data = scores_others %>%
-        dplyr::left_join(plot_upper_bound, by = "target_variable") %>%
-        dplyr::mutate(
-          wis_diff_censored = ifelse(wis_diff_per_model > max_mwis, max_mwis, wis_diff_per_model),
-          value_censored = (wis_diff_per_model > max_mwis),
-          horizon = paste0("Horizon ", horizon)
-        ) %>%
         dplyr::filter(
-          !value_censored,
           target_variable == target_var,
-          top_models == "Top 10"
-        ),
-      mapping = aes(
-        x = combine_method,
-        y = wis_diff_censored,
-        color = quantile_groups)) +
-    geom_point(
-      data = scores_others %>%
-        dplyr::left_join(plot_upper_bound, by = "target_variable") %>%
-        dplyr::mutate(
-          wis_diff_censored = ifelse(wis_diff_per_model > max_mwis, max_mwis, wis_diff_per_model),
-          value_censored = (wis_diff_per_model > max_mwis),
-          horizon = paste0("Horizon ", horizon)
+          combine_method == UQ(combine_method)
         ) %>%
-        dplyr::filter(
-          value_censored,
-          target_variable == target_var,
-          top_models == "Top 10"
-        ),
-      mapping = aes(
-        x = combine_method,
-        y = scales::oob_squish(wis_diff_per_model, range = c(-Inf, max_mwis)),
-        color = quantile_groups,
-        group = quantile_groups),
-      shape = 0,
-      size = 2,
-      position = position_dodge(width = 0.75),
-      show.legend = FALSE
-    ) +
-    geom_point(
-      data = by_horizon_means_others %>%
-        dplyr::left_join(plot_upper_bound, by = "target_variable") %>%
-        dplyr::filter(target_variable == target_var, top_models == "Top 10") %>%
         dplyr::mutate(horizon = paste0("Horizon ", horizon)),
       mapping = aes(
-        x = combine_method,
-        y = scales::oob_squish(wis_diff_per_model, range = c(-Inf, max_mwis)),
+        x = window_size,
+        y = wis_diff_all_horizons,
+        color = quantile_groups)) +
+    geom_point(
+      data = by_horizon_means_others %>%
+        dplyr::filter(
+          target_variable == target_var,
+          combine_method == UQ(combine_method)
+        ) %>%
+        dplyr::mutate(horizon = paste0("Horizon ", horizon)),
+      mapping = aes(
+        x = window_size,
+#        y = scales::oob_squish(wis_diff_all_horizons, range = c(-Inf, max_mwis)),
+        y = wis_diff_all_horizons,
         group = quantile_groups),
       shape = "+", size = 5,
       position = position_dodge(width = 0.75)
     ) +
     scale_color_discrete(
-      "Parameter Sharing\nAcross Quantile Levels"
+      "Parameter Sharing\nAcross Quantiles"
     ) +
-    facet_grid(horizon ~ window_size, scales = "free") +
-    xlab("Combination Method") +
-    ylab("Mean WIS for Method - Mean WIS for All Horizons") +
+    facet_wrap( ~ horizon, scales = "free_y", ncol = 1) +
     ggtitle(target_var) +
     theme_bw() +
     theme(axis.text.x = element_text(angle = 90, hjust=1, vjust=0.5))
-
-  pdf(
-    paste0('manuscript/figures/wis_boxplots_quantile_grouping_',
-      target_var,
-      '.pdf'),
-    width=9, height=8)
-  print(p_wis_boxplots)
-  dev.off()
+  
+  return(p_wis_boxplots)
 }
 
+for (method in c("Rel. WIS Weighted Median", "Weighted Mean")) {
+  p_cases <- get_boxplots_one_target_var_and_combine_method("Cases", method)
+  p_deaths <- get_boxplots_one_target_var_and_combine_method("Deaths", method)
 
+  legend <- ggpubr::get_legend(p_cases, position = "bottom")
+  p_cases <- p_cases +
+    theme(
+      legend.position = "none",
+      axis.title.y = element_blank(),
+      axis.title.x = element_blank(),
+      plot.title = element_text(hjust = 0.5))
+  p_deaths <- p_deaths +
+    theme(
+      legend.position = "none",
+      axis.title.y = element_blank(),
+      axis.title.x = element_blank(),
+      plot.title = element_text(hjust = 0.5))
+
+  pdf(paste0('manuscript/figures/wis_boxplots_quantile_grouping_', method, '.pdf'),
+    width = 8, height = 8)
+  plot_layout <- grid.layout(
+    nrow = 5, ncol = 3,
+    widths = unit(c(1, 1, 1), c("lines", rep("null", 2))),
+    heights = unit(c(1, 1, 1, 1, 2), c("lines", "null", "lines", "lines", "lines")))
+
+  grid.newpage()
+  pushViewport(viewport(layout = plot_layout))
+
+  print(as_ggplot(legend), vp = viewport(layout.pos.row = 5, layout.pos.col = 2:3))
+  print(p_cases, vp = viewport(layout.pos.row = 2, layout.pos.col = 2))
+  print(p_deaths, vp = viewport(layout.pos.row = 2, layout.pos.col = 3))
+
+  grid.text(paste0("Quantile Grouping Strategy: ", method),
+    just = "center",
+    gp = gpar(fontsize = 11),
+    vp = viewport(layout.pos.row = 1, layout.pos.col = 2:3))
+  grid.text("Training Set Size",
+    just = "center",
+    gp = gpar(fontsize = 11),
+    vp = viewport(layout.pos.row = 3, layout.pos.col = 2:3))
+  grid.text("                   Mean WIS, Per Quantile Weights - Mean WIS, Weights Shared Across Quantiles",
+    just = "center",
+    rot = 90,
+    gp = gpar(fontsize = 11),
+    vp = viewport(layout.pos.row = 2, layout.pos.col = 1))
+  dev.off()
+}

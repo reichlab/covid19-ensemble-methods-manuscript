@@ -20,6 +20,7 @@ Sys.setenv(LANG = "en_US.UTF-8")
 #args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "4", "10", "TRUE", "FALSE", "FALSE", "state", "TRUE", "all")
 #args <- c("local", "inc_case", "2021-06-07", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "12", "5", "TRUE", "FALSE", "FALSE", "euro_countries", "TRUE", "all")
 #args <- c("local", "inc_death", "2021-03-01", "FALSE", "ew", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
+#args <- c("local", "inc_death", "2021-03-15", "FALSE", "median", "renormalize", "per_model", "sort", "8", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 
 args <- commandArgs(trailingOnly = TRUE)
 run_setting <- args[1]

@@ -39,8 +39,9 @@ all_scores <- dplyr::bind_rows(
 ) %>%
   dplyr::filter(
     horizon_group == "All Horizons",
-    (top_models == "All Models" & combine_method %in% c("Mean", "Median")) |
-    (top_models == "Top 10" & combine_method %in% c("Weighted Mean", "Weighted Median"))) %>%
+    # (top_models == "All Models" & combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median")) |
+    (top_models == "Top 10" & combine_method %in% c("Weighted Mean", "Rel. WIS Weighted Median"))) %>%
+    # (top_models == "Top 10" & combine_method == "Rel. WIS Weighted Median")) %>%
   dplyr::mutate(
     window_size = factor(
       window_size,
@@ -72,37 +73,47 @@ overall_means <- all_scores %>%
     names_to = "nominal_coverage",
     names_prefix = "quantile_coverage_",
     values_to = "empirical_coverage") %>%
-  dplyr::mutate(nominal_coverage = as.numeric(nominal_coverage)) %>%
+  dplyr::mutate(
+    nominal_coverage = as.numeric(nominal_coverage),
+    coverage_diff = empirical_coverage - nominal_coverage
+  ) %>%
   dplyr::filter(!is.na(empirical_coverage))
 
 p_coverage <- ggplot(data = overall_means) +
-  geom_line(mapping = aes(x = nominal_coverage, y = empirical_coverage, color = combine_method, linetype = quantile_groups, group = paste0(combine_method, quantile_groups))) +
-  geom_point(mapping = aes(x = nominal_coverage, y = empirical_coverage, color = combine_method, shape = quantile_groups)) +
+  geom_line(mapping = aes(x = nominal_coverage,
+                          y = coverage_diff,
+                          color = combine_method,
+                          linetype = quantile_groups,
+                          group = paste0(combine_method, quantile_groups))) +
+  geom_point(mapping = aes(x = nominal_coverage,
+                           y = coverage_diff,
+                           color = combine_method,
+                           shape = quantile_groups)) +
   facet_grid(window_size ~ target_variable) + #, scales = "free_x") +
-  geom_abline(intercept = 0, slope = 1) +
+  geom_hline(yintercept = 0) +
   scale_color_manual(
     "Combination Method",
     values = c(
-      "Mean" = "#ef8a62",
-      "Median" = "#67a9cf",
+      # "Equal Weighted Mean" = "#ef8a62",
+      # "Equal Weighted Median" = "#67a9cf",
       "Weighted Mean" = "#b2182b",
-      "Weighted Median" = "#2166ac")
+      "Rel. WIS Weighted Median" = "#2166ac")
   ) +
   scale_shape_discrete("Parameter Sharing\nAcross Quantile Levels") +
   scale_linetype_discrete("Parameter Sharing\nAcross Quantile Levels") +
-  ylim(c(0, 1)) +
+  # ylim(c(0, 1)) +
   xlim(c(0, 1)) +
   xlab("Nominal Quantile Level") +
-  ylab("Empirical Coverage Rate") +
+  ylab("Empirical Coverage Rate Minus Nominal Coverage Rate") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
 
-pdf("manuscript/figures/quantile_coverage_quantile_group.pdf", width = 7, height = 8)
+pdf("manuscript/figures/quantile_coverage_quantile_group.pdf", width = 8, height = 8)
 print(p_coverage)
 dev.off()
 
 
-
+# code below may be out of date
 
 by_date_means <- all_scores %>%
   dplyr::group_by(model_brief, combine_method, quantile_groups, window_size,
