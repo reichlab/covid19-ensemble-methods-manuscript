@@ -98,6 +98,267 @@ location,date,issue_date,anomaly_type
 06,2021-05-29,2021-07-25,adjacent to revision
 06,2021-06-05,2021-07-25,adjacent to revision
 06,2021-07-03,2021-07-25,revision
+06,2020-03-28,2021-08-01,revision
+06,2020-04-04,2021-08-01,adjacent to revision
+06,2020-04-11,2021-08-01,adjacent to revision
+06,2020-04-18,2021-08-01,adjacent to revision
+06,2021-03-13,2021-08-01,revision
+06,2021-03-20,2021-08-01,adjacent to revision
+06,2021-03-27,2021-08-01,adjacent to revision
+06,2021-04-03,2021-08-01,adjacent to revision
+06,2021-05-15,2021-08-01,revision
+06,2021-05-22,2021-08-01,adjacent to revision
+06,2021-05-29,2021-08-01,adjacent to revision
+06,2021-06-05,2021-08-01,adjacent to revision
+06,2021-07-03,2021-08-01,revision
+06,2020-03-28,2021-08-08,revision
+06,2020-04-04,2021-08-08,adjacent to revision
+06,2020-04-11,2021-08-08,adjacent to revision
+06,2020-04-18,2021-08-08,adjacent to revision
+06,2021-03-13,2021-08-08,revision
+06,2021-03-20,2021-08-08,adjacent to revision
+06,2021-03-27,2021-08-08,adjacent to revision
+06,2021-04-03,2021-08-08,adjacent to revision
+06,2021-05-15,2021-08-08,revision
+06,2021-05-22,2021-08-08,adjacent to revision
+06,2021-05-29,2021-08-08,adjacent to revision
+06,2021-06-05,2021-08-08,adjacent to revision
+06,2021-07-03,2021-08-08,revision
+06,2020-03-28,2021-08-15,revision
+06,2020-04-04,2021-08-15,adjacent to revision
+06,2020-04-11,2021-08-15,adjacent to revision
+06,2020-04-18,2021-08-15,adjacent to revision
+06,2021-03-13,2021-08-15,revision
+06,2021-03-20,2021-08-15,adjacent to revision
+06,2021-03-27,2021-08-15,adjacent to revision
+06,2021-04-03,2021-08-15,adjacent to revision
+06,2021-05-15,2021-08-15,revision
+06,2021-05-22,2021-08-15,adjacent to revision
+06,2021-05-29,2021-08-15,adjacent to revision
+06,2021-06-05,2021-08-15,adjacent to revision
+06,2021-07-03,2021-08-15,revision
+06,2020-03-28,2021-08-22,revision
+06,2020-04-04,2021-08-22,adjacent to revision
+06,2020-04-11,2021-08-22,adjacent to revision
+06,2020-04-18,2021-08-22,adjacent to revision
+06,2021-03-13,2021-08-22,revision
+06,2021-03-20,2021-08-22,adjacent to revision
+06,2021-03-27,2021-08-22,adjacent to revision
+06,2021-04-03,2021-08-22,adjacent to revision
+06,2021-05-15,2021-08-22,revision
+06,2021-05-22,2021-08-22,adjacent to revision
+06,2021-05-29,2021-08-22,adjacent to revision
+06,2021-06-05,2021-08-22,adjacent to revision
+06,2021-07-03,2021-08-22,revision
+06,2020-03-28,2021-08-29,revision
+06,2020-04-04,2021-08-29,adjacent to revision
+06,2020-04-11,2021-08-29,adjacent to revision
+06,2020-04-18,2021-08-29,adjacent to revision
+06,2021-03-13,2021-08-29,revision
+06,2021-03-20,2021-08-29,adjacent to revision
+06,2021-03-27,2021-08-29,adjacent to revision
+06,2021-04-03,2021-08-29,adjacent to revision
+06,2021-05-15,2021-08-29,revision
+06,2021-05-22,2021-08-29,adjacent to revision
+06,2021-05-29,2021-08-29,adjacent to revision
+06,2021-06-05,2021-08-29,adjacent to revision
+06,2021-07-03,2021-08-29,revision
+06,2020-03-28,2021-09-05,revision
+06,2020-04-04,2021-09-05,adjacent to revision
+06,2020-04-11,2021-09-05,adjacent to revision
+06,2020-04-18,2021-09-05,adjacent to revision
+06,2021-03-13,2021-09-05,revision
+06,2021-03-20,2021-09-05,adjacent to revision
+06,2021-03-27,2021-09-05,adjacent to revision
+06,2021-04-03,2021-09-05,adjacent to revision
+06,2021-05-15,2021-09-05,revision
+06,2021-05-22,2021-09-05,adjacent to revision
+06,2021-05-29,2021-09-05,adjacent to revision
+06,2021-06-05,2021-09-05,adjacent to revision
+06,2021-07-03,2021-09-05,revision
+06,2020-03-28,2021-09-12,revision
+06,2020-04-04,2021-09-12,adjacent to revision
+06,2020-04-11,2021-09-12,adjacent to revision
+06,2020-04-18,2021-09-12,adjacent to revision
+06,2021-03-13,2021-09-12,revision
+06,2021-03-20,2021-09-12,adjacent to revision
+06,2021-03-27,2021-09-12,adjacent to revision
+06,2021-04-03,2021-09-12,adjacent to revision
+06,2021-05-15,2021-09-12,revision
+06,2021-05-22,2021-09-12,adjacent to revision
+06,2021-05-29,2021-09-12,adjacent to revision
+06,2021-06-05,2021-09-12,adjacent to revision
+06,2021-07-03,2021-09-12,revision
+06,2020-03-28,2021-09-19,revision
+06,2020-04-04,2021-09-19,adjacent to revision
+06,2020-04-11,2021-09-19,adjacent to revision
+06,2020-04-18,2021-09-19,adjacent to revision
+06,2021-03-13,2021-09-19,revision
+06,2021-03-20,2021-09-19,adjacent to revision
+06,2021-03-27,2021-09-19,adjacent to revision
+06,2021-04-03,2021-09-19,adjacent to revision
+06,2021-05-15,2021-09-19,revision
+06,2021-05-22,2021-09-19,adjacent to revision
+06,2021-05-29,2021-09-19,adjacent to revision
+06,2021-06-05,2021-09-19,adjacent to revision
+06,2021-07-03,2021-09-19,revision
+06,2020-03-28,2021-09-26,revision
+06,2020-04-04,2021-09-26,adjacent to revision
+06,2020-04-11,2021-09-26,adjacent to revision
+06,2020-04-18,2021-09-26,adjacent to revision
+06,2021-03-13,2021-09-26,revision
+06,2021-03-20,2021-09-26,adjacent to revision
+06,2021-03-27,2021-09-26,adjacent to revision
+06,2021-04-03,2021-09-26,adjacent to revision
+06,2021-05-15,2021-09-26,revision
+06,2021-05-22,2021-09-26,adjacent to revision
+06,2021-05-29,2021-09-26,adjacent to revision
+06,2021-06-05,2021-09-26,adjacent to revision
+06,2021-07-03,2021-09-26,revision
+06,2020-03-28,2021-10-03,revision
+06,2020-04-04,2021-10-03,adjacent to revision
+06,2020-04-11,2021-10-03,adjacent to revision
+06,2020-04-18,2021-10-03,adjacent to revision
+06,2021-03-13,2021-10-03,revision
+06,2021-03-20,2021-10-03,adjacent to revision
+06,2021-03-27,2021-10-03,adjacent to revision
+06,2021-04-03,2021-10-03,adjacent to revision
+06,2021-05-15,2021-10-03,revision
+06,2021-05-22,2021-10-03,adjacent to revision
+06,2021-05-29,2021-10-03,adjacent to revision
+06,2021-06-05,2021-10-03,adjacent to revision
+06,2021-07-03,2021-10-03,revision
+06,2020-03-28,2021-10-10,revision
+06,2020-04-04,2021-10-10,adjacent to revision
+06,2020-04-11,2021-10-10,adjacent to revision
+06,2020-04-18,2021-10-10,adjacent to revision
+06,2021-03-13,2021-10-10,revision
+06,2021-03-20,2021-10-10,adjacent to revision
+06,2021-03-27,2021-10-10,adjacent to revision
+06,2021-04-03,2021-10-10,adjacent to revision
+06,2021-05-15,2021-10-10,revision
+06,2021-05-22,2021-10-10,adjacent to revision
+06,2021-05-29,2021-10-10,adjacent to revision
+06,2021-06-05,2021-10-10,adjacent to revision
+06,2021-07-03,2021-10-10,revision
+06,2020-03-28,2021-10-17,revision
+06,2020-04-04,2021-10-17,adjacent to revision
+06,2020-04-11,2021-10-17,adjacent to revision
+06,2020-04-18,2021-10-17,adjacent to revision
+06,2021-03-13,2021-10-17,revision
+06,2021-03-20,2021-10-17,adjacent to revision
+06,2021-03-27,2021-10-17,adjacent to revision
+06,2021-04-03,2021-10-17,adjacent to revision
+06,2021-05-15,2021-10-17,revision
+06,2021-05-22,2021-10-17,adjacent to revision
+06,2021-05-29,2021-10-17,adjacent to revision
+06,2021-06-05,2021-10-17,adjacent to revision
+06,2021-07-03,2021-10-17,revision
+06,2020-03-28,2021-10-24,revision
+06,2020-04-04,2021-10-24,revision
+06,2020-04-11,2021-10-24,adjacent to revision
+06,2020-04-18,2021-10-24,adjacent to revision
+06,2020-04-25,2021-10-24,adjacent to revision
+06,2021-03-13,2021-10-24,revision
+06,2021-03-20,2021-10-24,adjacent to revision
+06,2021-03-27,2021-10-24,adjacent to revision
+06,2021-04-03,2021-10-24,adjacent to revision
+06,2021-06-05,2021-10-24,revision
+06,2021-06-12,2021-10-24,revision
+06,2021-06-19,2021-10-24,revision
+06,2021-06-26,2021-10-24,adjacent to revision
+06,2021-07-03,2021-10-24,revision
+06,2021-07-10,2021-10-24,adjacent to revision
+06,2020-03-28,2021-10-31,revision
+06,2020-04-04,2021-10-31,revision
+06,2020-04-11,2021-10-31,adjacent to revision
+06,2020-04-18,2021-10-31,adjacent to revision
+06,2020-04-25,2021-10-31,adjacent to revision
+06,2021-03-13,2021-10-31,revision
+06,2021-03-20,2021-10-31,adjacent to revision
+06,2021-03-27,2021-10-31,adjacent to revision
+06,2021-04-03,2021-10-31,adjacent to revision
+06,2021-06-05,2021-10-31,revision
+06,2021-06-12,2021-10-31,revision
+06,2021-06-19,2021-10-31,revision
+06,2021-06-26,2021-10-31,adjacent to revision
+06,2021-07-03,2021-10-31,revision
+06,2021-07-10,2021-10-31,adjacent to revision
+06,2020-03-28,2021-11-07,revision
+06,2020-04-04,2021-11-07,revision
+06,2020-04-11,2021-11-07,adjacent to revision
+06,2020-04-18,2021-11-07,adjacent to revision
+06,2020-04-25,2021-11-07,adjacent to revision
+06,2021-03-13,2021-11-07,revision
+06,2021-03-20,2021-11-07,adjacent to revision
+06,2021-03-27,2021-11-07,adjacent to revision
+06,2021-04-03,2021-11-07,adjacent to revision
+06,2021-06-05,2021-11-07,revision
+06,2021-06-12,2021-11-07,revision
+06,2021-06-19,2021-11-07,revision
+06,2021-06-26,2021-11-07,adjacent to revision
+06,2021-07-03,2021-11-07,revision
+06,2021-07-10,2021-11-07,adjacent to revision
+06,2020-03-28,2021-11-14,revision
+06,2020-04-04,2021-11-14,revision
+06,2020-04-11,2021-11-14,adjacent to revision
+06,2020-04-18,2021-11-14,adjacent to revision
+06,2020-04-25,2021-11-14,adjacent to revision
+06,2021-03-13,2021-11-14,revision
+06,2021-03-20,2021-11-14,adjacent to revision
+06,2021-03-27,2021-11-14,adjacent to revision
+06,2021-04-03,2021-11-14,adjacent to revision
+06,2021-06-05,2021-11-14,revision
+06,2021-06-12,2021-11-14,revision
+06,2021-06-19,2021-11-14,revision
+06,2021-06-26,2021-11-14,adjacent to revision
+06,2021-07-03,2021-11-14,revision
+06,2021-07-10,2021-11-14,adjacent to revision
+06,2020-03-28,2021-11-21,revision
+06,2020-04-04,2021-11-21,revision
+06,2020-04-11,2021-11-21,adjacent to revision
+06,2020-04-18,2021-11-21,adjacent to revision
+06,2020-04-25,2021-11-21,adjacent to revision
+06,2021-03-13,2021-11-21,revision
+06,2021-03-20,2021-11-21,adjacent to revision
+06,2021-03-27,2021-11-21,adjacent to revision
+06,2021-04-03,2021-11-21,adjacent to revision
+06,2021-06-05,2021-11-21,revision
+06,2021-06-12,2021-11-21,revision
+06,2021-06-19,2021-11-21,revision
+06,2021-06-26,2021-11-21,adjacent to revision
+06,2021-07-03,2021-11-21,revision
+06,2021-07-10,2021-11-21,adjacent to revision
+06,2020-03-28,2021-11-28,revision
+06,2020-04-04,2021-11-28,revision
+06,2020-04-11,2021-11-28,adjacent to revision
+06,2020-04-18,2021-11-28,adjacent to revision
+06,2020-04-25,2021-11-28,adjacent to revision
+06,2021-03-13,2021-11-28,revision
+06,2021-03-20,2021-11-28,adjacent to revision
+06,2021-03-27,2021-11-28,adjacent to revision
+06,2021-04-03,2021-11-28,adjacent to revision
+06,2021-06-05,2021-11-28,revision
+06,2021-06-12,2021-11-28,revision
+06,2021-06-19,2021-11-28,revision
+06,2021-06-26,2021-11-28,adjacent to revision
+06,2021-07-03,2021-11-28,revision
+06,2021-07-10,2021-11-28,adjacent to revision
+06,2020-03-28,2021-12-05,revision
+06,2020-04-04,2021-12-05,revision
+06,2020-04-11,2021-12-05,adjacent to revision
+06,2020-04-18,2021-12-05,adjacent to revision
+06,2020-04-25,2021-12-05,adjacent to revision
+06,2021-03-13,2021-12-05,revision
+06,2021-03-20,2021-12-05,adjacent to revision
+06,2021-03-27,2021-12-05,adjacent to revision
+06,2021-04-03,2021-12-05,adjacent to revision
+06,2021-06-05,2021-12-05,revision
+06,2021-06-12,2021-12-05,revision
+06,2021-06-19,2021-12-05,revision
+06,2021-06-26,2021-12-05,adjacent to revision
+06,2021-07-03,2021-12-05,revision
+06,2021-07-10,2021-12-05,adjacent to revision
 10,2020-04-25,2021-02-14,revision
 10,2020-05-02,2021-02-14,revision
 10,2020-05-09,2021-02-14,adjacent to revision
@@ -405,6 +666,253 @@ location,date,issue_date,anomaly_type
 10,2021-01-23,2021-07-25,revision
 10,2021-01-30,2021-07-25,adjacent to revision
 10,2021-02-06,2021-07-25,revision
+10,2020-04-25,2021-08-01,revision
+10,2020-05-02,2021-08-01,revision
+10,2020-05-09,2021-08-01,adjacent to revision
+10,2020-05-16,2021-08-01,adjacent to revision
+10,2020-05-23,2021-08-01,adjacent to revision
+10,2020-12-19,2021-08-01,revision
+10,2020-12-26,2021-08-01,revision
+10,2021-01-02,2021-08-01,adjacent to revision
+10,2021-01-09,2021-08-01,adjacent to revision
+10,2021-01-16,2021-08-01,adjacent to revision
+10,2021-01-23,2021-08-01,revision
+10,2021-01-30,2021-08-01,adjacent to revision
+10,2021-02-06,2021-08-01,revision
+10,2020-04-25,2021-08-08,revision
+10,2020-05-02,2021-08-08,revision
+10,2020-05-09,2021-08-08,adjacent to revision
+10,2020-05-16,2021-08-08,adjacent to revision
+10,2020-05-23,2021-08-08,adjacent to revision
+10,2020-12-19,2021-08-08,revision
+10,2020-12-26,2021-08-08,revision
+10,2021-01-02,2021-08-08,adjacent to revision
+10,2021-01-09,2021-08-08,adjacent to revision
+10,2021-01-16,2021-08-08,adjacent to revision
+10,2021-01-23,2021-08-08,revision
+10,2021-01-30,2021-08-08,adjacent to revision
+10,2021-02-06,2021-08-08,revision
+10,2020-04-25,2021-08-15,revision
+10,2020-05-02,2021-08-15,revision
+10,2020-05-09,2021-08-15,adjacent to revision
+10,2020-05-16,2021-08-15,adjacent to revision
+10,2020-05-23,2021-08-15,adjacent to revision
+10,2020-12-19,2021-08-15,revision
+10,2020-12-26,2021-08-15,revision
+10,2021-01-02,2021-08-15,adjacent to revision
+10,2021-01-09,2021-08-15,adjacent to revision
+10,2021-01-16,2021-08-15,adjacent to revision
+10,2021-01-23,2021-08-15,revision
+10,2021-01-30,2021-08-15,adjacent to revision
+10,2021-02-06,2021-08-15,revision
+10,2020-04-25,2021-08-22,revision
+10,2020-05-02,2021-08-22,revision
+10,2020-05-09,2021-08-22,adjacent to revision
+10,2020-05-16,2021-08-22,adjacent to revision
+10,2020-05-23,2021-08-22,adjacent to revision
+10,2020-12-19,2021-08-22,revision
+10,2020-12-26,2021-08-22,revision
+10,2021-01-02,2021-08-22,adjacent to revision
+10,2021-01-09,2021-08-22,adjacent to revision
+10,2021-01-16,2021-08-22,adjacent to revision
+10,2021-01-23,2021-08-22,revision
+10,2021-01-30,2021-08-22,adjacent to revision
+10,2021-02-06,2021-08-22,revision
+10,2020-04-25,2021-08-29,revision
+10,2020-05-02,2021-08-29,revision
+10,2020-05-09,2021-08-29,adjacent to revision
+10,2020-05-16,2021-08-29,adjacent to revision
+10,2020-05-23,2021-08-29,adjacent to revision
+10,2020-12-19,2021-08-29,revision
+10,2020-12-26,2021-08-29,revision
+10,2021-01-02,2021-08-29,adjacent to revision
+10,2021-01-09,2021-08-29,adjacent to revision
+10,2021-01-16,2021-08-29,adjacent to revision
+10,2021-01-23,2021-08-29,revision
+10,2021-01-30,2021-08-29,adjacent to revision
+10,2021-02-06,2021-08-29,revision
+10,2020-04-25,2021-09-05,revision
+10,2020-05-02,2021-09-05,revision
+10,2020-05-09,2021-09-05,adjacent to revision
+10,2020-05-16,2021-09-05,adjacent to revision
+10,2020-05-23,2021-09-05,adjacent to revision
+10,2020-12-19,2021-09-05,revision
+10,2020-12-26,2021-09-05,revision
+10,2021-01-02,2021-09-05,adjacent to revision
+10,2021-01-09,2021-09-05,adjacent to revision
+10,2021-01-16,2021-09-05,adjacent to revision
+10,2021-01-23,2021-09-05,revision
+10,2021-01-30,2021-09-05,adjacent to revision
+10,2021-02-06,2021-09-05,revision
+10,2020-04-25,2021-09-12,revision
+10,2020-05-02,2021-09-12,revision
+10,2020-05-09,2021-09-12,adjacent to revision
+10,2020-05-16,2021-09-12,adjacent to revision
+10,2020-05-23,2021-09-12,adjacent to revision
+10,2020-12-19,2021-09-12,revision
+10,2020-12-26,2021-09-12,revision
+10,2021-01-02,2021-09-12,adjacent to revision
+10,2021-01-09,2021-09-12,adjacent to revision
+10,2021-01-16,2021-09-12,adjacent to revision
+10,2021-01-23,2021-09-12,revision
+10,2021-01-30,2021-09-12,adjacent to revision
+10,2021-02-06,2021-09-12,revision
+10,2020-04-25,2021-09-19,revision
+10,2020-05-02,2021-09-19,revision
+10,2020-05-09,2021-09-19,adjacent to revision
+10,2020-05-16,2021-09-19,adjacent to revision
+10,2020-05-23,2021-09-19,adjacent to revision
+10,2020-12-19,2021-09-19,revision
+10,2020-12-26,2021-09-19,revision
+10,2021-01-02,2021-09-19,adjacent to revision
+10,2021-01-09,2021-09-19,adjacent to revision
+10,2021-01-16,2021-09-19,adjacent to revision
+10,2021-01-23,2021-09-19,revision
+10,2021-01-30,2021-09-19,adjacent to revision
+10,2021-02-06,2021-09-19,revision
+10,2020-04-25,2021-09-26,revision
+10,2020-05-02,2021-09-26,revision
+10,2020-05-09,2021-09-26,adjacent to revision
+10,2020-05-16,2021-09-26,adjacent to revision
+10,2020-05-23,2021-09-26,adjacent to revision
+10,2020-12-19,2021-09-26,revision
+10,2020-12-26,2021-09-26,revision
+10,2021-01-02,2021-09-26,adjacent to revision
+10,2021-01-09,2021-09-26,adjacent to revision
+10,2021-01-16,2021-09-26,adjacent to revision
+10,2021-01-23,2021-09-26,revision
+10,2021-01-30,2021-09-26,adjacent to revision
+10,2021-02-06,2021-09-26,revision
+10,2020-04-25,2021-10-03,revision
+10,2020-05-02,2021-10-03,revision
+10,2020-05-09,2021-10-03,adjacent to revision
+10,2020-05-16,2021-10-03,adjacent to revision
+10,2020-05-23,2021-10-03,adjacent to revision
+10,2020-12-19,2021-10-03,revision
+10,2020-12-26,2021-10-03,revision
+10,2021-01-02,2021-10-03,adjacent to revision
+10,2021-01-09,2021-10-03,adjacent to revision
+10,2021-01-16,2021-10-03,adjacent to revision
+10,2021-01-23,2021-10-03,revision
+10,2021-01-30,2021-10-03,adjacent to revision
+10,2021-02-06,2021-10-03,revision
+10,2020-04-25,2021-10-10,revision
+10,2020-05-02,2021-10-10,revision
+10,2020-05-09,2021-10-10,adjacent to revision
+10,2020-05-16,2021-10-10,adjacent to revision
+10,2020-05-23,2021-10-10,adjacent to revision
+10,2020-12-19,2021-10-10,revision
+10,2020-12-26,2021-10-10,revision
+10,2021-01-02,2021-10-10,adjacent to revision
+10,2021-01-09,2021-10-10,adjacent to revision
+10,2021-01-16,2021-10-10,adjacent to revision
+10,2021-01-23,2021-10-10,revision
+10,2021-01-30,2021-10-10,adjacent to revision
+10,2021-02-06,2021-10-10,revision
+10,2020-04-25,2021-10-17,revision
+10,2020-05-02,2021-10-17,revision
+10,2020-05-09,2021-10-17,adjacent to revision
+10,2020-05-16,2021-10-17,adjacent to revision
+10,2020-05-23,2021-10-17,adjacent to revision
+10,2020-12-19,2021-10-17,revision
+10,2020-12-26,2021-10-17,revision
+10,2021-01-02,2021-10-17,adjacent to revision
+10,2021-01-09,2021-10-17,adjacent to revision
+10,2021-01-16,2021-10-17,adjacent to revision
+10,2021-01-23,2021-10-17,revision
+10,2021-01-30,2021-10-17,adjacent to revision
+10,2021-02-06,2021-10-17,revision
+10,2020-04-25,2021-10-24,revision
+10,2020-05-02,2021-10-24,revision
+10,2020-05-09,2021-10-24,adjacent to revision
+10,2020-05-16,2021-10-24,adjacent to revision
+10,2020-05-23,2021-10-24,adjacent to revision
+10,2020-12-19,2021-10-24,revision
+10,2020-12-26,2021-10-24,revision
+10,2021-01-02,2021-10-24,adjacent to revision
+10,2021-01-09,2021-10-24,adjacent to revision
+10,2021-01-16,2021-10-24,adjacent to revision
+10,2021-01-23,2021-10-24,revision
+10,2021-01-30,2021-10-24,adjacent to revision
+10,2021-02-06,2021-10-24,revision
+10,2020-04-25,2021-10-31,revision
+10,2020-05-02,2021-10-31,revision
+10,2020-05-09,2021-10-31,adjacent to revision
+10,2020-05-16,2021-10-31,adjacent to revision
+10,2020-05-23,2021-10-31,adjacent to revision
+10,2020-12-19,2021-10-31,revision
+10,2020-12-26,2021-10-31,revision
+10,2021-01-02,2021-10-31,adjacent to revision
+10,2021-01-09,2021-10-31,adjacent to revision
+10,2021-01-16,2021-10-31,adjacent to revision
+10,2021-01-23,2021-10-31,revision
+10,2021-01-30,2021-10-31,adjacent to revision
+10,2021-02-06,2021-10-31,revision
+10,2020-04-25,2021-11-07,revision
+10,2020-05-02,2021-11-07,revision
+10,2020-05-09,2021-11-07,adjacent to revision
+10,2020-05-16,2021-11-07,adjacent to revision
+10,2020-05-23,2021-11-07,adjacent to revision
+10,2020-12-19,2021-11-07,revision
+10,2020-12-26,2021-11-07,revision
+10,2021-01-02,2021-11-07,adjacent to revision
+10,2021-01-09,2021-11-07,adjacent to revision
+10,2021-01-16,2021-11-07,adjacent to revision
+10,2021-01-23,2021-11-07,revision
+10,2021-01-30,2021-11-07,adjacent to revision
+10,2021-02-06,2021-11-07,revision
+10,2020-04-25,2021-11-14,revision
+10,2020-05-02,2021-11-14,revision
+10,2020-05-09,2021-11-14,adjacent to revision
+10,2020-05-16,2021-11-14,adjacent to revision
+10,2020-05-23,2021-11-14,adjacent to revision
+10,2020-12-19,2021-11-14,revision
+10,2020-12-26,2021-11-14,revision
+10,2021-01-02,2021-11-14,adjacent to revision
+10,2021-01-09,2021-11-14,adjacent to revision
+10,2021-01-16,2021-11-14,adjacent to revision
+10,2021-01-23,2021-11-14,revision
+10,2021-01-30,2021-11-14,adjacent to revision
+10,2021-02-06,2021-11-14,revision
+10,2020-04-25,2021-11-21,revision
+10,2020-05-02,2021-11-21,revision
+10,2020-05-09,2021-11-21,adjacent to revision
+10,2020-05-16,2021-11-21,adjacent to revision
+10,2020-05-23,2021-11-21,adjacent to revision
+10,2020-12-19,2021-11-21,revision
+10,2020-12-26,2021-11-21,revision
+10,2021-01-02,2021-11-21,adjacent to revision
+10,2021-01-09,2021-11-21,adjacent to revision
+10,2021-01-16,2021-11-21,adjacent to revision
+10,2021-01-23,2021-11-21,revision
+10,2021-01-30,2021-11-21,adjacent to revision
+10,2021-02-06,2021-11-21,revision
+10,2020-04-25,2021-11-28,revision
+10,2020-05-02,2021-11-28,revision
+10,2020-05-09,2021-11-28,adjacent to revision
+10,2020-05-16,2021-11-28,adjacent to revision
+10,2020-05-23,2021-11-28,adjacent to revision
+10,2020-12-19,2021-11-28,revision
+10,2020-12-26,2021-11-28,revision
+10,2021-01-02,2021-11-28,adjacent to revision
+10,2021-01-09,2021-11-28,adjacent to revision
+10,2021-01-16,2021-11-28,adjacent to revision
+10,2021-01-23,2021-11-28,revision
+10,2021-01-30,2021-11-28,adjacent to revision
+10,2021-02-06,2021-11-28,revision
+10,2020-04-25,2021-12-05,revision
+10,2020-05-02,2021-12-05,revision
+10,2020-05-09,2021-12-05,adjacent to revision
+10,2020-05-16,2021-12-05,adjacent to revision
+10,2020-05-23,2021-12-05,adjacent to revision
+10,2020-12-19,2021-12-05,revision
+10,2020-12-26,2021-12-05,revision
+10,2021-01-02,2021-12-05,adjacent to revision
+10,2021-01-09,2021-12-05,adjacent to revision
+10,2021-01-16,2021-12-05,adjacent to revision
+10,2021-01-23,2021-12-05,revision
+10,2021-01-30,2021-12-05,adjacent to revision
+10,2021-02-06,2021-12-05,revision
 13,2020-11-07,2020-11-15,revision
 13,2020-11-07,2020-11-22,revision
 13,2020-11-07,2020-11-29,revision
@@ -442,6 +950,25 @@ location,date,issue_date,anomaly_type
 13,2020-11-07,2021-07-11,revision
 13,2020-11-07,2021-07-18,revision
 13,2020-11-07,2021-07-25,revision
+13,2020-11-07,2021-08-01,revision
+13,2020-11-07,2021-08-08,revision
+13,2020-11-07,2021-08-15,revision
+13,2020-11-07,2021-08-22,revision
+13,2020-11-07,2021-08-29,revision
+13,2020-11-07,2021-09-05,revision
+13,2020-11-07,2021-09-12,revision
+13,2020-11-07,2021-09-19,revision
+13,2020-11-07,2021-09-26,revision
+13,2020-11-07,2021-10-03,revision
+13,2020-11-07,2021-10-10,revision
+13,2020-11-07,2021-10-17,revision
+13,2020-11-07,2021-10-24,revision
+13,2020-11-07,2021-10-31,revision
+13,2020-11-07,2021-11-07,revision
+13,2020-11-07,2021-11-14,revision
+13,2020-11-07,2021-11-21,revision
+13,2020-11-07,2021-11-28,revision
+13,2020-11-07,2021-12-05,revision
 18,2020-05-09,2020-08-09,revision
 18,2020-05-16,2020-08-09,adjacent to revision
 18,2020-05-23,2020-08-09,adjacent to revision
@@ -934,6 +1461,310 @@ location,date,issue_date,anomaly_type
 18,2020-11-28,2021-07-25,adjacent to revision
 18,2020-12-05,2021-07-25,adjacent to revision
 18,2020-12-12,2021-07-25,adjacent to revision
+18,2020-04-04,2021-08-01,revision
+18,2020-04-11,2021-08-01,adjacent to revision
+18,2020-04-18,2021-08-01,adjacent to revision
+18,2020-04-25,2021-08-01,adjacent to revision
+18,2020-05-09,2021-08-01,revision
+18,2020-05-16,2021-08-01,adjacent to revision
+18,2020-05-23,2021-08-01,adjacent to revision
+18,2020-05-30,2021-08-01,adjacent to revision
+18,2020-10-17,2021-08-01,revision
+18,2020-10-24,2021-08-01,adjacent to revision
+18,2020-10-31,2021-08-01,adjacent to revision
+18,2020-11-07,2021-08-01,adjacent to revision
+18,2020-11-21,2021-08-01,revision
+18,2020-11-28,2021-08-01,adjacent to revision
+18,2020-12-05,2021-08-01,adjacent to revision
+18,2020-12-12,2021-08-01,adjacent to revision
+18,2020-04-04,2021-08-08,revision
+18,2020-04-11,2021-08-08,adjacent to revision
+18,2020-04-18,2021-08-08,adjacent to revision
+18,2020-04-25,2021-08-08,adjacent to revision
+18,2020-05-09,2021-08-08,revision
+18,2020-05-16,2021-08-08,adjacent to revision
+18,2020-05-23,2021-08-08,adjacent to revision
+18,2020-05-30,2021-08-08,adjacent to revision
+18,2020-10-17,2021-08-08,revision
+18,2020-10-24,2021-08-08,adjacent to revision
+18,2020-10-31,2021-08-08,adjacent to revision
+18,2020-11-07,2021-08-08,adjacent to revision
+18,2020-11-21,2021-08-08,revision
+18,2020-11-28,2021-08-08,adjacent to revision
+18,2020-12-05,2021-08-08,adjacent to revision
+18,2020-12-12,2021-08-08,adjacent to revision
+18,2020-04-04,2021-08-15,revision
+18,2020-04-11,2021-08-15,adjacent to revision
+18,2020-04-18,2021-08-15,adjacent to revision
+18,2020-04-25,2021-08-15,adjacent to revision
+18,2020-05-09,2021-08-15,revision
+18,2020-05-16,2021-08-15,adjacent to revision
+18,2020-05-23,2021-08-15,adjacent to revision
+18,2020-05-30,2021-08-15,adjacent to revision
+18,2020-10-17,2021-08-15,revision
+18,2020-10-24,2021-08-15,adjacent to revision
+18,2020-10-31,2021-08-15,adjacent to revision
+18,2020-11-07,2021-08-15,adjacent to revision
+18,2020-11-21,2021-08-15,revision
+18,2020-11-28,2021-08-15,adjacent to revision
+18,2020-12-05,2021-08-15,adjacent to revision
+18,2020-12-12,2021-08-15,adjacent to revision
+18,2020-04-04,2021-08-22,revision
+18,2020-04-11,2021-08-22,adjacent to revision
+18,2020-04-18,2021-08-22,adjacent to revision
+18,2020-04-25,2021-08-22,adjacent to revision
+18,2020-05-09,2021-08-22,revision
+18,2020-05-16,2021-08-22,adjacent to revision
+18,2020-05-23,2021-08-22,adjacent to revision
+18,2020-05-30,2021-08-22,adjacent to revision
+18,2020-10-17,2021-08-22,revision
+18,2020-10-24,2021-08-22,adjacent to revision
+18,2020-10-31,2021-08-22,adjacent to revision
+18,2020-11-07,2021-08-22,adjacent to revision
+18,2020-11-21,2021-08-22,revision
+18,2020-11-28,2021-08-22,adjacent to revision
+18,2020-12-05,2021-08-22,adjacent to revision
+18,2020-12-12,2021-08-22,adjacent to revision
+18,2020-04-04,2021-08-29,revision
+18,2020-04-11,2021-08-29,adjacent to revision
+18,2020-04-18,2021-08-29,adjacent to revision
+18,2020-04-25,2021-08-29,adjacent to revision
+18,2020-05-09,2021-08-29,revision
+18,2020-05-16,2021-08-29,adjacent to revision
+18,2020-05-23,2021-08-29,adjacent to revision
+18,2020-05-30,2021-08-29,adjacent to revision
+18,2020-10-17,2021-08-29,revision
+18,2020-10-24,2021-08-29,adjacent to revision
+18,2020-10-31,2021-08-29,adjacent to revision
+18,2020-11-07,2021-08-29,adjacent to revision
+18,2020-11-21,2021-08-29,revision
+18,2020-11-28,2021-08-29,adjacent to revision
+18,2020-12-05,2021-08-29,adjacent to revision
+18,2020-12-12,2021-08-29,adjacent to revision
+18,2020-04-04,2021-09-05,revision
+18,2020-04-11,2021-09-05,adjacent to revision
+18,2020-04-18,2021-09-05,adjacent to revision
+18,2020-04-25,2021-09-05,adjacent to revision
+18,2020-05-09,2021-09-05,revision
+18,2020-05-16,2021-09-05,adjacent to revision
+18,2020-05-23,2021-09-05,adjacent to revision
+18,2020-05-30,2021-09-05,adjacent to revision
+18,2020-10-17,2021-09-05,revision
+18,2020-10-24,2021-09-05,adjacent to revision
+18,2020-10-31,2021-09-05,adjacent to revision
+18,2020-11-07,2021-09-05,adjacent to revision
+18,2020-11-21,2021-09-05,revision
+18,2020-11-28,2021-09-05,adjacent to revision
+18,2020-12-05,2021-09-05,adjacent to revision
+18,2020-12-12,2021-09-05,adjacent to revision
+18,2020-04-04,2021-09-12,revision
+18,2020-04-11,2021-09-12,adjacent to revision
+18,2020-04-18,2021-09-12,adjacent to revision
+18,2020-04-25,2021-09-12,adjacent to revision
+18,2020-05-09,2021-09-12,revision
+18,2020-05-16,2021-09-12,adjacent to revision
+18,2020-05-23,2021-09-12,adjacent to revision
+18,2020-05-30,2021-09-12,adjacent to revision
+18,2020-10-17,2021-09-12,revision
+18,2020-10-24,2021-09-12,adjacent to revision
+18,2020-10-31,2021-09-12,adjacent to revision
+18,2020-11-07,2021-09-12,adjacent to revision
+18,2020-11-21,2021-09-12,revision
+18,2020-11-28,2021-09-12,adjacent to revision
+18,2020-12-05,2021-09-12,adjacent to revision
+18,2020-12-12,2021-09-12,adjacent to revision
+18,2020-04-04,2021-09-19,revision
+18,2020-04-11,2021-09-19,adjacent to revision
+18,2020-04-18,2021-09-19,adjacent to revision
+18,2020-04-25,2021-09-19,adjacent to revision
+18,2020-05-09,2021-09-19,revision
+18,2020-05-16,2021-09-19,adjacent to revision
+18,2020-05-23,2021-09-19,adjacent to revision
+18,2020-05-30,2021-09-19,adjacent to revision
+18,2020-10-17,2021-09-19,revision
+18,2020-10-24,2021-09-19,adjacent to revision
+18,2020-10-31,2021-09-19,adjacent to revision
+18,2020-11-07,2021-09-19,adjacent to revision
+18,2020-11-21,2021-09-19,revision
+18,2020-11-28,2021-09-19,adjacent to revision
+18,2020-12-05,2021-09-19,adjacent to revision
+18,2020-12-12,2021-09-19,adjacent to revision
+18,2020-04-04,2021-09-26,revision
+18,2020-04-11,2021-09-26,adjacent to revision
+18,2020-04-18,2021-09-26,adjacent to revision
+18,2020-04-25,2021-09-26,adjacent to revision
+18,2020-05-09,2021-09-26,revision
+18,2020-05-16,2021-09-26,adjacent to revision
+18,2020-05-23,2021-09-26,adjacent to revision
+18,2020-05-30,2021-09-26,adjacent to revision
+18,2020-10-17,2021-09-26,revision
+18,2020-10-24,2021-09-26,adjacent to revision
+18,2020-10-31,2021-09-26,adjacent to revision
+18,2020-11-07,2021-09-26,adjacent to revision
+18,2020-11-21,2021-09-26,revision
+18,2020-11-28,2021-09-26,adjacent to revision
+18,2020-12-05,2021-09-26,adjacent to revision
+18,2020-12-12,2021-09-26,adjacent to revision
+18,2020-04-04,2021-10-03,revision
+18,2020-04-11,2021-10-03,adjacent to revision
+18,2020-04-18,2021-10-03,adjacent to revision
+18,2020-04-25,2021-10-03,adjacent to revision
+18,2020-05-09,2021-10-03,revision
+18,2020-05-16,2021-10-03,adjacent to revision
+18,2020-05-23,2021-10-03,adjacent to revision
+18,2020-05-30,2021-10-03,adjacent to revision
+18,2020-10-17,2021-10-03,revision
+18,2020-10-24,2021-10-03,adjacent to revision
+18,2020-10-31,2021-10-03,adjacent to revision
+18,2020-11-07,2021-10-03,adjacent to revision
+18,2020-11-21,2021-10-03,revision
+18,2020-11-28,2021-10-03,adjacent to revision
+18,2020-12-05,2021-10-03,adjacent to revision
+18,2020-12-12,2021-10-03,adjacent to revision
+18,2020-04-04,2021-10-10,revision
+18,2020-04-11,2021-10-10,adjacent to revision
+18,2020-04-18,2021-10-10,adjacent to revision
+18,2020-04-25,2021-10-10,adjacent to revision
+18,2020-05-09,2021-10-10,revision
+18,2020-05-16,2021-10-10,adjacent to revision
+18,2020-05-23,2021-10-10,adjacent to revision
+18,2020-05-30,2021-10-10,adjacent to revision
+18,2020-10-17,2021-10-10,revision
+18,2020-10-24,2021-10-10,adjacent to revision
+18,2020-10-31,2021-10-10,adjacent to revision
+18,2020-11-07,2021-10-10,adjacent to revision
+18,2020-11-21,2021-10-10,revision
+18,2020-11-28,2021-10-10,adjacent to revision
+18,2020-12-05,2021-10-10,adjacent to revision
+18,2020-12-12,2021-10-10,adjacent to revision
+18,2020-04-04,2021-10-17,revision
+18,2020-04-11,2021-10-17,adjacent to revision
+18,2020-04-18,2021-10-17,adjacent to revision
+18,2020-04-25,2021-10-17,adjacent to revision
+18,2020-05-09,2021-10-17,revision
+18,2020-05-16,2021-10-17,adjacent to revision
+18,2020-05-23,2021-10-17,adjacent to revision
+18,2020-05-30,2021-10-17,adjacent to revision
+18,2020-10-17,2021-10-17,revision
+18,2020-10-24,2021-10-17,adjacent to revision
+18,2020-10-31,2021-10-17,adjacent to revision
+18,2020-11-07,2021-10-17,adjacent to revision
+18,2020-11-21,2021-10-17,revision
+18,2020-11-28,2021-10-17,adjacent to revision
+18,2020-12-05,2021-10-17,adjacent to revision
+18,2020-12-12,2021-10-17,adjacent to revision
+18,2020-04-04,2021-10-24,revision
+18,2020-04-11,2021-10-24,adjacent to revision
+18,2020-04-18,2021-10-24,adjacent to revision
+18,2020-04-25,2021-10-24,adjacent to revision
+18,2020-05-09,2021-10-24,revision
+18,2020-05-16,2021-10-24,adjacent to revision
+18,2020-05-23,2021-10-24,adjacent to revision
+18,2020-05-30,2021-10-24,adjacent to revision
+18,2020-10-17,2021-10-24,revision
+18,2020-10-24,2021-10-24,adjacent to revision
+18,2020-10-31,2021-10-24,adjacent to revision
+18,2020-11-07,2021-10-24,adjacent to revision
+18,2020-11-21,2021-10-24,revision
+18,2020-11-28,2021-10-24,adjacent to revision
+18,2020-12-05,2021-10-24,adjacent to revision
+18,2020-12-12,2021-10-24,adjacent to revision
+18,2020-04-04,2021-10-31,revision
+18,2020-04-11,2021-10-31,adjacent to revision
+18,2020-04-18,2021-10-31,adjacent to revision
+18,2020-04-25,2021-10-31,adjacent to revision
+18,2020-05-09,2021-10-31,revision
+18,2020-05-16,2021-10-31,adjacent to revision
+18,2020-05-23,2021-10-31,adjacent to revision
+18,2020-05-30,2021-10-31,adjacent to revision
+18,2020-10-17,2021-10-31,revision
+18,2020-10-24,2021-10-31,adjacent to revision
+18,2020-10-31,2021-10-31,adjacent to revision
+18,2020-11-07,2021-10-31,adjacent to revision
+18,2020-11-21,2021-10-31,revision
+18,2020-11-28,2021-10-31,adjacent to revision
+18,2020-12-05,2021-10-31,adjacent to revision
+18,2020-12-12,2021-10-31,adjacent to revision
+18,2020-04-04,2021-11-07,revision
+18,2020-04-11,2021-11-07,adjacent to revision
+18,2020-04-18,2021-11-07,adjacent to revision
+18,2020-04-25,2021-11-07,adjacent to revision
+18,2020-05-09,2021-11-07,revision
+18,2020-05-16,2021-11-07,adjacent to revision
+18,2020-05-23,2021-11-07,adjacent to revision
+18,2020-05-30,2021-11-07,adjacent to revision
+18,2020-10-17,2021-11-07,revision
+18,2020-10-24,2021-11-07,adjacent to revision
+18,2020-10-31,2021-11-07,adjacent to revision
+18,2020-11-07,2021-11-07,adjacent to revision
+18,2020-11-21,2021-11-07,revision
+18,2020-11-28,2021-11-07,adjacent to revision
+18,2020-12-05,2021-11-07,adjacent to revision
+18,2020-12-12,2021-11-07,adjacent to revision
+18,2020-04-04,2021-11-14,revision
+18,2020-04-11,2021-11-14,adjacent to revision
+18,2020-04-18,2021-11-14,adjacent to revision
+18,2020-04-25,2021-11-14,adjacent to revision
+18,2020-05-09,2021-11-14,revision
+18,2020-05-16,2021-11-14,adjacent to revision
+18,2020-05-23,2021-11-14,adjacent to revision
+18,2020-05-30,2021-11-14,adjacent to revision
+18,2020-10-17,2021-11-14,revision
+18,2020-10-24,2021-11-14,adjacent to revision
+18,2020-10-31,2021-11-14,adjacent to revision
+18,2020-11-07,2021-11-14,adjacent to revision
+18,2020-11-21,2021-11-14,revision
+18,2020-11-28,2021-11-14,adjacent to revision
+18,2020-12-05,2021-11-14,adjacent to revision
+18,2020-12-12,2021-11-14,adjacent to revision
+18,2020-04-04,2021-11-21,revision
+18,2020-04-11,2021-11-21,adjacent to revision
+18,2020-04-18,2021-11-21,adjacent to revision
+18,2020-04-25,2021-11-21,adjacent to revision
+18,2020-05-09,2021-11-21,revision
+18,2020-05-16,2021-11-21,adjacent to revision
+18,2020-05-23,2021-11-21,adjacent to revision
+18,2020-05-30,2021-11-21,adjacent to revision
+18,2020-10-17,2021-11-21,revision
+18,2020-10-24,2021-11-21,adjacent to revision
+18,2020-10-31,2021-11-21,adjacent to revision
+18,2020-11-07,2021-11-21,adjacent to revision
+18,2020-11-21,2021-11-21,revision
+18,2020-11-28,2021-11-21,adjacent to revision
+18,2020-12-05,2021-11-21,adjacent to revision
+18,2020-12-12,2021-11-21,adjacent to revision
+18,2020-04-04,2021-11-28,revision
+18,2020-04-11,2021-11-28,adjacent to revision
+18,2020-04-18,2021-11-28,adjacent to revision
+18,2020-04-25,2021-11-28,adjacent to revision
+18,2020-05-09,2021-11-28,revision
+18,2020-05-16,2021-11-28,adjacent to revision
+18,2020-05-23,2021-11-28,adjacent to revision
+18,2020-05-30,2021-11-28,adjacent to revision
+18,2020-10-17,2021-11-28,revision
+18,2020-10-24,2021-11-28,adjacent to revision
+18,2020-10-31,2021-11-28,adjacent to revision
+18,2020-11-07,2021-11-28,adjacent to revision
+18,2020-11-21,2021-11-28,revision
+18,2020-11-28,2021-11-28,adjacent to revision
+18,2020-12-05,2021-11-28,adjacent to revision
+18,2020-12-12,2021-11-28,adjacent to revision
+18,2020-04-04,2021-12-05,revision
+18,2020-04-11,2021-12-05,adjacent to revision
+18,2020-04-18,2021-12-05,adjacent to revision
+18,2020-04-25,2021-12-05,adjacent to revision
+18,2020-05-09,2021-12-05,revision
+18,2020-05-16,2021-12-05,adjacent to revision
+18,2020-05-23,2021-12-05,adjacent to revision
+18,2020-05-30,2021-12-05,adjacent to revision
+18,2020-10-17,2021-12-05,revision
+18,2020-10-24,2021-12-05,adjacent to revision
+18,2020-10-31,2021-12-05,adjacent to revision
+18,2020-11-07,2021-12-05,adjacent to revision
+18,2020-11-21,2021-12-05,revision
+18,2020-11-28,2021-12-05,adjacent to revision
+18,2020-12-05,2021-12-05,adjacent to revision
+18,2020-12-12,2021-12-05,adjacent to revision
 20,2020-11-07,2020-11-29,revision
 20,2020-11-14,2020-11-29,adjacent to revision
 20,2020-11-21,2020-11-29,adjacent to revision
@@ -1039,6 +1870,63 @@ location,date,issue_date,anomaly_type
 20,2020-11-07,2021-07-25,revision
 20,2020-11-14,2021-07-25,adjacent to revision
 20,2020-11-21,2021-07-25,adjacent to revision
+20,2020-11-07,2021-08-01,revision
+20,2020-11-14,2021-08-01,adjacent to revision
+20,2020-11-21,2021-08-01,adjacent to revision
+20,2020-11-07,2021-08-08,revision
+20,2020-11-14,2021-08-08,adjacent to revision
+20,2020-11-21,2021-08-08,adjacent to revision
+20,2020-11-07,2021-08-15,revision
+20,2020-11-14,2021-08-15,adjacent to revision
+20,2020-11-21,2021-08-15,adjacent to revision
+20,2020-11-07,2021-08-22,revision
+20,2020-11-14,2021-08-22,adjacent to revision
+20,2020-11-21,2021-08-22,adjacent to revision
+20,2020-11-07,2021-08-29,revision
+20,2020-11-14,2021-08-29,adjacent to revision
+20,2020-11-21,2021-08-29,adjacent to revision
+20,2020-11-07,2021-09-05,revision
+20,2020-11-14,2021-09-05,adjacent to revision
+20,2020-11-21,2021-09-05,adjacent to revision
+20,2020-11-07,2021-09-12,revision
+20,2020-11-14,2021-09-12,adjacent to revision
+20,2020-11-21,2021-09-12,adjacent to revision
+20,2020-11-07,2021-09-19,revision
+20,2020-11-14,2021-09-19,adjacent to revision
+20,2020-11-21,2021-09-19,adjacent to revision
+20,2020-11-07,2021-09-26,revision
+20,2020-11-14,2021-09-26,adjacent to revision
+20,2020-11-21,2021-09-26,adjacent to revision
+20,2020-11-07,2021-10-03,revision
+20,2020-11-14,2021-10-03,adjacent to revision
+20,2020-11-21,2021-10-03,adjacent to revision
+20,2020-11-07,2021-10-10,revision
+20,2020-11-14,2021-10-10,adjacent to revision
+20,2020-11-21,2021-10-10,adjacent to revision
+20,2020-11-07,2021-10-17,revision
+20,2020-11-14,2021-10-17,adjacent to revision
+20,2020-11-21,2021-10-17,adjacent to revision
+20,2020-11-07,2021-10-24,revision
+20,2020-11-14,2021-10-24,adjacent to revision
+20,2020-11-21,2021-10-24,adjacent to revision
+20,2020-11-07,2021-10-31,revision
+20,2020-11-14,2021-10-31,adjacent to revision
+20,2020-11-21,2021-10-31,adjacent to revision
+20,2020-11-07,2021-11-07,revision
+20,2020-11-14,2021-11-07,adjacent to revision
+20,2020-11-21,2021-11-07,adjacent to revision
+20,2020-11-07,2021-11-14,revision
+20,2020-11-14,2021-11-14,adjacent to revision
+20,2020-11-21,2021-11-14,adjacent to revision
+20,2020-11-07,2021-11-21,revision
+20,2020-11-14,2021-11-21,adjacent to revision
+20,2020-11-21,2021-11-21,adjacent to revision
+20,2020-11-07,2021-11-28,revision
+20,2020-11-14,2021-11-28,adjacent to revision
+20,2020-11-21,2021-11-28,adjacent to revision
+20,2020-11-07,2021-12-05,revision
+20,2020-11-14,2021-12-05,adjacent to revision
+20,2020-11-21,2021-12-05,adjacent to revision
 26,2020-06-06,2020-06-14,revision
 26,2020-06-06,2020-06-21,revision
 26,2020-06-06,2020-06-28,revision
@@ -1098,6 +1986,25 @@ location,date,issue_date,anomaly_type
 26,2020-06-06,2021-07-11,revision
 26,2020-06-06,2021-07-18,revision
 26,2020-06-06,2021-07-25,revision
+26,2020-06-06,2021-08-01,revision
+26,2020-06-06,2021-08-08,revision
+26,2020-06-06,2021-08-15,revision
+26,2020-06-06,2021-08-22,revision
+26,2020-06-06,2021-08-29,revision
+26,2020-06-06,2021-09-05,revision
+26,2020-06-06,2021-09-12,revision
+26,2020-06-06,2021-09-19,revision
+26,2020-06-06,2021-09-26,revision
+26,2020-06-06,2021-10-03,revision
+26,2020-06-06,2021-10-10,revision
+26,2020-06-06,2021-10-17,revision
+26,2020-06-06,2021-10-24,revision
+26,2020-06-06,2021-10-31,revision
+26,2020-06-06,2021-11-07,revision
+26,2020-06-06,2021-11-14,revision
+26,2020-06-06,2021-11-21,revision
+26,2020-06-06,2021-11-28,revision
+26,2020-06-06,2021-12-05,revision
 29,2020-04-25,2020-06-14,revision
 29,2020-05-02,2020-06-14,adjacent to revision
 29,2020-05-09,2020-06-14,adjacent to revision
@@ -1452,6 +2359,145 @@ location,date,issue_date,anomaly_type
 29,2020-05-16,2021-07-25,adjacent to revision
 29,2020-05-30,2021-07-25,revision
 29,2020-06-06,2021-07-25,adjacent to revision
+29,2020-04-25,2021-08-01,revision
+29,2020-05-02,2021-08-01,adjacent to revision
+29,2020-05-09,2021-08-01,adjacent to revision
+29,2020-05-16,2021-08-01,adjacent to revision
+29,2020-05-30,2021-08-01,revision
+29,2020-06-06,2021-08-01,adjacent to revision
+29,2020-04-25,2021-08-08,revision
+29,2020-05-02,2021-08-08,adjacent to revision
+29,2020-05-09,2021-08-08,adjacent to revision
+29,2020-05-16,2021-08-08,adjacent to revision
+29,2020-05-30,2021-08-08,revision
+29,2020-06-06,2021-08-08,adjacent to revision
+29,2020-04-25,2021-08-15,revision
+29,2020-05-02,2021-08-15,adjacent to revision
+29,2020-05-09,2021-08-15,adjacent to revision
+29,2020-05-16,2021-08-15,adjacent to revision
+29,2020-05-30,2021-08-15,revision
+29,2020-06-06,2021-08-15,adjacent to revision
+29,2020-04-25,2021-08-22,revision
+29,2020-05-02,2021-08-22,adjacent to revision
+29,2020-05-09,2021-08-22,adjacent to revision
+29,2020-05-16,2021-08-22,adjacent to revision
+29,2020-05-30,2021-08-22,revision
+29,2020-06-06,2021-08-22,adjacent to revision
+29,2020-04-25,2021-08-29,revision
+29,2020-05-02,2021-08-29,adjacent to revision
+29,2020-05-09,2021-08-29,adjacent to revision
+29,2020-05-16,2021-08-29,adjacent to revision
+29,2020-05-30,2021-08-29,revision
+29,2020-06-06,2021-08-29,adjacent to revision
+29,2020-04-25,2021-09-05,revision
+29,2020-05-02,2021-09-05,adjacent to revision
+29,2020-05-09,2021-09-05,adjacent to revision
+29,2020-05-16,2021-09-05,adjacent to revision
+29,2020-05-30,2021-09-05,revision
+29,2020-06-06,2021-09-05,adjacent to revision
+29,2020-04-25,2021-09-12,revision
+29,2020-05-02,2021-09-12,adjacent to revision
+29,2020-05-09,2021-09-12,adjacent to revision
+29,2020-05-16,2021-09-12,adjacent to revision
+29,2020-05-30,2021-09-12,revision
+29,2020-06-06,2021-09-12,adjacent to revision
+29,2020-04-25,2021-09-19,revision
+29,2020-05-02,2021-09-19,adjacent to revision
+29,2020-05-09,2021-09-19,adjacent to revision
+29,2020-05-16,2021-09-19,adjacent to revision
+29,2020-05-30,2021-09-19,revision
+29,2020-06-06,2021-09-19,adjacent to revision
+29,2020-04-25,2021-09-26,revision
+29,2020-05-02,2021-09-26,adjacent to revision
+29,2020-05-09,2021-09-26,adjacent to revision
+29,2020-05-16,2021-09-26,adjacent to revision
+29,2020-05-30,2021-09-26,revision
+29,2020-06-06,2021-09-26,adjacent to revision
+29,2020-04-25,2021-10-03,revision
+29,2020-05-02,2021-10-03,adjacent to revision
+29,2020-05-09,2021-10-03,adjacent to revision
+29,2020-05-16,2021-10-03,adjacent to revision
+29,2020-05-30,2021-10-03,revision
+29,2020-06-06,2021-10-03,adjacent to revision
+29,2020-04-25,2021-10-10,revision
+29,2020-05-02,2021-10-10,adjacent to revision
+29,2020-05-09,2021-10-10,adjacent to revision
+29,2020-05-16,2021-10-10,adjacent to revision
+29,2020-05-30,2021-10-10,revision
+29,2020-06-06,2021-10-10,adjacent to revision
+29,2020-04-25,2021-10-17,revision
+29,2020-05-02,2021-10-17,adjacent to revision
+29,2020-05-09,2021-10-17,adjacent to revision
+29,2020-05-16,2021-10-17,adjacent to revision
+29,2020-05-30,2021-10-17,revision
+29,2020-06-06,2021-10-17,adjacent to revision
+29,2020-04-25,2021-10-24,revision
+29,2020-05-02,2021-10-24,adjacent to revision
+29,2020-05-09,2021-10-24,adjacent to revision
+29,2020-05-16,2021-10-24,adjacent to revision
+29,2020-05-30,2021-10-24,revision
+29,2020-06-06,2021-10-24,adjacent to revision
+29,2020-04-25,2021-10-31,revision
+29,2020-05-02,2021-10-31,adjacent to revision
+29,2020-05-09,2021-10-31,adjacent to revision
+29,2020-05-16,2021-10-31,adjacent to revision
+29,2020-05-30,2021-10-31,revision
+29,2020-06-06,2021-10-31,adjacent to revision
+29,2020-04-25,2021-11-07,revision
+29,2020-05-02,2021-11-07,adjacent to revision
+29,2020-05-09,2021-11-07,adjacent to revision
+29,2020-05-16,2021-11-07,adjacent to revision
+29,2020-05-30,2021-11-07,revision
+29,2020-06-06,2021-11-07,adjacent to revision
+29,2020-04-25,2021-11-14,revision
+29,2020-05-02,2021-11-14,adjacent to revision
+29,2020-05-09,2021-11-14,adjacent to revision
+29,2020-05-16,2021-11-14,adjacent to revision
+29,2020-05-30,2021-11-14,revision
+29,2020-06-06,2021-11-14,adjacent to revision
+29,2020-04-25,2021-11-21,revision
+29,2020-05-02,2021-11-21,adjacent to revision
+29,2020-05-09,2021-11-21,adjacent to revision
+29,2020-05-16,2021-11-21,adjacent to revision
+29,2020-05-30,2021-11-21,revision
+29,2020-06-06,2021-11-21,adjacent to revision
+29,2020-04-25,2021-11-28,revision
+29,2020-05-02,2021-11-28,adjacent to revision
+29,2020-05-09,2021-11-28,adjacent to revision
+29,2020-05-16,2021-11-28,adjacent to revision
+29,2020-05-30,2021-11-28,revision
+29,2020-06-06,2021-11-28,adjacent to revision
+29,2020-04-25,2021-12-05,revision
+29,2020-05-02,2021-12-05,adjacent to revision
+29,2020-05-09,2021-12-05,adjacent to revision
+29,2020-05-16,2021-12-05,adjacent to revision
+29,2020-05-30,2021-12-05,revision
+29,2020-06-06,2021-12-05,adjacent to revision
+31,2021-10-02,2021-11-07,revision
+31,2021-10-09,2021-11-07,adjacent to revision
+31,2021-10-16,2021-11-07,revision
+31,2021-10-23,2021-11-07,revision
+31,2021-10-30,2021-11-07,adjacent to revision
+31,2021-10-02,2021-11-14,revision
+31,2021-10-09,2021-11-14,adjacent to revision
+31,2021-10-16,2021-11-14,revision
+31,2021-10-23,2021-11-14,revision
+31,2021-10-30,2021-11-14,adjacent to revision
+31,2021-10-02,2021-11-21,revision
+31,2021-10-09,2021-11-21,adjacent to revision
+31,2021-10-16,2021-11-21,revision
+31,2021-10-23,2021-11-21,revision
+31,2021-10-30,2021-11-21,adjacent to revision
+31,2021-10-02,2021-11-28,revision
+31,2021-10-09,2021-11-28,adjacent to revision
+31,2021-10-16,2021-11-28,revision
+31,2021-10-23,2021-11-28,revision
+31,2021-10-30,2021-11-28,adjacent to revision
+31,2021-10-02,2021-12-05,revision
+31,2021-10-09,2021-12-05,adjacent to revision
+31,2021-10-16,2021-12-05,revision
+31,2021-10-23,2021-12-05,revision
+31,2021-10-30,2021-12-05,adjacent to revision
 36,2020-07-04,2020-09-06,revision
 36,2020-07-11,2020-09-06,adjacent to revision
 36,2020-07-18,2020-09-06,adjacent to revision
@@ -1899,6 +2945,215 @@ location,date,issue_date,anomaly_type
 36,2020-10-24,2021-07-25,adjacent to revision
 36,2020-10-31,2021-07-25,adjacent to revision
 36,2020-11-07,2021-07-25,adjacent to revision
+36,2020-07-04,2021-08-01,revision
+36,2020-07-11,2021-08-01,adjacent to revision
+36,2020-07-18,2021-08-01,adjacent to revision
+36,2020-07-25,2021-08-01,adjacent to revision
+36,2020-09-26,2021-08-01,revision
+36,2020-10-03,2021-08-01,adjacent to revision
+36,2020-10-10,2021-08-01,adjacent to revision
+36,2020-10-17,2021-08-01,revision
+36,2020-10-24,2021-08-01,adjacent to revision
+36,2020-10-31,2021-08-01,adjacent to revision
+36,2020-11-07,2021-08-01,adjacent to revision
+36,2020-07-04,2021-08-08,revision
+36,2020-07-11,2021-08-08,adjacent to revision
+36,2020-07-18,2021-08-08,adjacent to revision
+36,2020-07-25,2021-08-08,adjacent to revision
+36,2020-09-26,2021-08-08,revision
+36,2020-10-03,2021-08-08,adjacent to revision
+36,2020-10-10,2021-08-08,adjacent to revision
+36,2020-10-17,2021-08-08,revision
+36,2020-10-24,2021-08-08,adjacent to revision
+36,2020-10-31,2021-08-08,adjacent to revision
+36,2020-11-07,2021-08-08,adjacent to revision
+36,2020-07-04,2021-08-15,revision
+36,2020-07-11,2021-08-15,adjacent to revision
+36,2020-07-18,2021-08-15,adjacent to revision
+36,2020-07-25,2021-08-15,adjacent to revision
+36,2020-09-26,2021-08-15,revision
+36,2020-10-03,2021-08-15,adjacent to revision
+36,2020-10-10,2021-08-15,adjacent to revision
+36,2020-10-17,2021-08-15,revision
+36,2020-10-24,2021-08-15,adjacent to revision
+36,2020-10-31,2021-08-15,adjacent to revision
+36,2020-11-07,2021-08-15,adjacent to revision
+36,2020-07-04,2021-08-22,revision
+36,2020-07-11,2021-08-22,adjacent to revision
+36,2020-07-18,2021-08-22,adjacent to revision
+36,2020-07-25,2021-08-22,adjacent to revision
+36,2020-09-26,2021-08-22,revision
+36,2020-10-03,2021-08-22,adjacent to revision
+36,2020-10-10,2021-08-22,adjacent to revision
+36,2020-10-17,2021-08-22,revision
+36,2020-10-24,2021-08-22,adjacent to revision
+36,2020-10-31,2021-08-22,adjacent to revision
+36,2020-11-07,2021-08-22,adjacent to revision
+36,2020-07-04,2021-08-29,revision
+36,2020-07-11,2021-08-29,adjacent to revision
+36,2020-07-18,2021-08-29,adjacent to revision
+36,2020-07-25,2021-08-29,adjacent to revision
+36,2020-09-26,2021-08-29,revision
+36,2020-10-03,2021-08-29,adjacent to revision
+36,2020-10-10,2021-08-29,adjacent to revision
+36,2020-10-17,2021-08-29,revision
+36,2020-10-24,2021-08-29,adjacent to revision
+36,2020-10-31,2021-08-29,adjacent to revision
+36,2020-11-07,2021-08-29,adjacent to revision
+36,2020-07-04,2021-09-05,revision
+36,2020-07-11,2021-09-05,adjacent to revision
+36,2020-07-18,2021-09-05,adjacent to revision
+36,2020-07-25,2021-09-05,adjacent to revision
+36,2020-09-26,2021-09-05,revision
+36,2020-10-03,2021-09-05,adjacent to revision
+36,2020-10-10,2021-09-05,adjacent to revision
+36,2020-10-17,2021-09-05,revision
+36,2020-10-24,2021-09-05,adjacent to revision
+36,2020-10-31,2021-09-05,adjacent to revision
+36,2020-11-07,2021-09-05,adjacent to revision
+36,2020-07-04,2021-09-12,revision
+36,2020-07-11,2021-09-12,adjacent to revision
+36,2020-07-18,2021-09-12,adjacent to revision
+36,2020-07-25,2021-09-12,adjacent to revision
+36,2020-09-26,2021-09-12,revision
+36,2020-10-03,2021-09-12,adjacent to revision
+36,2020-10-10,2021-09-12,adjacent to revision
+36,2020-10-17,2021-09-12,revision
+36,2020-10-24,2021-09-12,adjacent to revision
+36,2020-10-31,2021-09-12,adjacent to revision
+36,2020-11-07,2021-09-12,adjacent to revision
+36,2020-07-04,2021-09-19,revision
+36,2020-07-11,2021-09-19,adjacent to revision
+36,2020-07-18,2021-09-19,adjacent to revision
+36,2020-07-25,2021-09-19,adjacent to revision
+36,2020-09-26,2021-09-19,revision
+36,2020-10-03,2021-09-19,adjacent to revision
+36,2020-10-10,2021-09-19,adjacent to revision
+36,2020-10-17,2021-09-19,revision
+36,2020-10-24,2021-09-19,adjacent to revision
+36,2020-10-31,2021-09-19,adjacent to revision
+36,2020-11-07,2021-09-19,adjacent to revision
+36,2020-07-04,2021-09-26,revision
+36,2020-07-11,2021-09-26,adjacent to revision
+36,2020-07-18,2021-09-26,adjacent to revision
+36,2020-07-25,2021-09-26,adjacent to revision
+36,2020-09-26,2021-09-26,revision
+36,2020-10-03,2021-09-26,adjacent to revision
+36,2020-10-10,2021-09-26,adjacent to revision
+36,2020-10-17,2021-09-26,revision
+36,2020-10-24,2021-09-26,adjacent to revision
+36,2020-10-31,2021-09-26,adjacent to revision
+36,2020-11-07,2021-09-26,adjacent to revision
+36,2020-07-04,2021-10-03,revision
+36,2020-07-11,2021-10-03,adjacent to revision
+36,2020-07-18,2021-10-03,adjacent to revision
+36,2020-07-25,2021-10-03,adjacent to revision
+36,2020-09-26,2021-10-03,revision
+36,2020-10-03,2021-10-03,adjacent to revision
+36,2020-10-10,2021-10-03,adjacent to revision
+36,2020-10-17,2021-10-03,revision
+36,2020-10-24,2021-10-03,adjacent to revision
+36,2020-10-31,2021-10-03,adjacent to revision
+36,2020-11-07,2021-10-03,adjacent to revision
+36,2020-07-04,2021-10-10,revision
+36,2020-07-11,2021-10-10,adjacent to revision
+36,2020-07-18,2021-10-10,adjacent to revision
+36,2020-07-25,2021-10-10,adjacent to revision
+36,2020-09-26,2021-10-10,revision
+36,2020-10-03,2021-10-10,adjacent to revision
+36,2020-10-10,2021-10-10,adjacent to revision
+36,2020-10-17,2021-10-10,revision
+36,2020-10-24,2021-10-10,adjacent to revision
+36,2020-10-31,2021-10-10,adjacent to revision
+36,2020-11-07,2021-10-10,adjacent to revision
+36,2020-07-04,2021-10-17,revision
+36,2020-07-11,2021-10-17,adjacent to revision
+36,2020-07-18,2021-10-17,adjacent to revision
+36,2020-07-25,2021-10-17,adjacent to revision
+36,2020-09-26,2021-10-17,revision
+36,2020-10-03,2021-10-17,adjacent to revision
+36,2020-10-10,2021-10-17,adjacent to revision
+36,2020-10-17,2021-10-17,revision
+36,2020-10-24,2021-10-17,adjacent to revision
+36,2020-10-31,2021-10-17,adjacent to revision
+36,2020-11-07,2021-10-17,adjacent to revision
+36,2020-07-04,2021-10-24,revision
+36,2020-07-11,2021-10-24,adjacent to revision
+36,2020-07-18,2021-10-24,adjacent to revision
+36,2020-07-25,2021-10-24,adjacent to revision
+36,2020-09-26,2021-10-24,revision
+36,2020-10-03,2021-10-24,adjacent to revision
+36,2020-10-10,2021-10-24,adjacent to revision
+36,2020-10-17,2021-10-24,revision
+36,2020-10-24,2021-10-24,adjacent to revision
+36,2020-10-31,2021-10-24,adjacent to revision
+36,2020-11-07,2021-10-24,adjacent to revision
+36,2020-07-04,2021-10-31,revision
+36,2020-07-11,2021-10-31,adjacent to revision
+36,2020-07-18,2021-10-31,adjacent to revision
+36,2020-07-25,2021-10-31,adjacent to revision
+36,2020-09-26,2021-10-31,revision
+36,2020-10-03,2021-10-31,adjacent to revision
+36,2020-10-10,2021-10-31,adjacent to revision
+36,2020-10-17,2021-10-31,revision
+36,2020-10-24,2021-10-31,adjacent to revision
+36,2020-10-31,2021-10-31,adjacent to revision
+36,2020-11-07,2021-10-31,adjacent to revision
+36,2020-07-04,2021-11-07,revision
+36,2020-07-11,2021-11-07,adjacent to revision
+36,2020-07-18,2021-11-07,adjacent to revision
+36,2020-07-25,2021-11-07,adjacent to revision
+36,2020-09-26,2021-11-07,revision
+36,2020-10-03,2021-11-07,adjacent to revision
+36,2020-10-10,2021-11-07,adjacent to revision
+36,2020-10-17,2021-11-07,revision
+36,2020-10-24,2021-11-07,adjacent to revision
+36,2020-10-31,2021-11-07,adjacent to revision
+36,2020-11-07,2021-11-07,adjacent to revision
+36,2020-07-04,2021-11-14,revision
+36,2020-07-11,2021-11-14,adjacent to revision
+36,2020-07-18,2021-11-14,adjacent to revision
+36,2020-07-25,2021-11-14,adjacent to revision
+36,2020-09-26,2021-11-14,revision
+36,2020-10-03,2021-11-14,adjacent to revision
+36,2020-10-10,2021-11-14,adjacent to revision
+36,2020-10-17,2021-11-14,revision
+36,2020-10-24,2021-11-14,adjacent to revision
+36,2020-10-31,2021-11-14,adjacent to revision
+36,2020-11-07,2021-11-14,adjacent to revision
+36,2020-07-04,2021-11-21,revision
+36,2020-07-11,2021-11-21,adjacent to revision
+36,2020-07-18,2021-11-21,adjacent to revision
+36,2020-07-25,2021-11-21,adjacent to revision
+36,2020-09-26,2021-11-21,revision
+36,2020-10-03,2021-11-21,adjacent to revision
+36,2020-10-10,2021-11-21,adjacent to revision
+36,2020-10-17,2021-11-21,revision
+36,2020-10-24,2021-11-21,adjacent to revision
+36,2020-10-31,2021-11-21,adjacent to revision
+36,2020-11-07,2021-11-21,adjacent to revision
+36,2020-07-04,2021-11-28,revision
+36,2020-07-11,2021-11-28,adjacent to revision
+36,2020-07-18,2021-11-28,adjacent to revision
+36,2020-07-25,2021-11-28,adjacent to revision
+36,2020-09-26,2021-11-28,revision
+36,2020-10-03,2021-11-28,adjacent to revision
+36,2020-10-10,2021-11-28,adjacent to revision
+36,2020-10-17,2021-11-28,revision
+36,2020-10-24,2021-11-28,adjacent to revision
+36,2020-10-31,2021-11-28,adjacent to revision
+36,2020-11-07,2021-11-28,adjacent to revision
+36,2020-07-04,2021-12-05,revision
+36,2020-07-11,2021-12-05,adjacent to revision
+36,2020-07-18,2021-12-05,adjacent to revision
+36,2020-07-25,2021-12-05,adjacent to revision
+36,2020-09-26,2021-12-05,revision
+36,2020-10-03,2021-12-05,adjacent to revision
+36,2020-10-10,2021-12-05,adjacent to revision
+36,2020-10-17,2021-12-05,revision
+36,2020-10-24,2021-12-05,adjacent to revision
+36,2020-10-31,2021-12-05,adjacent to revision
+36,2020-11-07,2021-12-05,adjacent to revision
 39,2020-08-29,2020-12-06,revision
 39,2020-09-05,2020-12-06,adjacent to revision
 39,2020-09-12,2020-12-06,adjacent to revision
@@ -2815,7 +4070,6 @@ location,date,issue_date,anomaly_type
 39,2021-03-06,2021-07-18,revision
 39,2021-03-13,2021-07-18,revision
 39,2021-03-20,2021-07-18,adjacent to revision
-39,2021-07-10,2021-07-18,revision
 39,2020-04-04,2021-07-25,revision
 39,2020-04-11,2021-07-25,adjacent to revision
 39,2020-04-18,2021-07-25,adjacent to revision
@@ -2855,8 +4109,748 @@ location,date,issue_date,anomaly_type
 39,2021-03-06,2021-07-25,revision
 39,2021-03-13,2021-07-25,revision
 39,2021-03-20,2021-07-25,adjacent to revision
-39,2021-07-10,2021-07-25,revision
-39,2021-07-17,2021-07-25,revision
+39,2020-04-04,2021-08-01,revision
+39,2020-04-11,2021-08-01,adjacent to revision
+39,2020-04-18,2021-08-01,adjacent to revision
+39,2020-04-25,2021-08-01,adjacent to revision
+39,2020-06-13,2021-08-01,revision
+39,2020-06-20,2021-08-01,revision
+39,2020-06-27,2021-08-01,adjacent to revision
+39,2020-07-04,2021-08-01,adjacent to revision
+39,2020-07-11,2021-08-01,adjacent to revision
+39,2020-08-29,2021-08-01,revision
+39,2020-09-05,2021-08-01,adjacent to revision
+39,2020-09-12,2021-08-01,adjacent to revision
+39,2020-09-19,2021-08-01,revision
+39,2020-09-26,2021-08-01,adjacent to revision
+39,2020-10-03,2021-08-01,revision
+39,2020-10-10,2021-08-01,revision
+39,2020-10-17,2021-08-01,revision
+39,2020-10-24,2021-08-01,revision
+39,2020-10-31,2021-08-01,revision
+39,2020-11-07,2021-08-01,revision
+39,2020-11-14,2021-08-01,revision
+39,2020-11-21,2021-08-01,revision
+39,2020-11-28,2021-08-01,revision
+39,2020-12-05,2021-08-01,revision
+39,2020-12-12,2021-08-01,revision
+39,2020-12-19,2021-08-01,revision
+39,2020-12-26,2021-08-01,revision
+39,2021-01-02,2021-08-01,revision
+39,2021-01-09,2021-08-01,revision
+39,2021-01-16,2021-08-01,revision
+39,2021-01-23,2021-08-01,adjacent to revision
+39,2021-01-30,2021-08-01,revision
+39,2021-02-06,2021-08-01,adjacent to revision
+39,2021-02-13,2021-08-01,adjacent to revision
+39,2021-02-20,2021-08-01,revision
+39,2021-02-27,2021-08-01,adjacent to revision
+39,2021-03-06,2021-08-01,revision
+39,2021-03-13,2021-08-01,revision
+39,2021-03-20,2021-08-01,adjacent to revision
+39,2020-04-04,2021-08-08,revision
+39,2020-04-11,2021-08-08,adjacent to revision
+39,2020-04-18,2021-08-08,adjacent to revision
+39,2020-04-25,2021-08-08,adjacent to revision
+39,2020-06-13,2021-08-08,revision
+39,2020-06-20,2021-08-08,revision
+39,2020-06-27,2021-08-08,adjacent to revision
+39,2020-07-04,2021-08-08,adjacent to revision
+39,2020-07-11,2021-08-08,adjacent to revision
+39,2020-08-29,2021-08-08,revision
+39,2020-09-05,2021-08-08,adjacent to revision
+39,2020-09-12,2021-08-08,adjacent to revision
+39,2020-09-19,2021-08-08,revision
+39,2020-09-26,2021-08-08,adjacent to revision
+39,2020-10-03,2021-08-08,revision
+39,2020-10-10,2021-08-08,revision
+39,2020-10-17,2021-08-08,revision
+39,2020-10-24,2021-08-08,revision
+39,2020-10-31,2021-08-08,revision
+39,2020-11-07,2021-08-08,revision
+39,2020-11-14,2021-08-08,revision
+39,2020-11-21,2021-08-08,revision
+39,2020-11-28,2021-08-08,revision
+39,2020-12-05,2021-08-08,revision
+39,2020-12-12,2021-08-08,revision
+39,2020-12-19,2021-08-08,revision
+39,2020-12-26,2021-08-08,revision
+39,2021-01-02,2021-08-08,revision
+39,2021-01-09,2021-08-08,revision
+39,2021-01-16,2021-08-08,revision
+39,2021-01-23,2021-08-08,adjacent to revision
+39,2021-01-30,2021-08-08,revision
+39,2021-02-06,2021-08-08,adjacent to revision
+39,2021-02-13,2021-08-08,adjacent to revision
+39,2021-02-20,2021-08-08,revision
+39,2021-02-27,2021-08-08,adjacent to revision
+39,2021-03-06,2021-08-08,revision
+39,2021-03-13,2021-08-08,revision
+39,2021-03-20,2021-08-08,adjacent to revision
+39,2020-04-04,2021-08-15,revision
+39,2020-04-11,2021-08-15,adjacent to revision
+39,2020-04-18,2021-08-15,adjacent to revision
+39,2020-04-25,2021-08-15,adjacent to revision
+39,2020-06-13,2021-08-15,revision
+39,2020-06-20,2021-08-15,revision
+39,2020-06-27,2021-08-15,adjacent to revision
+39,2020-07-04,2021-08-15,adjacent to revision
+39,2020-07-11,2021-08-15,adjacent to revision
+39,2020-08-29,2021-08-15,revision
+39,2020-09-05,2021-08-15,adjacent to revision
+39,2020-09-12,2021-08-15,adjacent to revision
+39,2020-09-19,2021-08-15,revision
+39,2020-09-26,2021-08-15,adjacent to revision
+39,2020-10-03,2021-08-15,revision
+39,2020-10-10,2021-08-15,revision
+39,2020-10-17,2021-08-15,revision
+39,2020-10-24,2021-08-15,revision
+39,2020-10-31,2021-08-15,revision
+39,2020-11-07,2021-08-15,revision
+39,2020-11-14,2021-08-15,revision
+39,2020-11-21,2021-08-15,revision
+39,2020-11-28,2021-08-15,revision
+39,2020-12-05,2021-08-15,revision
+39,2020-12-12,2021-08-15,revision
+39,2020-12-19,2021-08-15,revision
+39,2020-12-26,2021-08-15,revision
+39,2021-01-02,2021-08-15,revision
+39,2021-01-09,2021-08-15,revision
+39,2021-01-16,2021-08-15,revision
+39,2021-01-23,2021-08-15,adjacent to revision
+39,2021-01-30,2021-08-15,revision
+39,2021-02-06,2021-08-15,adjacent to revision
+39,2021-02-13,2021-08-15,adjacent to revision
+39,2021-02-20,2021-08-15,revision
+39,2021-02-27,2021-08-15,adjacent to revision
+39,2021-03-06,2021-08-15,revision
+39,2021-03-13,2021-08-15,revision
+39,2021-03-20,2021-08-15,adjacent to revision
+39,2020-04-04,2021-08-22,revision
+39,2020-04-11,2021-08-22,adjacent to revision
+39,2020-04-18,2021-08-22,adjacent to revision
+39,2020-04-25,2021-08-22,adjacent to revision
+39,2020-06-13,2021-08-22,revision
+39,2020-06-20,2021-08-22,revision
+39,2020-06-27,2021-08-22,adjacent to revision
+39,2020-07-04,2021-08-22,adjacent to revision
+39,2020-07-11,2021-08-22,adjacent to revision
+39,2020-08-29,2021-08-22,revision
+39,2020-09-05,2021-08-22,adjacent to revision
+39,2020-09-12,2021-08-22,adjacent to revision
+39,2020-09-19,2021-08-22,revision
+39,2020-09-26,2021-08-22,adjacent to revision
+39,2020-10-03,2021-08-22,revision
+39,2020-10-10,2021-08-22,revision
+39,2020-10-17,2021-08-22,revision
+39,2020-10-24,2021-08-22,revision
+39,2020-10-31,2021-08-22,revision
+39,2020-11-07,2021-08-22,revision
+39,2020-11-14,2021-08-22,revision
+39,2020-11-21,2021-08-22,revision
+39,2020-11-28,2021-08-22,revision
+39,2020-12-05,2021-08-22,revision
+39,2020-12-12,2021-08-22,revision
+39,2020-12-19,2021-08-22,revision
+39,2020-12-26,2021-08-22,revision
+39,2021-01-02,2021-08-22,revision
+39,2021-01-09,2021-08-22,revision
+39,2021-01-16,2021-08-22,revision
+39,2021-01-23,2021-08-22,adjacent to revision
+39,2021-01-30,2021-08-22,revision
+39,2021-02-06,2021-08-22,adjacent to revision
+39,2021-02-13,2021-08-22,adjacent to revision
+39,2021-02-20,2021-08-22,revision
+39,2021-02-27,2021-08-22,adjacent to revision
+39,2021-03-06,2021-08-22,revision
+39,2021-03-13,2021-08-22,revision
+39,2021-03-20,2021-08-22,adjacent to revision
+39,2020-04-04,2021-08-29,revision
+39,2020-04-11,2021-08-29,adjacent to revision
+39,2020-04-18,2021-08-29,adjacent to revision
+39,2020-04-25,2021-08-29,adjacent to revision
+39,2020-06-13,2021-08-29,revision
+39,2020-06-20,2021-08-29,revision
+39,2020-06-27,2021-08-29,adjacent to revision
+39,2020-07-04,2021-08-29,adjacent to revision
+39,2020-07-11,2021-08-29,adjacent to revision
+39,2020-08-29,2021-08-29,revision
+39,2020-09-05,2021-08-29,adjacent to revision
+39,2020-09-12,2021-08-29,adjacent to revision
+39,2020-09-19,2021-08-29,revision
+39,2020-09-26,2021-08-29,adjacent to revision
+39,2020-10-03,2021-08-29,revision
+39,2020-10-10,2021-08-29,revision
+39,2020-10-17,2021-08-29,revision
+39,2020-10-24,2021-08-29,revision
+39,2020-10-31,2021-08-29,revision
+39,2020-11-07,2021-08-29,revision
+39,2020-11-14,2021-08-29,revision
+39,2020-11-21,2021-08-29,revision
+39,2020-11-28,2021-08-29,revision
+39,2020-12-05,2021-08-29,revision
+39,2020-12-12,2021-08-29,revision
+39,2020-12-19,2021-08-29,revision
+39,2020-12-26,2021-08-29,revision
+39,2021-01-02,2021-08-29,revision
+39,2021-01-09,2021-08-29,revision
+39,2021-01-16,2021-08-29,revision
+39,2021-01-23,2021-08-29,adjacent to revision
+39,2021-01-30,2021-08-29,revision
+39,2021-02-06,2021-08-29,adjacent to revision
+39,2021-02-13,2021-08-29,adjacent to revision
+39,2021-02-20,2021-08-29,revision
+39,2021-02-27,2021-08-29,adjacent to revision
+39,2021-03-06,2021-08-29,revision
+39,2021-03-13,2021-08-29,revision
+39,2021-03-20,2021-08-29,adjacent to revision
+39,2020-04-04,2021-09-05,revision
+39,2020-04-11,2021-09-05,adjacent to revision
+39,2020-04-18,2021-09-05,adjacent to revision
+39,2020-04-25,2021-09-05,adjacent to revision
+39,2020-06-13,2021-09-05,revision
+39,2020-06-20,2021-09-05,revision
+39,2020-06-27,2021-09-05,adjacent to revision
+39,2020-07-04,2021-09-05,adjacent to revision
+39,2020-07-11,2021-09-05,adjacent to revision
+39,2020-08-29,2021-09-05,revision
+39,2020-09-05,2021-09-05,adjacent to revision
+39,2020-09-12,2021-09-05,adjacent to revision
+39,2020-09-19,2021-09-05,revision
+39,2020-09-26,2021-09-05,adjacent to revision
+39,2020-10-03,2021-09-05,revision
+39,2020-10-10,2021-09-05,revision
+39,2020-10-17,2021-09-05,revision
+39,2020-10-24,2021-09-05,revision
+39,2020-10-31,2021-09-05,revision
+39,2020-11-07,2021-09-05,revision
+39,2020-11-14,2021-09-05,revision
+39,2020-11-21,2021-09-05,revision
+39,2020-11-28,2021-09-05,revision
+39,2020-12-05,2021-09-05,revision
+39,2020-12-12,2021-09-05,revision
+39,2020-12-19,2021-09-05,revision
+39,2020-12-26,2021-09-05,revision
+39,2021-01-02,2021-09-05,revision
+39,2021-01-09,2021-09-05,revision
+39,2021-01-16,2021-09-05,revision
+39,2021-01-23,2021-09-05,adjacent to revision
+39,2021-01-30,2021-09-05,revision
+39,2021-02-06,2021-09-05,adjacent to revision
+39,2021-02-13,2021-09-05,adjacent to revision
+39,2021-02-20,2021-09-05,revision
+39,2021-02-27,2021-09-05,adjacent to revision
+39,2021-03-06,2021-09-05,revision
+39,2021-03-13,2021-09-05,revision
+39,2021-03-20,2021-09-05,adjacent to revision
+39,2020-04-04,2021-09-12,revision
+39,2020-04-11,2021-09-12,adjacent to revision
+39,2020-04-18,2021-09-12,adjacent to revision
+39,2020-04-25,2021-09-12,adjacent to revision
+39,2020-06-13,2021-09-12,revision
+39,2020-06-20,2021-09-12,revision
+39,2020-06-27,2021-09-12,adjacent to revision
+39,2020-07-04,2021-09-12,adjacent to revision
+39,2020-07-11,2021-09-12,adjacent to revision
+39,2020-08-29,2021-09-12,revision
+39,2020-09-05,2021-09-12,adjacent to revision
+39,2020-09-12,2021-09-12,adjacent to revision
+39,2020-09-19,2021-09-12,revision
+39,2020-09-26,2021-09-12,adjacent to revision
+39,2020-10-03,2021-09-12,revision
+39,2020-10-10,2021-09-12,revision
+39,2020-10-17,2021-09-12,revision
+39,2020-10-24,2021-09-12,revision
+39,2020-10-31,2021-09-12,revision
+39,2020-11-07,2021-09-12,revision
+39,2020-11-14,2021-09-12,revision
+39,2020-11-21,2021-09-12,revision
+39,2020-11-28,2021-09-12,revision
+39,2020-12-05,2021-09-12,revision
+39,2020-12-12,2021-09-12,revision
+39,2020-12-19,2021-09-12,revision
+39,2020-12-26,2021-09-12,revision
+39,2021-01-02,2021-09-12,revision
+39,2021-01-09,2021-09-12,revision
+39,2021-01-16,2021-09-12,revision
+39,2021-01-23,2021-09-12,adjacent to revision
+39,2021-01-30,2021-09-12,revision
+39,2021-02-06,2021-09-12,adjacent to revision
+39,2021-02-13,2021-09-12,adjacent to revision
+39,2021-02-20,2021-09-12,revision
+39,2021-02-27,2021-09-12,adjacent to revision
+39,2021-03-06,2021-09-12,revision
+39,2021-03-13,2021-09-12,revision
+39,2021-03-20,2021-09-12,adjacent to revision
+39,2020-04-04,2021-09-19,revision
+39,2020-04-11,2021-09-19,adjacent to revision
+39,2020-04-18,2021-09-19,adjacent to revision
+39,2020-04-25,2021-09-19,adjacent to revision
+39,2020-06-13,2021-09-19,revision
+39,2020-06-20,2021-09-19,revision
+39,2020-06-27,2021-09-19,adjacent to revision
+39,2020-07-04,2021-09-19,adjacent to revision
+39,2020-07-11,2021-09-19,adjacent to revision
+39,2020-08-29,2021-09-19,revision
+39,2020-09-05,2021-09-19,adjacent to revision
+39,2020-09-12,2021-09-19,adjacent to revision
+39,2020-09-19,2021-09-19,revision
+39,2020-09-26,2021-09-19,adjacent to revision
+39,2020-10-03,2021-09-19,revision
+39,2020-10-10,2021-09-19,revision
+39,2020-10-17,2021-09-19,revision
+39,2020-10-24,2021-09-19,revision
+39,2020-10-31,2021-09-19,revision
+39,2020-11-07,2021-09-19,revision
+39,2020-11-14,2021-09-19,revision
+39,2020-11-21,2021-09-19,revision
+39,2020-11-28,2021-09-19,revision
+39,2020-12-05,2021-09-19,revision
+39,2020-12-12,2021-09-19,revision
+39,2020-12-19,2021-09-19,revision
+39,2020-12-26,2021-09-19,revision
+39,2021-01-02,2021-09-19,revision
+39,2021-01-09,2021-09-19,revision
+39,2021-01-16,2021-09-19,revision
+39,2021-01-23,2021-09-19,revision
+39,2021-01-30,2021-09-19,revision
+39,2021-02-06,2021-09-19,adjacent to revision
+39,2021-02-13,2021-09-19,adjacent to revision
+39,2021-02-20,2021-09-19,revision
+39,2021-02-27,2021-09-19,adjacent to revision
+39,2021-03-06,2021-09-19,revision
+39,2021-03-13,2021-09-19,revision
+39,2021-03-20,2021-09-19,adjacent to revision
+39,2020-04-04,2021-09-26,revision
+39,2020-04-11,2021-09-26,adjacent to revision
+39,2020-04-18,2021-09-26,adjacent to revision
+39,2020-04-25,2021-09-26,adjacent to revision
+39,2020-06-13,2021-09-26,revision
+39,2020-06-20,2021-09-26,revision
+39,2020-06-27,2021-09-26,adjacent to revision
+39,2020-07-04,2021-09-26,adjacent to revision
+39,2020-07-11,2021-09-26,adjacent to revision
+39,2020-08-29,2021-09-26,revision
+39,2020-09-05,2021-09-26,adjacent to revision
+39,2020-09-12,2021-09-26,adjacent to revision
+39,2020-09-19,2021-09-26,revision
+39,2020-09-26,2021-09-26,adjacent to revision
+39,2020-10-03,2021-09-26,revision
+39,2020-10-10,2021-09-26,revision
+39,2020-10-17,2021-09-26,revision
+39,2020-10-24,2021-09-26,revision
+39,2020-10-31,2021-09-26,revision
+39,2020-11-07,2021-09-26,revision
+39,2020-11-14,2021-09-26,revision
+39,2020-11-21,2021-09-26,revision
+39,2020-11-28,2021-09-26,revision
+39,2020-12-05,2021-09-26,revision
+39,2020-12-12,2021-09-26,revision
+39,2020-12-19,2021-09-26,revision
+39,2020-12-26,2021-09-26,revision
+39,2021-01-02,2021-09-26,revision
+39,2021-01-09,2021-09-26,revision
+39,2021-01-16,2021-09-26,revision
+39,2021-01-23,2021-09-26,revision
+39,2021-01-30,2021-09-26,revision
+39,2021-02-06,2021-09-26,adjacent to revision
+39,2021-02-13,2021-09-26,adjacent to revision
+39,2021-02-20,2021-09-26,revision
+39,2021-02-27,2021-09-26,adjacent to revision
+39,2021-03-06,2021-09-26,revision
+39,2021-03-13,2021-09-26,revision
+39,2021-03-20,2021-09-26,adjacent to revision
+39,2020-04-04,2021-10-03,revision
+39,2020-04-11,2021-10-03,adjacent to revision
+39,2020-04-18,2021-10-03,adjacent to revision
+39,2020-04-25,2021-10-03,adjacent to revision
+39,2020-06-13,2021-10-03,revision
+39,2020-06-20,2021-10-03,revision
+39,2020-06-27,2021-10-03,adjacent to revision
+39,2020-07-04,2021-10-03,adjacent to revision
+39,2020-07-11,2021-10-03,adjacent to revision
+39,2020-08-29,2021-10-03,revision
+39,2020-09-05,2021-10-03,adjacent to revision
+39,2020-09-12,2021-10-03,adjacent to revision
+39,2020-09-19,2021-10-03,revision
+39,2020-09-26,2021-10-03,adjacent to revision
+39,2020-10-03,2021-10-03,revision
+39,2020-10-10,2021-10-03,revision
+39,2020-10-17,2021-10-03,revision
+39,2020-10-24,2021-10-03,revision
+39,2020-10-31,2021-10-03,revision
+39,2020-11-07,2021-10-03,revision
+39,2020-11-14,2021-10-03,revision
+39,2020-11-21,2021-10-03,revision
+39,2020-11-28,2021-10-03,revision
+39,2020-12-05,2021-10-03,revision
+39,2020-12-12,2021-10-03,revision
+39,2020-12-19,2021-10-03,revision
+39,2020-12-26,2021-10-03,revision
+39,2021-01-02,2021-10-03,revision
+39,2021-01-09,2021-10-03,revision
+39,2021-01-16,2021-10-03,revision
+39,2021-01-23,2021-10-03,revision
+39,2021-01-30,2021-10-03,revision
+39,2021-02-06,2021-10-03,adjacent to revision
+39,2021-02-13,2021-10-03,adjacent to revision
+39,2021-02-20,2021-10-03,revision
+39,2021-02-27,2021-10-03,adjacent to revision
+39,2021-03-06,2021-10-03,revision
+39,2021-03-13,2021-10-03,revision
+39,2021-03-20,2021-10-03,adjacent to revision
+39,2020-04-04,2021-10-10,revision
+39,2020-04-11,2021-10-10,adjacent to revision
+39,2020-04-18,2021-10-10,adjacent to revision
+39,2020-04-25,2021-10-10,adjacent to revision
+39,2020-06-13,2021-10-10,revision
+39,2020-06-20,2021-10-10,revision
+39,2020-06-27,2021-10-10,adjacent to revision
+39,2020-07-04,2021-10-10,adjacent to revision
+39,2020-07-11,2021-10-10,adjacent to revision
+39,2020-08-29,2021-10-10,revision
+39,2020-09-05,2021-10-10,adjacent to revision
+39,2020-09-12,2021-10-10,adjacent to revision
+39,2020-09-19,2021-10-10,revision
+39,2020-09-26,2021-10-10,adjacent to revision
+39,2020-10-03,2021-10-10,revision
+39,2020-10-10,2021-10-10,revision
+39,2020-10-17,2021-10-10,revision
+39,2020-10-24,2021-10-10,revision
+39,2020-10-31,2021-10-10,revision
+39,2020-11-07,2021-10-10,revision
+39,2020-11-14,2021-10-10,revision
+39,2020-11-21,2021-10-10,revision
+39,2020-11-28,2021-10-10,revision
+39,2020-12-05,2021-10-10,revision
+39,2020-12-12,2021-10-10,revision
+39,2020-12-19,2021-10-10,revision
+39,2020-12-26,2021-10-10,revision
+39,2021-01-02,2021-10-10,revision
+39,2021-01-09,2021-10-10,revision
+39,2021-01-16,2021-10-10,revision
+39,2021-01-23,2021-10-10,revision
+39,2021-01-30,2021-10-10,revision
+39,2021-02-06,2021-10-10,adjacent to revision
+39,2021-02-13,2021-10-10,adjacent to revision
+39,2021-02-20,2021-10-10,revision
+39,2021-02-27,2021-10-10,adjacent to revision
+39,2021-03-06,2021-10-10,revision
+39,2021-03-13,2021-10-10,revision
+39,2021-03-20,2021-10-10,adjacent to revision
+39,2020-04-04,2021-10-17,revision
+39,2020-04-11,2021-10-17,adjacent to revision
+39,2020-04-18,2021-10-17,adjacent to revision
+39,2020-04-25,2021-10-17,adjacent to revision
+39,2020-06-13,2021-10-17,revision
+39,2020-06-20,2021-10-17,revision
+39,2020-06-27,2021-10-17,adjacent to revision
+39,2020-07-04,2021-10-17,adjacent to revision
+39,2020-07-11,2021-10-17,adjacent to revision
+39,2020-08-29,2021-10-17,revision
+39,2020-09-05,2021-10-17,adjacent to revision
+39,2020-09-12,2021-10-17,adjacent to revision
+39,2020-09-19,2021-10-17,revision
+39,2020-09-26,2021-10-17,adjacent to revision
+39,2020-10-03,2021-10-17,revision
+39,2020-10-10,2021-10-17,revision
+39,2020-10-17,2021-10-17,revision
+39,2020-10-24,2021-10-17,revision
+39,2020-10-31,2021-10-17,revision
+39,2020-11-07,2021-10-17,revision
+39,2020-11-14,2021-10-17,revision
+39,2020-11-21,2021-10-17,revision
+39,2020-11-28,2021-10-17,revision
+39,2020-12-05,2021-10-17,revision
+39,2020-12-12,2021-10-17,revision
+39,2020-12-19,2021-10-17,revision
+39,2020-12-26,2021-10-17,revision
+39,2021-01-02,2021-10-17,revision
+39,2021-01-09,2021-10-17,revision
+39,2021-01-16,2021-10-17,revision
+39,2021-01-23,2021-10-17,revision
+39,2021-01-30,2021-10-17,revision
+39,2021-02-06,2021-10-17,adjacent to revision
+39,2021-02-13,2021-10-17,adjacent to revision
+39,2021-02-20,2021-10-17,revision
+39,2021-02-27,2021-10-17,adjacent to revision
+39,2021-03-06,2021-10-17,revision
+39,2021-03-13,2021-10-17,revision
+39,2021-03-20,2021-10-17,adjacent to revision
+39,2020-04-04,2021-10-24,revision
+39,2020-04-11,2021-10-24,adjacent to revision
+39,2020-04-18,2021-10-24,adjacent to revision
+39,2020-04-25,2021-10-24,adjacent to revision
+39,2020-06-13,2021-10-24,revision
+39,2020-06-20,2021-10-24,revision
+39,2020-06-27,2021-10-24,adjacent to revision
+39,2020-07-04,2021-10-24,adjacent to revision
+39,2020-07-11,2021-10-24,adjacent to revision
+39,2020-08-29,2021-10-24,revision
+39,2020-09-05,2021-10-24,adjacent to revision
+39,2020-09-12,2021-10-24,adjacent to revision
+39,2020-09-19,2021-10-24,revision
+39,2020-09-26,2021-10-24,adjacent to revision
+39,2020-10-03,2021-10-24,revision
+39,2020-10-10,2021-10-24,revision
+39,2020-10-17,2021-10-24,revision
+39,2020-10-24,2021-10-24,revision
+39,2020-10-31,2021-10-24,revision
+39,2020-11-07,2021-10-24,revision
+39,2020-11-14,2021-10-24,revision
+39,2020-11-21,2021-10-24,revision
+39,2020-11-28,2021-10-24,revision
+39,2020-12-05,2021-10-24,revision
+39,2020-12-12,2021-10-24,revision
+39,2020-12-19,2021-10-24,revision
+39,2020-12-26,2021-10-24,revision
+39,2021-01-02,2021-10-24,revision
+39,2021-01-09,2021-10-24,revision
+39,2021-01-16,2021-10-24,revision
+39,2021-01-23,2021-10-24,revision
+39,2021-01-30,2021-10-24,revision
+39,2021-02-06,2021-10-24,adjacent to revision
+39,2021-02-13,2021-10-24,adjacent to revision
+39,2021-02-20,2021-10-24,revision
+39,2021-02-27,2021-10-24,adjacent to revision
+39,2021-03-06,2021-10-24,revision
+39,2021-03-13,2021-10-24,revision
+39,2021-03-20,2021-10-24,adjacent to revision
+39,2020-04-04,2021-10-31,revision
+39,2020-04-11,2021-10-31,adjacent to revision
+39,2020-04-18,2021-10-31,adjacent to revision
+39,2020-04-25,2021-10-31,adjacent to revision
+39,2020-06-13,2021-10-31,revision
+39,2020-06-20,2021-10-31,revision
+39,2020-06-27,2021-10-31,adjacent to revision
+39,2020-07-04,2021-10-31,adjacent to revision
+39,2020-07-11,2021-10-31,adjacent to revision
+39,2020-08-29,2021-10-31,revision
+39,2020-09-05,2021-10-31,adjacent to revision
+39,2020-09-12,2021-10-31,adjacent to revision
+39,2020-09-19,2021-10-31,revision
+39,2020-09-26,2021-10-31,adjacent to revision
+39,2020-10-03,2021-10-31,revision
+39,2020-10-10,2021-10-31,revision
+39,2020-10-17,2021-10-31,revision
+39,2020-10-24,2021-10-31,revision
+39,2020-10-31,2021-10-31,revision
+39,2020-11-07,2021-10-31,revision
+39,2020-11-14,2021-10-31,revision
+39,2020-11-21,2021-10-31,revision
+39,2020-11-28,2021-10-31,revision
+39,2020-12-05,2021-10-31,revision
+39,2020-12-12,2021-10-31,revision
+39,2020-12-19,2021-10-31,revision
+39,2020-12-26,2021-10-31,revision
+39,2021-01-02,2021-10-31,revision
+39,2021-01-09,2021-10-31,revision
+39,2021-01-16,2021-10-31,revision
+39,2021-01-23,2021-10-31,revision
+39,2021-01-30,2021-10-31,revision
+39,2021-02-06,2021-10-31,adjacent to revision
+39,2021-02-13,2021-10-31,adjacent to revision
+39,2021-02-20,2021-10-31,revision
+39,2021-02-27,2021-10-31,adjacent to revision
+39,2021-03-06,2021-10-31,revision
+39,2021-03-13,2021-10-31,revision
+39,2021-03-20,2021-10-31,adjacent to revision
+39,2020-04-04,2021-11-07,revision
+39,2020-04-11,2021-11-07,adjacent to revision
+39,2020-04-18,2021-11-07,adjacent to revision
+39,2020-04-25,2021-11-07,adjacent to revision
+39,2020-06-13,2021-11-07,revision
+39,2020-06-20,2021-11-07,revision
+39,2020-06-27,2021-11-07,adjacent to revision
+39,2020-07-04,2021-11-07,adjacent to revision
+39,2020-07-11,2021-11-07,adjacent to revision
+39,2020-08-29,2021-11-07,revision
+39,2020-09-05,2021-11-07,adjacent to revision
+39,2020-09-12,2021-11-07,adjacent to revision
+39,2020-09-19,2021-11-07,revision
+39,2020-09-26,2021-11-07,adjacent to revision
+39,2020-10-03,2021-11-07,revision
+39,2020-10-10,2021-11-07,revision
+39,2020-10-17,2021-11-07,revision
+39,2020-10-24,2021-11-07,revision
+39,2020-10-31,2021-11-07,revision
+39,2020-11-07,2021-11-07,revision
+39,2020-11-14,2021-11-07,revision
+39,2020-11-21,2021-11-07,revision
+39,2020-11-28,2021-11-07,revision
+39,2020-12-05,2021-11-07,revision
+39,2020-12-12,2021-11-07,revision
+39,2020-12-19,2021-11-07,revision
+39,2020-12-26,2021-11-07,revision
+39,2021-01-02,2021-11-07,revision
+39,2021-01-09,2021-11-07,revision
+39,2021-01-16,2021-11-07,revision
+39,2021-01-23,2021-11-07,revision
+39,2021-01-30,2021-11-07,revision
+39,2021-02-06,2021-11-07,adjacent to revision
+39,2021-02-13,2021-11-07,adjacent to revision
+39,2021-02-20,2021-11-07,revision
+39,2021-02-27,2021-11-07,adjacent to revision
+39,2021-03-06,2021-11-07,revision
+39,2021-03-13,2021-11-07,revision
+39,2021-03-20,2021-11-07,adjacent to revision
+39,2020-04-04,2021-11-14,revision
+39,2020-04-11,2021-11-14,adjacent to revision
+39,2020-04-18,2021-11-14,adjacent to revision
+39,2020-04-25,2021-11-14,adjacent to revision
+39,2020-06-13,2021-11-14,revision
+39,2020-06-20,2021-11-14,revision
+39,2020-06-27,2021-11-14,adjacent to revision
+39,2020-07-04,2021-11-14,adjacent to revision
+39,2020-07-11,2021-11-14,adjacent to revision
+39,2020-08-29,2021-11-14,revision
+39,2020-09-05,2021-11-14,adjacent to revision
+39,2020-09-12,2021-11-14,adjacent to revision
+39,2020-09-19,2021-11-14,revision
+39,2020-09-26,2021-11-14,adjacent to revision
+39,2020-10-03,2021-11-14,revision
+39,2020-10-10,2021-11-14,revision
+39,2020-10-17,2021-11-14,revision
+39,2020-10-24,2021-11-14,revision
+39,2020-10-31,2021-11-14,revision
+39,2020-11-07,2021-11-14,revision
+39,2020-11-14,2021-11-14,revision
+39,2020-11-21,2021-11-14,revision
+39,2020-11-28,2021-11-14,revision
+39,2020-12-05,2021-11-14,revision
+39,2020-12-12,2021-11-14,revision
+39,2020-12-19,2021-11-14,revision
+39,2020-12-26,2021-11-14,revision
+39,2021-01-02,2021-11-14,revision
+39,2021-01-09,2021-11-14,revision
+39,2021-01-16,2021-11-14,revision
+39,2021-01-23,2021-11-14,revision
+39,2021-01-30,2021-11-14,revision
+39,2021-02-06,2021-11-14,adjacent to revision
+39,2021-02-13,2021-11-14,adjacent to revision
+39,2021-02-20,2021-11-14,revision
+39,2021-02-27,2021-11-14,adjacent to revision
+39,2021-03-06,2021-11-14,revision
+39,2021-03-13,2021-11-14,revision
+39,2021-03-20,2021-11-14,adjacent to revision
+39,2020-04-04,2021-11-21,revision
+39,2020-04-11,2021-11-21,adjacent to revision
+39,2020-04-18,2021-11-21,adjacent to revision
+39,2020-04-25,2021-11-21,adjacent to revision
+39,2020-06-13,2021-11-21,revision
+39,2020-06-20,2021-11-21,revision
+39,2020-06-27,2021-11-21,adjacent to revision
+39,2020-07-04,2021-11-21,adjacent to revision
+39,2020-07-11,2021-11-21,adjacent to revision
+39,2020-08-29,2021-11-21,revision
+39,2020-09-05,2021-11-21,adjacent to revision
+39,2020-09-12,2021-11-21,adjacent to revision
+39,2020-09-19,2021-11-21,revision
+39,2020-09-26,2021-11-21,adjacent to revision
+39,2020-10-03,2021-11-21,revision
+39,2020-10-10,2021-11-21,revision
+39,2020-10-17,2021-11-21,revision
+39,2020-10-24,2021-11-21,revision
+39,2020-10-31,2021-11-21,revision
+39,2020-11-07,2021-11-21,revision
+39,2020-11-14,2021-11-21,revision
+39,2020-11-21,2021-11-21,revision
+39,2020-11-28,2021-11-21,revision
+39,2020-12-05,2021-11-21,revision
+39,2020-12-12,2021-11-21,revision
+39,2020-12-19,2021-11-21,revision
+39,2020-12-26,2021-11-21,revision
+39,2021-01-02,2021-11-21,revision
+39,2021-01-09,2021-11-21,revision
+39,2021-01-16,2021-11-21,revision
+39,2021-01-23,2021-11-21,revision
+39,2021-01-30,2021-11-21,revision
+39,2021-02-06,2021-11-21,adjacent to revision
+39,2021-02-13,2021-11-21,adjacent to revision
+39,2021-02-20,2021-11-21,revision
+39,2021-02-27,2021-11-21,adjacent to revision
+39,2021-03-06,2021-11-21,revision
+39,2021-03-13,2021-11-21,revision
+39,2021-03-20,2021-11-21,adjacent to revision
+39,2020-04-04,2021-11-28,revision
+39,2020-04-11,2021-11-28,adjacent to revision
+39,2020-04-18,2021-11-28,adjacent to revision
+39,2020-04-25,2021-11-28,adjacent to revision
+39,2020-06-13,2021-11-28,revision
+39,2020-06-20,2021-11-28,revision
+39,2020-06-27,2021-11-28,adjacent to revision
+39,2020-07-04,2021-11-28,adjacent to revision
+39,2020-07-11,2021-11-28,adjacent to revision
+39,2020-08-29,2021-11-28,revision
+39,2020-09-05,2021-11-28,adjacent to revision
+39,2020-09-12,2021-11-28,adjacent to revision
+39,2020-09-19,2021-11-28,revision
+39,2020-09-26,2021-11-28,adjacent to revision
+39,2020-10-03,2021-11-28,revision
+39,2020-10-10,2021-11-28,revision
+39,2020-10-17,2021-11-28,revision
+39,2020-10-24,2021-11-28,revision
+39,2020-10-31,2021-11-28,revision
+39,2020-11-07,2021-11-28,revision
+39,2020-11-14,2021-11-28,revision
+39,2020-11-21,2021-11-28,revision
+39,2020-11-28,2021-11-28,revision
+39,2020-12-05,2021-11-28,revision
+39,2020-12-12,2021-11-28,revision
+39,2020-12-19,2021-11-28,revision
+39,2020-12-26,2021-11-28,revision
+39,2021-01-02,2021-11-28,revision
+39,2021-01-09,2021-11-28,revision
+39,2021-01-16,2021-11-28,revision
+39,2021-01-23,2021-11-28,revision
+39,2021-01-30,2021-11-28,revision
+39,2021-02-06,2021-11-28,adjacent to revision
+39,2021-02-13,2021-11-28,adjacent to revision
+39,2021-02-20,2021-11-28,revision
+39,2021-02-27,2021-11-28,adjacent to revision
+39,2021-03-06,2021-11-28,revision
+39,2021-03-13,2021-11-28,revision
+39,2021-03-20,2021-11-28,adjacent to revision
+39,2020-04-04,2021-12-05,revision
+39,2020-04-11,2021-12-05,adjacent to revision
+39,2020-04-18,2021-12-05,adjacent to revision
+39,2020-04-25,2021-12-05,adjacent to revision
+39,2020-06-13,2021-12-05,revision
+39,2020-06-20,2021-12-05,revision
+39,2020-06-27,2021-12-05,adjacent to revision
+39,2020-07-04,2021-12-05,adjacent to revision
+39,2020-07-11,2021-12-05,adjacent to revision
+39,2020-08-29,2021-12-05,revision
+39,2020-09-05,2021-12-05,adjacent to revision
+39,2020-09-12,2021-12-05,adjacent to revision
+39,2020-09-19,2021-12-05,revision
+39,2020-09-26,2021-12-05,adjacent to revision
+39,2020-10-03,2021-12-05,revision
+39,2020-10-10,2021-12-05,revision
+39,2020-10-17,2021-12-05,revision
+39,2020-10-24,2021-12-05,revision
+39,2020-10-31,2021-12-05,revision
+39,2020-11-07,2021-12-05,revision
+39,2020-11-14,2021-12-05,revision
+39,2020-11-21,2021-12-05,revision
+39,2020-11-28,2021-12-05,revision
+39,2020-12-05,2021-12-05,revision
+39,2020-12-12,2021-12-05,revision
+39,2020-12-19,2021-12-05,revision
+39,2020-12-26,2021-12-05,revision
+39,2021-01-02,2021-12-05,revision
+39,2021-01-09,2021-12-05,revision
+39,2021-01-16,2021-12-05,revision
+39,2021-01-23,2021-12-05,revision
+39,2021-01-30,2021-12-05,revision
+39,2021-02-06,2021-12-05,adjacent to revision
+39,2021-02-13,2021-12-05,adjacent to revision
+39,2021-02-20,2021-12-05,revision
+39,2021-02-27,2021-12-05,adjacent to revision
+39,2021-03-06,2021-12-05,revision
+39,2021-03-13,2021-12-05,revision
+39,2021-03-20,2021-12-05,adjacent to revision
+39,2021-11-27,2021-12-05,revision
 44,2020-05-02,2020-10-18,revision
 44,2020-05-09,2020-10-18,adjacent to revision
 44,2020-05-16,2020-10-18,adjacent to revision
@@ -3418,6 +5412,310 @@ location,date,issue_date,anomaly_type
 44,2020-12-26,2021-07-25,adjacent to revision
 44,2021-01-02,2021-07-25,adjacent to revision
 44,2021-02-20,2021-07-25,revision
+44,2020-05-02,2021-08-01,revision
+44,2020-05-09,2021-08-01,adjacent to revision
+44,2020-05-16,2021-08-01,revision
+44,2020-05-23,2021-08-01,adjacent to revision
+44,2020-05-30,2021-08-01,revision
+44,2020-06-06,2021-08-01,adjacent to revision
+44,2020-06-13,2021-08-01,revision
+44,2020-06-20,2021-08-01,revision
+44,2020-06-27,2021-08-01,adjacent to revision
+44,2020-07-04,2021-08-01,adjacent to revision
+44,2020-07-11,2021-08-01,adjacent to revision
+44,2020-12-12,2021-08-01,revision
+44,2020-12-19,2021-08-01,adjacent to revision
+44,2020-12-26,2021-08-01,adjacent to revision
+44,2021-01-02,2021-08-01,adjacent to revision
+44,2021-02-20,2021-08-01,revision
+44,2020-05-02,2021-08-08,revision
+44,2020-05-09,2021-08-08,adjacent to revision
+44,2020-05-16,2021-08-08,revision
+44,2020-05-23,2021-08-08,adjacent to revision
+44,2020-05-30,2021-08-08,revision
+44,2020-06-06,2021-08-08,adjacent to revision
+44,2020-06-13,2021-08-08,revision
+44,2020-06-20,2021-08-08,revision
+44,2020-06-27,2021-08-08,adjacent to revision
+44,2020-07-04,2021-08-08,adjacent to revision
+44,2020-07-11,2021-08-08,adjacent to revision
+44,2020-12-12,2021-08-08,revision
+44,2020-12-19,2021-08-08,adjacent to revision
+44,2020-12-26,2021-08-08,adjacent to revision
+44,2021-01-02,2021-08-08,adjacent to revision
+44,2021-02-20,2021-08-08,revision
+44,2020-05-02,2021-08-15,revision
+44,2020-05-09,2021-08-15,adjacent to revision
+44,2020-05-16,2021-08-15,revision
+44,2020-05-23,2021-08-15,adjacent to revision
+44,2020-05-30,2021-08-15,revision
+44,2020-06-06,2021-08-15,adjacent to revision
+44,2020-06-13,2021-08-15,revision
+44,2020-06-20,2021-08-15,revision
+44,2020-06-27,2021-08-15,adjacent to revision
+44,2020-07-04,2021-08-15,adjacent to revision
+44,2020-07-11,2021-08-15,adjacent to revision
+44,2020-12-12,2021-08-15,revision
+44,2020-12-19,2021-08-15,adjacent to revision
+44,2020-12-26,2021-08-15,adjacent to revision
+44,2021-01-02,2021-08-15,adjacent to revision
+44,2021-02-20,2021-08-15,revision
+44,2020-05-02,2021-08-22,revision
+44,2020-05-09,2021-08-22,adjacent to revision
+44,2020-05-16,2021-08-22,revision
+44,2020-05-23,2021-08-22,adjacent to revision
+44,2020-05-30,2021-08-22,revision
+44,2020-06-06,2021-08-22,adjacent to revision
+44,2020-06-13,2021-08-22,revision
+44,2020-06-20,2021-08-22,revision
+44,2020-06-27,2021-08-22,adjacent to revision
+44,2020-07-04,2021-08-22,adjacent to revision
+44,2020-07-11,2021-08-22,adjacent to revision
+44,2020-12-12,2021-08-22,revision
+44,2020-12-19,2021-08-22,adjacent to revision
+44,2020-12-26,2021-08-22,adjacent to revision
+44,2021-01-02,2021-08-22,adjacent to revision
+44,2021-02-20,2021-08-22,revision
+44,2020-05-02,2021-08-29,revision
+44,2020-05-09,2021-08-29,adjacent to revision
+44,2020-05-16,2021-08-29,revision
+44,2020-05-23,2021-08-29,adjacent to revision
+44,2020-05-30,2021-08-29,revision
+44,2020-06-06,2021-08-29,adjacent to revision
+44,2020-06-13,2021-08-29,revision
+44,2020-06-20,2021-08-29,revision
+44,2020-06-27,2021-08-29,adjacent to revision
+44,2020-07-04,2021-08-29,adjacent to revision
+44,2020-07-11,2021-08-29,adjacent to revision
+44,2020-12-12,2021-08-29,revision
+44,2020-12-19,2021-08-29,adjacent to revision
+44,2020-12-26,2021-08-29,adjacent to revision
+44,2021-01-02,2021-08-29,adjacent to revision
+44,2021-02-20,2021-08-29,revision
+44,2020-05-02,2021-09-05,revision
+44,2020-05-09,2021-09-05,adjacent to revision
+44,2020-05-16,2021-09-05,revision
+44,2020-05-23,2021-09-05,adjacent to revision
+44,2020-05-30,2021-09-05,revision
+44,2020-06-06,2021-09-05,adjacent to revision
+44,2020-06-13,2021-09-05,revision
+44,2020-06-20,2021-09-05,revision
+44,2020-06-27,2021-09-05,adjacent to revision
+44,2020-07-04,2021-09-05,adjacent to revision
+44,2020-07-11,2021-09-05,adjacent to revision
+44,2020-12-12,2021-09-05,revision
+44,2020-12-19,2021-09-05,adjacent to revision
+44,2020-12-26,2021-09-05,adjacent to revision
+44,2021-01-02,2021-09-05,adjacent to revision
+44,2021-02-20,2021-09-05,revision
+44,2020-05-02,2021-09-12,revision
+44,2020-05-09,2021-09-12,adjacent to revision
+44,2020-05-16,2021-09-12,revision
+44,2020-05-23,2021-09-12,adjacent to revision
+44,2020-05-30,2021-09-12,revision
+44,2020-06-06,2021-09-12,adjacent to revision
+44,2020-06-13,2021-09-12,revision
+44,2020-06-20,2021-09-12,revision
+44,2020-06-27,2021-09-12,adjacent to revision
+44,2020-07-04,2021-09-12,adjacent to revision
+44,2020-07-11,2021-09-12,adjacent to revision
+44,2020-12-12,2021-09-12,revision
+44,2020-12-19,2021-09-12,adjacent to revision
+44,2020-12-26,2021-09-12,adjacent to revision
+44,2021-01-02,2021-09-12,adjacent to revision
+44,2021-02-20,2021-09-12,revision
+44,2020-05-02,2021-09-19,revision
+44,2020-05-09,2021-09-19,adjacent to revision
+44,2020-05-16,2021-09-19,revision
+44,2020-05-23,2021-09-19,adjacent to revision
+44,2020-05-30,2021-09-19,revision
+44,2020-06-06,2021-09-19,adjacent to revision
+44,2020-06-13,2021-09-19,revision
+44,2020-06-20,2021-09-19,revision
+44,2020-06-27,2021-09-19,adjacent to revision
+44,2020-07-04,2021-09-19,adjacent to revision
+44,2020-07-11,2021-09-19,adjacent to revision
+44,2020-12-12,2021-09-19,revision
+44,2020-12-19,2021-09-19,adjacent to revision
+44,2020-12-26,2021-09-19,adjacent to revision
+44,2021-01-02,2021-09-19,adjacent to revision
+44,2021-02-20,2021-09-19,revision
+44,2020-05-02,2021-09-26,revision
+44,2020-05-09,2021-09-26,adjacent to revision
+44,2020-05-16,2021-09-26,revision
+44,2020-05-23,2021-09-26,adjacent to revision
+44,2020-05-30,2021-09-26,revision
+44,2020-06-06,2021-09-26,adjacent to revision
+44,2020-06-13,2021-09-26,revision
+44,2020-06-20,2021-09-26,revision
+44,2020-06-27,2021-09-26,adjacent to revision
+44,2020-07-04,2021-09-26,adjacent to revision
+44,2020-07-11,2021-09-26,adjacent to revision
+44,2020-12-12,2021-09-26,revision
+44,2020-12-19,2021-09-26,adjacent to revision
+44,2020-12-26,2021-09-26,adjacent to revision
+44,2021-01-02,2021-09-26,adjacent to revision
+44,2021-02-20,2021-09-26,revision
+44,2020-05-02,2021-10-03,revision
+44,2020-05-09,2021-10-03,adjacent to revision
+44,2020-05-16,2021-10-03,revision
+44,2020-05-23,2021-10-03,adjacent to revision
+44,2020-05-30,2021-10-03,revision
+44,2020-06-06,2021-10-03,adjacent to revision
+44,2020-06-13,2021-10-03,revision
+44,2020-06-20,2021-10-03,revision
+44,2020-06-27,2021-10-03,adjacent to revision
+44,2020-07-04,2021-10-03,adjacent to revision
+44,2020-07-11,2021-10-03,adjacent to revision
+44,2020-12-12,2021-10-03,revision
+44,2020-12-19,2021-10-03,adjacent to revision
+44,2020-12-26,2021-10-03,adjacent to revision
+44,2021-01-02,2021-10-03,adjacent to revision
+44,2021-02-20,2021-10-03,revision
+44,2020-05-02,2021-10-10,revision
+44,2020-05-09,2021-10-10,adjacent to revision
+44,2020-05-16,2021-10-10,revision
+44,2020-05-23,2021-10-10,adjacent to revision
+44,2020-05-30,2021-10-10,revision
+44,2020-06-06,2021-10-10,adjacent to revision
+44,2020-06-13,2021-10-10,revision
+44,2020-06-20,2021-10-10,revision
+44,2020-06-27,2021-10-10,adjacent to revision
+44,2020-07-04,2021-10-10,adjacent to revision
+44,2020-07-11,2021-10-10,adjacent to revision
+44,2020-12-12,2021-10-10,revision
+44,2020-12-19,2021-10-10,adjacent to revision
+44,2020-12-26,2021-10-10,adjacent to revision
+44,2021-01-02,2021-10-10,adjacent to revision
+44,2021-02-20,2021-10-10,revision
+44,2020-05-02,2021-10-17,revision
+44,2020-05-09,2021-10-17,adjacent to revision
+44,2020-05-16,2021-10-17,revision
+44,2020-05-23,2021-10-17,adjacent to revision
+44,2020-05-30,2021-10-17,revision
+44,2020-06-06,2021-10-17,adjacent to revision
+44,2020-06-13,2021-10-17,revision
+44,2020-06-20,2021-10-17,revision
+44,2020-06-27,2021-10-17,adjacent to revision
+44,2020-07-04,2021-10-17,adjacent to revision
+44,2020-07-11,2021-10-17,adjacent to revision
+44,2020-12-12,2021-10-17,revision
+44,2020-12-19,2021-10-17,adjacent to revision
+44,2020-12-26,2021-10-17,adjacent to revision
+44,2021-01-02,2021-10-17,adjacent to revision
+44,2021-02-20,2021-10-17,revision
+44,2020-05-02,2021-10-24,revision
+44,2020-05-09,2021-10-24,adjacent to revision
+44,2020-05-16,2021-10-24,revision
+44,2020-05-23,2021-10-24,adjacent to revision
+44,2020-05-30,2021-10-24,revision
+44,2020-06-06,2021-10-24,adjacent to revision
+44,2020-06-13,2021-10-24,revision
+44,2020-06-20,2021-10-24,revision
+44,2020-06-27,2021-10-24,adjacent to revision
+44,2020-07-04,2021-10-24,adjacent to revision
+44,2020-07-11,2021-10-24,adjacent to revision
+44,2020-12-12,2021-10-24,revision
+44,2020-12-19,2021-10-24,adjacent to revision
+44,2020-12-26,2021-10-24,adjacent to revision
+44,2021-01-02,2021-10-24,adjacent to revision
+44,2021-02-20,2021-10-24,revision
+44,2020-05-02,2021-10-31,revision
+44,2020-05-09,2021-10-31,adjacent to revision
+44,2020-05-16,2021-10-31,revision
+44,2020-05-23,2021-10-31,adjacent to revision
+44,2020-05-30,2021-10-31,revision
+44,2020-06-06,2021-10-31,adjacent to revision
+44,2020-06-13,2021-10-31,revision
+44,2020-06-20,2021-10-31,revision
+44,2020-06-27,2021-10-31,adjacent to revision
+44,2020-07-04,2021-10-31,adjacent to revision
+44,2020-07-11,2021-10-31,adjacent to revision
+44,2020-12-12,2021-10-31,revision
+44,2020-12-19,2021-10-31,adjacent to revision
+44,2020-12-26,2021-10-31,adjacent to revision
+44,2021-01-02,2021-10-31,adjacent to revision
+44,2021-02-20,2021-10-31,revision
+44,2020-05-02,2021-11-07,revision
+44,2020-05-09,2021-11-07,adjacent to revision
+44,2020-05-16,2021-11-07,revision
+44,2020-05-23,2021-11-07,adjacent to revision
+44,2020-05-30,2021-11-07,revision
+44,2020-06-06,2021-11-07,adjacent to revision
+44,2020-06-13,2021-11-07,revision
+44,2020-06-20,2021-11-07,revision
+44,2020-06-27,2021-11-07,adjacent to revision
+44,2020-07-04,2021-11-07,adjacent to revision
+44,2020-07-11,2021-11-07,adjacent to revision
+44,2020-12-12,2021-11-07,revision
+44,2020-12-19,2021-11-07,adjacent to revision
+44,2020-12-26,2021-11-07,adjacent to revision
+44,2021-01-02,2021-11-07,adjacent to revision
+44,2021-02-20,2021-11-07,revision
+44,2020-05-02,2021-11-14,revision
+44,2020-05-09,2021-11-14,adjacent to revision
+44,2020-05-16,2021-11-14,revision
+44,2020-05-23,2021-11-14,adjacent to revision
+44,2020-05-30,2021-11-14,revision
+44,2020-06-06,2021-11-14,adjacent to revision
+44,2020-06-13,2021-11-14,revision
+44,2020-06-20,2021-11-14,revision
+44,2020-06-27,2021-11-14,adjacent to revision
+44,2020-07-04,2021-11-14,adjacent to revision
+44,2020-07-11,2021-11-14,adjacent to revision
+44,2020-12-12,2021-11-14,revision
+44,2020-12-19,2021-11-14,adjacent to revision
+44,2020-12-26,2021-11-14,adjacent to revision
+44,2021-01-02,2021-11-14,adjacent to revision
+44,2021-02-20,2021-11-14,revision
+44,2020-05-02,2021-11-21,revision
+44,2020-05-09,2021-11-21,adjacent to revision
+44,2020-05-16,2021-11-21,revision
+44,2020-05-23,2021-11-21,adjacent to revision
+44,2020-05-30,2021-11-21,revision
+44,2020-06-06,2021-11-21,adjacent to revision
+44,2020-06-13,2021-11-21,revision
+44,2020-06-20,2021-11-21,revision
+44,2020-06-27,2021-11-21,adjacent to revision
+44,2020-07-04,2021-11-21,adjacent to revision
+44,2020-07-11,2021-11-21,adjacent to revision
+44,2020-12-12,2021-11-21,revision
+44,2020-12-19,2021-11-21,adjacent to revision
+44,2020-12-26,2021-11-21,adjacent to revision
+44,2021-01-02,2021-11-21,adjacent to revision
+44,2021-02-20,2021-11-21,revision
+44,2020-05-02,2021-11-28,revision
+44,2020-05-09,2021-11-28,adjacent to revision
+44,2020-05-16,2021-11-28,revision
+44,2020-05-23,2021-11-28,adjacent to revision
+44,2020-05-30,2021-11-28,revision
+44,2020-06-06,2021-11-28,adjacent to revision
+44,2020-06-13,2021-11-28,revision
+44,2020-06-20,2021-11-28,revision
+44,2020-06-27,2021-11-28,adjacent to revision
+44,2020-07-04,2021-11-28,adjacent to revision
+44,2020-07-11,2021-11-28,adjacent to revision
+44,2020-12-12,2021-11-28,revision
+44,2020-12-19,2021-11-28,adjacent to revision
+44,2020-12-26,2021-11-28,adjacent to revision
+44,2021-01-02,2021-11-28,adjacent to revision
+44,2021-02-20,2021-11-28,revision
+44,2020-05-02,2021-12-05,revision
+44,2020-05-09,2021-12-05,adjacent to revision
+44,2020-05-16,2021-12-05,revision
+44,2020-05-23,2021-12-05,adjacent to revision
+44,2020-05-30,2021-12-05,revision
+44,2020-06-06,2021-12-05,adjacent to revision
+44,2020-06-13,2021-12-05,revision
+44,2020-06-20,2021-12-05,revision
+44,2020-06-27,2021-12-05,adjacent to revision
+44,2020-07-04,2021-12-05,adjacent to revision
+44,2020-07-11,2021-12-05,adjacent to revision
+44,2020-12-12,2021-12-05,revision
+44,2020-12-19,2021-12-05,adjacent to revision
+44,2020-12-26,2021-12-05,adjacent to revision
+44,2021-01-02,2021-12-05,adjacent to revision
+44,2021-02-20,2021-12-05,revision
 48,2020-07-04,2020-08-09,revision
 48,2020-07-11,2020-08-09,adjacent to revision
 48,2020-07-18,2020-08-09,adjacent to revision
@@ -3622,6 +5920,82 @@ location,date,issue_date,anomaly_type
 48,2020-07-11,2021-07-25,adjacent to revision
 48,2020-07-18,2021-07-25,adjacent to revision
 48,2020-07-25,2021-07-25,adjacent to revision
+48,2020-07-04,2021-08-01,revision
+48,2020-07-11,2021-08-01,adjacent to revision
+48,2020-07-18,2021-08-01,adjacent to revision
+48,2020-07-25,2021-08-01,adjacent to revision
+48,2020-07-04,2021-08-08,revision
+48,2020-07-11,2021-08-08,adjacent to revision
+48,2020-07-18,2021-08-08,adjacent to revision
+48,2020-07-25,2021-08-08,adjacent to revision
+48,2020-07-04,2021-08-15,revision
+48,2020-07-11,2021-08-15,adjacent to revision
+48,2020-07-18,2021-08-15,adjacent to revision
+48,2020-07-25,2021-08-15,adjacent to revision
+48,2020-07-04,2021-08-22,revision
+48,2020-07-11,2021-08-22,adjacent to revision
+48,2020-07-18,2021-08-22,adjacent to revision
+48,2020-07-25,2021-08-22,adjacent to revision
+48,2020-07-04,2021-08-29,revision
+48,2020-07-11,2021-08-29,adjacent to revision
+48,2020-07-18,2021-08-29,adjacent to revision
+48,2020-07-25,2021-08-29,adjacent to revision
+48,2020-07-04,2021-09-05,revision
+48,2020-07-11,2021-09-05,adjacent to revision
+48,2020-07-18,2021-09-05,adjacent to revision
+48,2020-07-25,2021-09-05,adjacent to revision
+48,2020-07-04,2021-09-12,revision
+48,2020-07-11,2021-09-12,adjacent to revision
+48,2020-07-18,2021-09-12,adjacent to revision
+48,2020-07-25,2021-09-12,adjacent to revision
+48,2020-07-04,2021-09-19,revision
+48,2020-07-11,2021-09-19,adjacent to revision
+48,2020-07-18,2021-09-19,adjacent to revision
+48,2020-07-25,2021-09-19,adjacent to revision
+48,2020-07-04,2021-09-26,revision
+48,2020-07-11,2021-09-26,adjacent to revision
+48,2020-07-18,2021-09-26,adjacent to revision
+48,2020-07-25,2021-09-26,adjacent to revision
+48,2020-07-04,2021-10-03,revision
+48,2020-07-11,2021-10-03,adjacent to revision
+48,2020-07-18,2021-10-03,adjacent to revision
+48,2020-07-25,2021-10-03,adjacent to revision
+48,2020-07-04,2021-10-10,revision
+48,2020-07-11,2021-10-10,adjacent to revision
+48,2020-07-18,2021-10-10,adjacent to revision
+48,2020-07-25,2021-10-10,adjacent to revision
+48,2020-07-04,2021-10-17,revision
+48,2020-07-11,2021-10-17,adjacent to revision
+48,2020-07-18,2021-10-17,adjacent to revision
+48,2020-07-25,2021-10-17,adjacent to revision
+48,2020-07-04,2021-10-24,revision
+48,2020-07-11,2021-10-24,adjacent to revision
+48,2020-07-18,2021-10-24,adjacent to revision
+48,2020-07-25,2021-10-24,adjacent to revision
+48,2020-07-04,2021-10-31,revision
+48,2020-07-11,2021-10-31,adjacent to revision
+48,2020-07-18,2021-10-31,adjacent to revision
+48,2020-07-25,2021-10-31,adjacent to revision
+48,2020-07-04,2021-11-07,revision
+48,2020-07-11,2021-11-07,adjacent to revision
+48,2020-07-18,2021-11-07,adjacent to revision
+48,2020-07-25,2021-11-07,adjacent to revision
+48,2020-07-04,2021-11-14,revision
+48,2020-07-11,2021-11-14,adjacent to revision
+48,2020-07-18,2021-11-14,adjacent to revision
+48,2020-07-25,2021-11-14,adjacent to revision
+48,2020-07-04,2021-11-21,revision
+48,2020-07-11,2021-11-21,adjacent to revision
+48,2020-07-18,2021-11-21,adjacent to revision
+48,2020-07-25,2021-11-21,adjacent to revision
+48,2020-07-04,2021-11-28,revision
+48,2020-07-11,2021-11-28,adjacent to revision
+48,2020-07-18,2021-11-28,adjacent to revision
+48,2020-07-25,2021-11-28,adjacent to revision
+48,2020-07-04,2021-12-05,revision
+48,2020-07-11,2021-12-05,adjacent to revision
+48,2020-07-18,2021-12-05,adjacent to revision
+48,2020-07-25,2021-12-05,adjacent to revision
 53,2020-04-04,2020-12-20,revision
 53,2020-04-11,2020-12-20,adjacent to revision
 53,2020-04-18,2020-12-20,adjacent to revision
@@ -4262,6 +6636,386 @@ location,date,issue_date,anomaly_type
 53,2020-11-28,2021-07-25,revision
 53,2020-12-05,2021-07-25,revision
 53,2020-12-12,2021-07-25,adjacent to revision
+53,2020-04-04,2021-08-01,revision
+53,2020-04-11,2021-08-01,adjacent to revision
+53,2020-04-18,2021-08-01,adjacent to revision
+53,2020-04-25,2021-08-01,adjacent to revision
+53,2020-05-30,2021-08-01,revision
+53,2020-06-06,2021-08-01,adjacent to revision
+53,2020-06-13,2021-08-01,adjacent to revision
+53,2020-06-20,2021-08-01,adjacent to revision
+53,2020-07-18,2021-08-01,revision
+53,2020-07-25,2021-08-01,revision
+53,2020-08-01,2021-08-01,adjacent to revision
+53,2020-08-08,2021-08-01,adjacent to revision
+53,2020-08-15,2021-08-01,adjacent to revision
+53,2020-08-22,2021-08-01,revision
+53,2020-08-29,2021-08-01,adjacent to revision
+53,2020-09-05,2021-08-01,adjacent to revision
+53,2020-09-12,2021-08-01,adjacent to revision
+53,2020-11-28,2021-08-01,revision
+53,2020-12-05,2021-08-01,revision
+53,2020-12-12,2021-08-01,adjacent to revision
+53,2020-04-04,2021-08-08,revision
+53,2020-04-11,2021-08-08,adjacent to revision
+53,2020-04-18,2021-08-08,adjacent to revision
+53,2020-04-25,2021-08-08,adjacent to revision
+53,2020-05-30,2021-08-08,revision
+53,2020-06-06,2021-08-08,adjacent to revision
+53,2020-06-13,2021-08-08,adjacent to revision
+53,2020-06-20,2021-08-08,adjacent to revision
+53,2020-07-18,2021-08-08,revision
+53,2020-07-25,2021-08-08,revision
+53,2020-08-01,2021-08-08,adjacent to revision
+53,2020-08-08,2021-08-08,adjacent to revision
+53,2020-08-15,2021-08-08,adjacent to revision
+53,2020-08-22,2021-08-08,revision
+53,2020-08-29,2021-08-08,adjacent to revision
+53,2020-09-05,2021-08-08,adjacent to revision
+53,2020-09-12,2021-08-08,adjacent to revision
+53,2020-11-28,2021-08-08,revision
+53,2020-12-05,2021-08-08,revision
+53,2020-12-12,2021-08-08,adjacent to revision
+53,2020-04-04,2021-08-15,revision
+53,2020-04-11,2021-08-15,adjacent to revision
+53,2020-04-18,2021-08-15,adjacent to revision
+53,2020-04-25,2021-08-15,adjacent to revision
+53,2020-05-30,2021-08-15,revision
+53,2020-06-06,2021-08-15,adjacent to revision
+53,2020-06-13,2021-08-15,adjacent to revision
+53,2020-06-20,2021-08-15,adjacent to revision
+53,2020-07-18,2021-08-15,revision
+53,2020-07-25,2021-08-15,revision
+53,2020-08-01,2021-08-15,adjacent to revision
+53,2020-08-08,2021-08-15,adjacent to revision
+53,2020-08-15,2021-08-15,adjacent to revision
+53,2020-08-22,2021-08-15,revision
+53,2020-08-29,2021-08-15,adjacent to revision
+53,2020-09-05,2021-08-15,adjacent to revision
+53,2020-09-12,2021-08-15,adjacent to revision
+53,2020-11-28,2021-08-15,revision
+53,2020-12-05,2021-08-15,revision
+53,2020-12-12,2021-08-15,adjacent to revision
+53,2020-04-04,2021-08-22,revision
+53,2020-04-11,2021-08-22,adjacent to revision
+53,2020-04-18,2021-08-22,adjacent to revision
+53,2020-04-25,2021-08-22,adjacent to revision
+53,2020-05-30,2021-08-22,revision
+53,2020-06-06,2021-08-22,adjacent to revision
+53,2020-06-13,2021-08-22,adjacent to revision
+53,2020-06-20,2021-08-22,adjacent to revision
+53,2020-07-18,2021-08-22,revision
+53,2020-07-25,2021-08-22,revision
+53,2020-08-01,2021-08-22,adjacent to revision
+53,2020-08-08,2021-08-22,adjacent to revision
+53,2020-08-15,2021-08-22,adjacent to revision
+53,2020-08-22,2021-08-22,revision
+53,2020-08-29,2021-08-22,adjacent to revision
+53,2020-09-05,2021-08-22,adjacent to revision
+53,2020-09-12,2021-08-22,adjacent to revision
+53,2020-11-28,2021-08-22,revision
+53,2020-12-05,2021-08-22,revision
+53,2020-12-12,2021-08-22,adjacent to revision
+53,2020-04-04,2021-08-29,revision
+53,2020-04-11,2021-08-29,adjacent to revision
+53,2020-04-18,2021-08-29,adjacent to revision
+53,2020-04-25,2021-08-29,adjacent to revision
+53,2020-05-30,2021-08-29,revision
+53,2020-06-06,2021-08-29,adjacent to revision
+53,2020-06-13,2021-08-29,adjacent to revision
+53,2020-06-20,2021-08-29,adjacent to revision
+53,2020-07-18,2021-08-29,revision
+53,2020-07-25,2021-08-29,revision
+53,2020-08-01,2021-08-29,adjacent to revision
+53,2020-08-08,2021-08-29,adjacent to revision
+53,2020-08-15,2021-08-29,adjacent to revision
+53,2020-08-22,2021-08-29,revision
+53,2020-08-29,2021-08-29,adjacent to revision
+53,2020-09-05,2021-08-29,adjacent to revision
+53,2020-09-12,2021-08-29,adjacent to revision
+53,2020-11-28,2021-08-29,revision
+53,2020-12-05,2021-08-29,revision
+53,2020-12-12,2021-08-29,adjacent to revision
+53,2020-04-04,2021-09-05,revision
+53,2020-04-11,2021-09-05,adjacent to revision
+53,2020-04-18,2021-09-05,adjacent to revision
+53,2020-04-25,2021-09-05,adjacent to revision
+53,2020-05-30,2021-09-05,revision
+53,2020-06-06,2021-09-05,adjacent to revision
+53,2020-06-13,2021-09-05,adjacent to revision
+53,2020-06-20,2021-09-05,adjacent to revision
+53,2020-07-18,2021-09-05,revision
+53,2020-07-25,2021-09-05,revision
+53,2020-08-01,2021-09-05,adjacent to revision
+53,2020-08-08,2021-09-05,adjacent to revision
+53,2020-08-15,2021-09-05,adjacent to revision
+53,2020-08-22,2021-09-05,revision
+53,2020-08-29,2021-09-05,adjacent to revision
+53,2020-09-05,2021-09-05,adjacent to revision
+53,2020-09-12,2021-09-05,adjacent to revision
+53,2020-11-28,2021-09-05,revision
+53,2020-12-05,2021-09-05,revision
+53,2020-12-12,2021-09-05,adjacent to revision
+53,2020-04-04,2021-09-12,revision
+53,2020-04-11,2021-09-12,adjacent to revision
+53,2020-04-18,2021-09-12,adjacent to revision
+53,2020-04-25,2021-09-12,adjacent to revision
+53,2020-05-30,2021-09-12,revision
+53,2020-06-06,2021-09-12,adjacent to revision
+53,2020-06-13,2021-09-12,adjacent to revision
+53,2020-06-20,2021-09-12,adjacent to revision
+53,2020-07-18,2021-09-12,revision
+53,2020-07-25,2021-09-12,revision
+53,2020-08-01,2021-09-12,adjacent to revision
+53,2020-08-08,2021-09-12,adjacent to revision
+53,2020-08-15,2021-09-12,adjacent to revision
+53,2020-08-22,2021-09-12,revision
+53,2020-08-29,2021-09-12,adjacent to revision
+53,2020-09-05,2021-09-12,adjacent to revision
+53,2020-09-12,2021-09-12,adjacent to revision
+53,2020-11-28,2021-09-12,revision
+53,2020-12-05,2021-09-12,revision
+53,2020-12-12,2021-09-12,adjacent to revision
+53,2020-04-04,2021-09-19,revision
+53,2020-04-11,2021-09-19,adjacent to revision
+53,2020-04-18,2021-09-19,adjacent to revision
+53,2020-04-25,2021-09-19,adjacent to revision
+53,2020-05-30,2021-09-19,revision
+53,2020-06-06,2021-09-19,adjacent to revision
+53,2020-06-13,2021-09-19,adjacent to revision
+53,2020-06-20,2021-09-19,adjacent to revision
+53,2020-07-18,2021-09-19,revision
+53,2020-07-25,2021-09-19,revision
+53,2020-08-01,2021-09-19,adjacent to revision
+53,2020-08-08,2021-09-19,adjacent to revision
+53,2020-08-15,2021-09-19,adjacent to revision
+53,2020-08-22,2021-09-19,revision
+53,2020-08-29,2021-09-19,adjacent to revision
+53,2020-09-05,2021-09-19,adjacent to revision
+53,2020-09-12,2021-09-19,adjacent to revision
+53,2020-11-28,2021-09-19,revision
+53,2020-12-05,2021-09-19,revision
+53,2020-12-12,2021-09-19,adjacent to revision
+53,2020-04-04,2021-09-26,revision
+53,2020-04-11,2021-09-26,adjacent to revision
+53,2020-04-18,2021-09-26,adjacent to revision
+53,2020-04-25,2021-09-26,adjacent to revision
+53,2020-05-30,2021-09-26,revision
+53,2020-06-06,2021-09-26,adjacent to revision
+53,2020-06-13,2021-09-26,adjacent to revision
+53,2020-06-20,2021-09-26,adjacent to revision
+53,2020-07-18,2021-09-26,revision
+53,2020-07-25,2021-09-26,revision
+53,2020-08-01,2021-09-26,adjacent to revision
+53,2020-08-08,2021-09-26,adjacent to revision
+53,2020-08-15,2021-09-26,adjacent to revision
+53,2020-08-22,2021-09-26,revision
+53,2020-08-29,2021-09-26,adjacent to revision
+53,2020-09-05,2021-09-26,adjacent to revision
+53,2020-09-12,2021-09-26,adjacent to revision
+53,2020-11-28,2021-09-26,revision
+53,2020-12-05,2021-09-26,revision
+53,2020-12-12,2021-09-26,adjacent to revision
+53,2020-04-04,2021-10-03,revision
+53,2020-04-11,2021-10-03,adjacent to revision
+53,2020-04-18,2021-10-03,adjacent to revision
+53,2020-04-25,2021-10-03,adjacent to revision
+53,2020-05-30,2021-10-03,revision
+53,2020-06-06,2021-10-03,adjacent to revision
+53,2020-06-13,2021-10-03,adjacent to revision
+53,2020-06-20,2021-10-03,adjacent to revision
+53,2020-07-18,2021-10-03,revision
+53,2020-07-25,2021-10-03,revision
+53,2020-08-01,2021-10-03,adjacent to revision
+53,2020-08-08,2021-10-03,adjacent to revision
+53,2020-08-15,2021-10-03,adjacent to revision
+53,2020-08-22,2021-10-03,revision
+53,2020-08-29,2021-10-03,adjacent to revision
+53,2020-09-05,2021-10-03,adjacent to revision
+53,2020-09-12,2021-10-03,adjacent to revision
+53,2020-11-28,2021-10-03,revision
+53,2020-12-05,2021-10-03,revision
+53,2020-12-12,2021-10-03,adjacent to revision
+53,2020-04-04,2021-10-10,revision
+53,2020-04-11,2021-10-10,adjacent to revision
+53,2020-04-18,2021-10-10,adjacent to revision
+53,2020-04-25,2021-10-10,adjacent to revision
+53,2020-05-30,2021-10-10,revision
+53,2020-06-06,2021-10-10,adjacent to revision
+53,2020-06-13,2021-10-10,adjacent to revision
+53,2020-06-20,2021-10-10,adjacent to revision
+53,2020-07-18,2021-10-10,revision
+53,2020-07-25,2021-10-10,revision
+53,2020-08-01,2021-10-10,adjacent to revision
+53,2020-08-08,2021-10-10,adjacent to revision
+53,2020-08-15,2021-10-10,adjacent to revision
+53,2020-08-22,2021-10-10,revision
+53,2020-08-29,2021-10-10,adjacent to revision
+53,2020-09-05,2021-10-10,adjacent to revision
+53,2020-09-12,2021-10-10,adjacent to revision
+53,2020-11-28,2021-10-10,revision
+53,2020-12-05,2021-10-10,revision
+53,2020-12-12,2021-10-10,adjacent to revision
+53,2020-04-04,2021-10-17,revision
+53,2020-04-11,2021-10-17,adjacent to revision
+53,2020-04-18,2021-10-17,adjacent to revision
+53,2020-04-25,2021-10-17,adjacent to revision
+53,2020-05-30,2021-10-17,revision
+53,2020-06-06,2021-10-17,adjacent to revision
+53,2020-06-13,2021-10-17,adjacent to revision
+53,2020-06-20,2021-10-17,adjacent to revision
+53,2020-07-18,2021-10-17,revision
+53,2020-07-25,2021-10-17,revision
+53,2020-08-01,2021-10-17,adjacent to revision
+53,2020-08-08,2021-10-17,adjacent to revision
+53,2020-08-15,2021-10-17,adjacent to revision
+53,2020-08-22,2021-10-17,revision
+53,2020-08-29,2021-10-17,adjacent to revision
+53,2020-09-05,2021-10-17,adjacent to revision
+53,2020-09-12,2021-10-17,adjacent to revision
+53,2020-11-28,2021-10-17,revision
+53,2020-12-05,2021-10-17,revision
+53,2020-12-12,2021-10-17,adjacent to revision
+53,2020-04-04,2021-10-24,revision
+53,2020-04-11,2021-10-24,adjacent to revision
+53,2020-04-18,2021-10-24,adjacent to revision
+53,2020-04-25,2021-10-24,adjacent to revision
+53,2020-05-30,2021-10-24,revision
+53,2020-06-06,2021-10-24,adjacent to revision
+53,2020-06-13,2021-10-24,adjacent to revision
+53,2020-06-20,2021-10-24,adjacent to revision
+53,2020-07-18,2021-10-24,revision
+53,2020-07-25,2021-10-24,revision
+53,2020-08-01,2021-10-24,adjacent to revision
+53,2020-08-08,2021-10-24,adjacent to revision
+53,2020-08-15,2021-10-24,adjacent to revision
+53,2020-08-22,2021-10-24,revision
+53,2020-08-29,2021-10-24,adjacent to revision
+53,2020-09-05,2021-10-24,adjacent to revision
+53,2020-09-12,2021-10-24,adjacent to revision
+53,2020-11-28,2021-10-24,revision
+53,2020-12-05,2021-10-24,revision
+53,2020-12-12,2021-10-24,adjacent to revision
+53,2020-04-04,2021-10-31,revision
+53,2020-04-11,2021-10-31,adjacent to revision
+53,2020-04-18,2021-10-31,adjacent to revision
+53,2020-04-25,2021-10-31,adjacent to revision
+53,2020-05-30,2021-10-31,revision
+53,2020-06-06,2021-10-31,adjacent to revision
+53,2020-06-13,2021-10-31,adjacent to revision
+53,2020-06-20,2021-10-31,adjacent to revision
+53,2020-07-18,2021-10-31,revision
+53,2020-07-25,2021-10-31,revision
+53,2020-08-01,2021-10-31,adjacent to revision
+53,2020-08-08,2021-10-31,adjacent to revision
+53,2020-08-15,2021-10-31,adjacent to revision
+53,2020-08-22,2021-10-31,revision
+53,2020-08-29,2021-10-31,adjacent to revision
+53,2020-09-05,2021-10-31,adjacent to revision
+53,2020-09-12,2021-10-31,adjacent to revision
+53,2020-11-28,2021-10-31,revision
+53,2020-12-05,2021-10-31,revision
+53,2020-12-12,2021-10-31,adjacent to revision
+53,2020-04-04,2021-11-07,revision
+53,2020-04-11,2021-11-07,adjacent to revision
+53,2020-04-18,2021-11-07,adjacent to revision
+53,2020-04-25,2021-11-07,adjacent to revision
+53,2020-05-30,2021-11-07,revision
+53,2020-06-06,2021-11-07,adjacent to revision
+53,2020-06-13,2021-11-07,adjacent to revision
+53,2020-06-20,2021-11-07,adjacent to revision
+53,2020-07-18,2021-11-07,revision
+53,2020-07-25,2021-11-07,revision
+53,2020-08-01,2021-11-07,adjacent to revision
+53,2020-08-08,2021-11-07,adjacent to revision
+53,2020-08-15,2021-11-07,adjacent to revision
+53,2020-08-22,2021-11-07,revision
+53,2020-08-29,2021-11-07,adjacent to revision
+53,2020-09-05,2021-11-07,adjacent to revision
+53,2020-09-12,2021-11-07,adjacent to revision
+53,2020-11-28,2021-11-07,revision
+53,2020-12-05,2021-11-07,revision
+53,2020-12-12,2021-11-07,adjacent to revision
+53,2020-04-04,2021-11-14,revision
+53,2020-04-11,2021-11-14,adjacent to revision
+53,2020-04-18,2021-11-14,adjacent to revision
+53,2020-04-25,2021-11-14,adjacent to revision
+53,2020-05-30,2021-11-14,revision
+53,2020-06-06,2021-11-14,adjacent to revision
+53,2020-06-13,2021-11-14,adjacent to revision
+53,2020-06-20,2021-11-14,adjacent to revision
+53,2020-07-18,2021-11-14,revision
+53,2020-07-25,2021-11-14,revision
+53,2020-08-01,2021-11-14,adjacent to revision
+53,2020-08-08,2021-11-14,adjacent to revision
+53,2020-08-15,2021-11-14,adjacent to revision
+53,2020-08-22,2021-11-14,revision
+53,2020-08-29,2021-11-14,adjacent to revision
+53,2020-09-05,2021-11-14,adjacent to revision
+53,2020-09-12,2021-11-14,adjacent to revision
+53,2020-11-28,2021-11-14,revision
+53,2020-12-05,2021-11-14,revision
+53,2020-12-12,2021-11-14,adjacent to revision
+53,2020-04-04,2021-11-21,revision
+53,2020-04-11,2021-11-21,adjacent to revision
+53,2020-04-18,2021-11-21,adjacent to revision
+53,2020-04-25,2021-11-21,adjacent to revision
+53,2020-05-30,2021-11-21,revision
+53,2020-06-06,2021-11-21,adjacent to revision
+53,2020-06-13,2021-11-21,adjacent to revision
+53,2020-06-20,2021-11-21,adjacent to revision
+53,2020-07-18,2021-11-21,revision
+53,2020-07-25,2021-11-21,revision
+53,2020-08-01,2021-11-21,adjacent to revision
+53,2020-08-08,2021-11-21,adjacent to revision
+53,2020-08-15,2021-11-21,adjacent to revision
+53,2020-08-22,2021-11-21,revision
+53,2020-08-29,2021-11-21,adjacent to revision
+53,2020-09-05,2021-11-21,adjacent to revision
+53,2020-09-12,2021-11-21,adjacent to revision
+53,2020-11-28,2021-11-21,revision
+53,2020-12-05,2021-11-21,revision
+53,2020-12-12,2021-11-21,adjacent to revision
+53,2020-04-04,2021-11-28,revision
+53,2020-04-11,2021-11-28,adjacent to revision
+53,2020-04-18,2021-11-28,adjacent to revision
+53,2020-04-25,2021-11-28,adjacent to revision
+53,2020-05-30,2021-11-28,revision
+53,2020-06-06,2021-11-28,adjacent to revision
+53,2020-06-13,2021-11-28,adjacent to revision
+53,2020-06-20,2021-11-28,adjacent to revision
+53,2020-07-18,2021-11-28,revision
+53,2020-07-25,2021-11-28,revision
+53,2020-08-01,2021-11-28,adjacent to revision
+53,2020-08-08,2021-11-28,adjacent to revision
+53,2020-08-15,2021-11-28,adjacent to revision
+53,2020-08-22,2021-11-28,revision
+53,2020-08-29,2021-11-28,adjacent to revision
+53,2020-09-05,2021-11-28,adjacent to revision
+53,2020-09-12,2021-11-28,adjacent to revision
+53,2020-11-28,2021-11-28,revision
+53,2020-12-05,2021-11-28,revision
+53,2020-12-12,2021-11-28,adjacent to revision
+53,2020-04-04,2021-12-05,revision
+53,2020-04-11,2021-12-05,adjacent to revision
+53,2020-04-18,2021-12-05,adjacent to revision
+53,2020-04-25,2021-12-05,adjacent to revision
+53,2020-05-30,2021-12-05,revision
+53,2020-06-06,2021-12-05,adjacent to revision
+53,2020-06-13,2021-12-05,adjacent to revision
+53,2020-06-20,2021-12-05,adjacent to revision
+53,2020-07-18,2021-12-05,revision
+53,2020-07-25,2021-12-05,revision
+53,2020-08-01,2021-12-05,adjacent to revision
+53,2020-08-08,2021-12-05,adjacent to revision
+53,2020-08-15,2021-12-05,adjacent to revision
+53,2020-08-22,2021-12-05,revision
+53,2020-08-29,2021-12-05,adjacent to revision
+53,2020-09-05,2021-12-05,adjacent to revision
+53,2020-09-12,2021-12-05,adjacent to revision
+53,2020-11-28,2021-12-05,revision
+53,2020-12-05,2021-12-05,revision
+53,2020-12-12,2021-12-05,adjacent to revision
 55,2020-04-04,2020-11-15,revision
 55,2020-04-11,2020-11-15,adjacent to revision
 55,2020-04-18,2020-11-15,adjacent to revision
@@ -4669,3 +7423,212 @@ location,date,issue_date,anomaly_type
 55,2020-10-24,2021-07-25,revision
 55,2020-10-31,2021-07-25,adjacent to revision
 55,2020-11-07,2021-07-25,adjacent to revision
+55,2020-04-04,2021-08-01,revision
+55,2020-04-11,2021-08-01,adjacent to revision
+55,2020-04-18,2021-08-01,adjacent to revision
+55,2020-04-25,2021-08-01,adjacent to revision
+55,2020-09-26,2021-08-01,revision
+55,2020-10-03,2021-08-01,adjacent to revision
+55,2020-10-10,2021-08-01,revision
+55,2020-10-17,2021-08-01,revision
+55,2020-10-24,2021-08-01,revision
+55,2020-10-31,2021-08-01,adjacent to revision
+55,2020-11-07,2021-08-01,adjacent to revision
+55,2020-04-04,2021-08-08,revision
+55,2020-04-11,2021-08-08,adjacent to revision
+55,2020-04-18,2021-08-08,adjacent to revision
+55,2020-04-25,2021-08-08,adjacent to revision
+55,2020-09-26,2021-08-08,revision
+55,2020-10-03,2021-08-08,adjacent to revision
+55,2020-10-10,2021-08-08,revision
+55,2020-10-17,2021-08-08,revision
+55,2020-10-24,2021-08-08,revision
+55,2020-10-31,2021-08-08,adjacent to revision
+55,2020-11-07,2021-08-08,adjacent to revision
+55,2020-04-04,2021-08-15,revision
+55,2020-04-11,2021-08-15,adjacent to revision
+55,2020-04-18,2021-08-15,adjacent to revision
+55,2020-04-25,2021-08-15,adjacent to revision
+55,2020-09-26,2021-08-15,revision
+55,2020-10-03,2021-08-15,adjacent to revision
+55,2020-10-10,2021-08-15,revision
+55,2020-10-17,2021-08-15,revision
+55,2020-10-24,2021-08-15,revision
+55,2020-10-31,2021-08-15,adjacent to revision
+55,2020-11-07,2021-08-15,adjacent to revision
+55,2020-04-04,2021-08-22,revision
+55,2020-04-11,2021-08-22,adjacent to revision
+55,2020-04-18,2021-08-22,adjacent to revision
+55,2020-04-25,2021-08-22,adjacent to revision
+55,2020-09-26,2021-08-22,revision
+55,2020-10-03,2021-08-22,adjacent to revision
+55,2020-10-10,2021-08-22,revision
+55,2020-10-17,2021-08-22,revision
+55,2020-10-24,2021-08-22,revision
+55,2020-10-31,2021-08-22,adjacent to revision
+55,2020-11-07,2021-08-22,adjacent to revision
+55,2020-04-04,2021-08-29,revision
+55,2020-04-11,2021-08-29,adjacent to revision
+55,2020-04-18,2021-08-29,adjacent to revision
+55,2020-04-25,2021-08-29,adjacent to revision
+55,2020-09-26,2021-08-29,revision
+55,2020-10-03,2021-08-29,adjacent to revision
+55,2020-10-10,2021-08-29,revision
+55,2020-10-17,2021-08-29,revision
+55,2020-10-24,2021-08-29,revision
+55,2020-10-31,2021-08-29,adjacent to revision
+55,2020-11-07,2021-08-29,adjacent to revision
+55,2020-04-04,2021-09-05,revision
+55,2020-04-11,2021-09-05,adjacent to revision
+55,2020-04-18,2021-09-05,adjacent to revision
+55,2020-04-25,2021-09-05,adjacent to revision
+55,2020-09-26,2021-09-05,revision
+55,2020-10-03,2021-09-05,adjacent to revision
+55,2020-10-10,2021-09-05,revision
+55,2020-10-17,2021-09-05,revision
+55,2020-10-24,2021-09-05,revision
+55,2020-10-31,2021-09-05,adjacent to revision
+55,2020-11-07,2021-09-05,adjacent to revision
+55,2020-04-04,2021-09-12,revision
+55,2020-04-11,2021-09-12,adjacent to revision
+55,2020-04-18,2021-09-12,adjacent to revision
+55,2020-04-25,2021-09-12,adjacent to revision
+55,2020-09-26,2021-09-12,revision
+55,2020-10-03,2021-09-12,adjacent to revision
+55,2020-10-10,2021-09-12,revision
+55,2020-10-17,2021-09-12,revision
+55,2020-10-24,2021-09-12,revision
+55,2020-10-31,2021-09-12,adjacent to revision
+55,2020-11-07,2021-09-12,adjacent to revision
+55,2020-04-04,2021-09-19,revision
+55,2020-04-11,2021-09-19,adjacent to revision
+55,2020-04-18,2021-09-19,adjacent to revision
+55,2020-04-25,2021-09-19,adjacent to revision
+55,2020-09-26,2021-09-19,revision
+55,2020-10-03,2021-09-19,adjacent to revision
+55,2020-10-10,2021-09-19,revision
+55,2020-10-17,2021-09-19,revision
+55,2020-10-24,2021-09-19,revision
+55,2020-10-31,2021-09-19,adjacent to revision
+55,2020-11-07,2021-09-19,adjacent to revision
+55,2020-04-04,2021-09-26,revision
+55,2020-04-11,2021-09-26,adjacent to revision
+55,2020-04-18,2021-09-26,adjacent to revision
+55,2020-04-25,2021-09-26,adjacent to revision
+55,2020-09-26,2021-09-26,revision
+55,2020-10-03,2021-09-26,adjacent to revision
+55,2020-10-10,2021-09-26,revision
+55,2020-10-17,2021-09-26,revision
+55,2020-10-24,2021-09-26,revision
+55,2020-10-31,2021-09-26,adjacent to revision
+55,2020-11-07,2021-09-26,adjacent to revision
+55,2020-04-04,2021-10-03,revision
+55,2020-04-11,2021-10-03,adjacent to revision
+55,2020-04-18,2021-10-03,adjacent to revision
+55,2020-04-25,2021-10-03,adjacent to revision
+55,2020-09-26,2021-10-03,revision
+55,2020-10-03,2021-10-03,adjacent to revision
+55,2020-10-10,2021-10-03,revision
+55,2020-10-17,2021-10-03,revision
+55,2020-10-24,2021-10-03,revision
+55,2020-10-31,2021-10-03,adjacent to revision
+55,2020-11-07,2021-10-03,adjacent to revision
+55,2020-04-04,2021-10-10,revision
+55,2020-04-11,2021-10-10,adjacent to revision
+55,2020-04-18,2021-10-10,adjacent to revision
+55,2020-04-25,2021-10-10,adjacent to revision
+55,2020-09-26,2021-10-10,revision
+55,2020-10-03,2021-10-10,adjacent to revision
+55,2020-10-10,2021-10-10,revision
+55,2020-10-17,2021-10-10,revision
+55,2020-10-24,2021-10-10,revision
+55,2020-10-31,2021-10-10,adjacent to revision
+55,2020-11-07,2021-10-10,adjacent to revision
+55,2020-04-04,2021-10-17,revision
+55,2020-04-11,2021-10-17,adjacent to revision
+55,2020-04-18,2021-10-17,adjacent to revision
+55,2020-04-25,2021-10-17,adjacent to revision
+55,2020-09-26,2021-10-17,revision
+55,2020-10-03,2021-10-17,adjacent to revision
+55,2020-10-10,2021-10-17,revision
+55,2020-10-17,2021-10-17,revision
+55,2020-10-24,2021-10-17,revision
+55,2020-10-31,2021-10-17,adjacent to revision
+55,2020-11-07,2021-10-17,adjacent to revision
+55,2020-04-04,2021-10-24,revision
+55,2020-04-11,2021-10-24,adjacent to revision
+55,2020-04-18,2021-10-24,adjacent to revision
+55,2020-04-25,2021-10-24,adjacent to revision
+55,2020-09-26,2021-10-24,revision
+55,2020-10-03,2021-10-24,adjacent to revision
+55,2020-10-10,2021-10-24,revision
+55,2020-10-17,2021-10-24,revision
+55,2020-10-24,2021-10-24,revision
+55,2020-10-31,2021-10-24,adjacent to revision
+55,2020-11-07,2021-10-24,adjacent to revision
+55,2020-04-04,2021-10-31,revision
+55,2020-04-11,2021-10-31,adjacent to revision
+55,2020-04-18,2021-10-31,adjacent to revision
+55,2020-04-25,2021-10-31,adjacent to revision
+55,2020-09-26,2021-10-31,revision
+55,2020-10-03,2021-10-31,adjacent to revision
+55,2020-10-10,2021-10-31,revision
+55,2020-10-17,2021-10-31,revision
+55,2020-10-24,2021-10-31,revision
+55,2020-10-31,2021-10-31,adjacent to revision
+55,2020-11-07,2021-10-31,adjacent to revision
+55,2020-04-04,2021-11-07,revision
+55,2020-04-11,2021-11-07,adjacent to revision
+55,2020-04-18,2021-11-07,adjacent to revision
+55,2020-04-25,2021-11-07,adjacent to revision
+55,2020-09-26,2021-11-07,revision
+55,2020-10-03,2021-11-07,adjacent to revision
+55,2020-10-10,2021-11-07,revision
+55,2020-10-17,2021-11-07,revision
+55,2020-10-24,2021-11-07,revision
+55,2020-10-31,2021-11-07,adjacent to revision
+55,2020-11-07,2021-11-07,adjacent to revision
+55,2020-04-04,2021-11-14,revision
+55,2020-04-11,2021-11-14,adjacent to revision
+55,2020-04-18,2021-11-14,adjacent to revision
+55,2020-04-25,2021-11-14,adjacent to revision
+55,2020-09-26,2021-11-14,revision
+55,2020-10-03,2021-11-14,adjacent to revision
+55,2020-10-10,2021-11-14,revision
+55,2020-10-17,2021-11-14,revision
+55,2020-10-24,2021-11-14,revision
+55,2020-10-31,2021-11-14,adjacent to revision
+55,2020-11-07,2021-11-14,adjacent to revision
+55,2020-04-04,2021-11-21,revision
+55,2020-04-11,2021-11-21,adjacent to revision
+55,2020-04-18,2021-11-21,adjacent to revision
+55,2020-04-25,2021-11-21,adjacent to revision
+55,2020-09-26,2021-11-21,revision
+55,2020-10-03,2021-11-21,adjacent to revision
+55,2020-10-10,2021-11-21,revision
+55,2020-10-17,2021-11-21,revision
+55,2020-10-24,2021-11-21,revision
+55,2020-10-31,2021-11-21,adjacent to revision
+55,2020-11-07,2021-11-21,adjacent to revision
+55,2020-04-04,2021-11-28,revision
+55,2020-04-11,2021-11-28,adjacent to revision
+55,2020-04-18,2021-11-28,adjacent to revision
+55,2020-04-25,2021-11-28,adjacent to revision
+55,2020-09-26,2021-11-28,revision
+55,2020-10-03,2021-11-28,adjacent to revision
+55,2020-10-10,2021-11-28,revision
+55,2020-10-17,2021-11-28,revision
+55,2020-10-24,2021-11-28,revision
+55,2020-10-31,2021-11-28,adjacent to revision
+55,2020-11-07,2021-11-28,adjacent to revision
+55,2020-04-04,2021-12-05,revision
+55,2020-04-11,2021-12-05,adjacent to revision
+55,2020-04-18,2021-12-05,adjacent to revision
+55,2020-04-25,2021-12-05,adjacent to revision
+55,2020-09-26,2021-12-05,revision
+55,2020-10-03,2021-12-05,adjacent to revision
+55,2020-10-10,2021-12-05,revision
+55,2020-10-17,2021-12-05,revision
+55,2020-10-24,2021-12-05,revision
+55,2020-10-31,2021-12-05,adjacent to revision
+55,2020-11-07,2021-12-05,adjacent to revision

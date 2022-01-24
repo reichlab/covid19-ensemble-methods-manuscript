@@ -5,13 +5,15 @@ setwd(here())
 
 # plot death outliers
 #for (measure in c("cases", "deaths")) {
-for (hub in c("US", "ECDC")) {
+#for (hub in c("US", "EU")) {
+for (hub in "US") {
+#for (hub in "EU") {
   if (hub == "US") {
     first_as_of_date <- as.Date("2020-04-26")
   } else {
     first_as_of_date <- as.Date("2021-05-02")
   }
-  last_as_of_date <- as.Date("2021-07-25")
+  last_as_of_date <- as.Date("2021-12-05")
   all_as_ofs <- seq.Date(
     from = first_as_of_date,
     to = last_as_of_date,
@@ -19,10 +21,11 @@ for (hub in c("US", "ECDC")) {
   )
 
   for (measure in c("cases", "deaths")) {
+#  for (measure in "cases") {
     outliers <- readr::read_csv(
       paste0("code/data-anomalies/outliers-inc-",
         measure,
-        ifelse(hub == "ECDC", "-euro", ""),
+        "-", hub,
         ".csv"),
       col_types = cols(
         location = col_character(),
@@ -36,7 +39,7 @@ for (hub in c("US", "ECDC")) {
     revisions <- readr::read_csv(
       paste0("code/data-anomalies/revisions-to-drop-inc-",
         measure,
-        ifelse(hub == "ECDC", "-euro", ""),
+        "-", hub,
         ".csv"),
       col_types = cols(
         location = col_character(),
@@ -57,7 +60,7 @@ for (hub in c("US", "ECDC")) {
         ) %>%
           dplyr::mutate(as_of = as_of)
 
-        if (hub == "ECDC") {
+        if (hub == "EU") {
           euro_hub_locations <- c("BE", "BG", "CZ", "DK", "DE", "EE", "IE", "GR",
             "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT",
             "PL", "PT", "RO", "SI", "SK", "FI", "SE", "GB", "IS", "LI", "NO", "CH")
@@ -80,14 +83,14 @@ for (hub in c("US", "ECDC")) {
           covidData::fips_codes %>%
             dplyr::select(location, location_name),
           by = "location")
-    } else if (hub == "ECDC") {
+    } else if (hub == "EU") {
       location_issues <- location_issues %>%
         dplyr::left_join(covidData::global_locations, by = "location")
     }
 
     pdf(paste0("code/data-anomalies/anomalies-inc-",
       measure,
-      ifelse(hub == "ECDC", "-euro", ""),
+      "-", hub,
       ".pdf"),
       width = 14, height = 10)
     for (i in seq_len(nrow(location_issues))) {
