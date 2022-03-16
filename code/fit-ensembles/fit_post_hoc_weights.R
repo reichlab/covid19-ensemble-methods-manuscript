@@ -20,25 +20,27 @@ Sys.setenv(LANG = "en_US.UTF-8")
 #args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "4", "10", "TRUE", "FALSE", "FALSE", "state", "TRUE", "all")
 #args <- c("local", "inc_case", "2021-06-07", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "12", "5", "TRUE", "FALSE", "FALSE", "euro_countries", "TRUE", "all")
 #args <- c("local", "inc_death", "2021-03-01", "FALSE", "ew", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
-#args <- c("local", "inc_death", "2021-03-15", "FALSE", "median", "renormalize", "per_model", "sort", "8", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
+#args <- c("local", "inc_death", "2021-03-15")
 
 args <- commandArgs(trailingOnly = TRUE)
 run_setting <- args[1]
 response_var <- args[2]
 forecast_date <- lubridate::ymd(args[3])
-intercept <- as.logical(args[4])
-combine_method <- args[5]
-missingness <- args[6]
-quantile_group_str <- args[7]
-noncross <- args[8]
-window_size_arg <- args[9]
-top_models_arg <- args[10]
-check_missingness_by_target <- as.logical(args[11])
-do_standard_checks <- as.logical(args[12])
-do_baseline_check <- as.logical(args[13])
-spatial_resolution_arg <- args[14]
-drop_anomalies <- as.logical(args[15])
-horizon_group <- args[16]
+
+# other settings that we do not need to vary for this analysis
+intercept <- FALSE
+combine_method <- "convex"
+missingness <- "renormalize"
+quantile_group_str <- "per_model"
+noncross <- "sort"
+window_size_arg <- "0"
+top_models_arg <- "all"
+check_missingness_by_target <- TRUE
+do_standard_checks <- FALSE
+do_baseline_check <- FALSE
+drop_anomalies <- FALSE
+horizon_group <- "all"
+spatial_resolution_arg <- "state"
 
 if (run_setting == "local") {
   # used by covidHubUtils::load_latest_forecasts for loading locally
@@ -80,7 +82,6 @@ candidate_model_abbreviations_to_include <-
     !(candidate_model_abbreviations_to_include %in%
       c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-trained_ensemble", "COVIDhub-4_week_ensemble", "COVIDhub_CDC-ensemble", "KITmetricslab-select_ensemble", "EuroCOVIDhub-ensemble"))
   ]
-
 
 if (missingness == "mean_impute") {
   case_missingness <- "impute"
@@ -174,14 +175,7 @@ if (top_models_arg == "all_models") {
   top_models <- as.integer(top_models_arg)
 }
 
-case_str <- paste0(
-  "combine_method_", combine_method,
-  "-quantile_groups_", quantile_group_str,
-  "-window_size_", window_size_arg,
-  "-top_models_", top_models_arg,
-  "-drop_anomalies_", drop_anomalies,
-  "-horizon_group_", horizon_group
-)
+case_str <- "post_hoc_weights"
 
 # create folder where model fits should be saved
 fits_dir <- file.path(
@@ -234,216 +228,156 @@ forecast_filename <- paste0(
   case_str, ".csv")
 
 
-if (drop_anomalies) {
-  if (response_var == "inc_case") {
-    outliers_path <- paste0(
-      "code/data-anomalies/outliers-inc-cases",
-      ifelse(
-        spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
-      ),
-      ".csv")
-    revisions_path <- paste0(
-      "code/data-anomalies/revisions-to-drop-inc-cases",
-      ifelse(
-        spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
-      ),
-      ".csv")
-  } else if (response_var == "inc_death") {
-    outliers_path <- paste0(
-      "code/data-anomalies/outliers-inc-deaths",
-      ifelse(
-        spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
-      ),
-      ".csv")
-    revisions_path <- paste0(
-      "code/data-anomalies/revisions-to-drop-inc-deaths",
-      ifelse(
-        spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
-      ),
-      ".csv")
-  }
-  target_end_date_locations_drop <-
-    readr::read_csv(outliers_path) %>%
-    dplyr::filter(
-      start_issue_date <= forecast_date - 1,
-      end_issue_date >= forecast_date - 1) %>%
-    dplyr::transmute(
-      location = location,
-      target_end_date = as.character(date))
-  if (nrow(target_end_date_locations_drop) == 0) {
-    target_end_date_locations_drop <- NULL
-  }
-
-  forecast_date_locations_drop <-
-    readr::read_csv(revisions_path) %>%
-    dplyr::filter(issue_date == forecast_date - 1) %>%
-    dplyr::transmute(
-      location = location,
-      forecast_week_end_date = as.character(date))
-  if (nrow(forecast_date_locations_drop) == 0) {
-    forecast_date_locations_drop <- NULL
-  }
-} else {
-  forecast_date_locations_drop <- NULL
-  target_end_date_locations_drop <- NULL
-}
-
 tic <- Sys.time()
 #if (!file.exists(forecast_filename)) {
 if (TRUE) {
   do_q10_check <- do_nondecreasing_quantile_check <- do_standard_checks
 
-  tictic <- Sys.time()
-  results <- build_covid_ensemble(
-    hub = ifelse(spatial_resolution_arg == "euro_countries", "ECDC", "US"),
+  # Dates specifying mondays when forecasts were submitted that are relevant to
+  # this analysis: forecast_date and the previous window_size weeks
+  monday_dates <- forecast_date
+
+  all_locations <- covidHubUtils::hub_locations %>%
+    dplyr::filter(geo_type == "state", fips != "US") %>%
+    dplyr::pull(fips)
+
+  # load forecasts for those locations
+  forecasts <- covidEnsembles::load_covid_forecasts_relative_horizon(
+    hub = "US",
     source = "local_hub_repo",
     hub_repo_path = hub_repo_path,
-    candidate_model_abbreviations_to_include =
-      candidate_model_abbreviations_to_include,
-    spatial_resolution = spatial_resolution,
-    targets = targets,
-    forecast_date = forecast_date,
-    forecast_week_end_date = forecast_week_end_date,
-    max_horizon = max_horizon,
+    monday_dates = monday_dates,
+    as_of = NULL,
+    model_abbrs = candidate_model_abbreviations_to_include,
     timezero_window_size = 6,
-    window_size = window_size,
-    data_as_of_date = forecast_date - 1,
-    forecast_date_locations_drop = forecast_date_locations_drop,
-    target_end_date_locations_drop = target_end_date_locations_drop,
-    intercept = intercept,
-    combine_method = combine_method,
-    quantile_groups = quantile_groups,
-    noncross = noncross,
-    missingness = missingness,
-    impute_method = impute_method,
-    backend = ifelse(
-      combine_method %in% c("rel_wis_weighted_median","rel_wis_weighted_mean"),
-      "grid_search",
-      "qenspy"),
-    required_quantiles = required_quantiles,
-    check_missingness_by_target = check_missingness_by_target,
+    locations = all_locations,
+    targets = targets,
+    max_horizon = max_horizon,
+    required_quantiles = required_quantiles
+  )
+
+  # Get observed values ("truth" in Zoltar's parlance)
+  # ... for locations having forecasts.
+  observed_by_location_target_end_date <-
+    get_observed_by_location_target_end_date(
+      as_of = "2022-03-13",
+      targets = targets,
+      spatial_resolution = spatial_resolution,
+      locations = unique(forecasts$location)
+    )
+
+  # obtain model eligibility by location
+  # since we have not yet filtered by horizon/target, eligibility is based on
+  # all four targets 1 - 4 wk ahead cum deaths
+  forecast_matrix <- covidEnsembles::new_QuantileForecastMatrix_from_df(
+    forecast_df = forecasts,
+    model_col = 'model',
+    id_cols = c('location', 'forecast_week_end_date', 'target'),
+    quantile_name_col = 'quantile',
+    quantile_value_col = 'value'
+  )
+
+  # consider refactoring to handle similar to covidHubUtils
+  # (this could be unit tested)
+  forecast_base_targets <- substr(
+    forecasts$target,
+    regexpr(' ', forecasts$target) + 1,
+    nchar(forecasts$target)
+  )
+  model_eligibility <- covidEnsembles::calc_model_eligibility_for_ensemble(
+    qfm = forecast_matrix,
+    observed_by_location_target_end_date =
+      observed_by_location_target_end_date %>%
+        dplyr::filter(base_target %in% forecast_base_targets),
+    missingness_by_target = check_missingness_by_target,
     do_q10_check = do_q10_check,
     do_nondecreasing_quantile_check = do_nondecreasing_quantile_check,
     do_baseline_check = do_baseline_check,
     do_sd_check = "exclude_none",
-    baseline_tol = 1.0,
-    top_models = top_models,
-    manual_eligibility_adjust = NULL,
-    return_eligibility = TRUE,
-    return_all = TRUE,
-    partial_save_frequency = 10,
-    partial_save_filename = partial_save_filename
+    sd_check_table_path = sd_check_table_path,
+    sd_check_plot_path = sd_check_plot_path,
+    baseline_tol = baseline_tol,
+    window_size = window_size,
+    decrease_tol = 0.0
   )
-  toctoc <- Sys.time()
-  toctoc - tictic
 
-  # save full results including estimated weights, training data, etc.
-  # only if running locally; cluster has limited space
-  if (run_setting == "local") {
-    saveRDS(results, file = fit_filename)
-  } else {
-    saveRDS(results$location_groups$qra_fit[[1]], file = fit_filename)
+  # keep only model-location-targets that are eligible
+  # here this is done by filtering the original forecasts data frame and
+  # recreating the QuantileForecastMatrix
+  forecasts <- forecasts %>%
+    dplyr::left_join(
+      model_eligibility %>%
+        dplyr::transmute(
+          model = model,
+          location = location,
+          forecast_week_end_date = forecast_week_end_date,
+          target = target,
+          eligibility = (overall_eligibility == "eligible")),
+      by = c("model", "location", "forecast_week_end_date", "target")) %>%
+    dplyr::filter(eligibility) %>%
+    dplyr::select(-eligibility)
+  
+  forecast_matrix <- covidEnsembles::new_QuantileForecastMatrix_from_df(
+    forecast_df = forecasts,
+    model_col = "model",
+    id_cols = c("location", "forecast_week_end_date", "target"),
+    quantile_name_col = "quantile",
+    quantile_value_col = "value"
+  )
+
+  # drop rows with no eligible models
+  rows_to_keep <- apply(forecast_matrix, 1, function(qfm_row) any(!is.na(qfm_row))) %>%
+    which()
+
+  if (length(rows_to_keep) != nrow(forecast_matrix)) {
+    forecast_matrix <- forecast_matrix[rows_to_keep, ]
   }
 
-  # extract and save just the estimated weights in csv format
-  if (!(combine_method %in% c("ew", "mean", "median", "rel_wis_weighted_median",
-    "rel_wis_weighted_mean", "mean_weights_weighted_median"))) {
-    # save loss trace as a function of optimization iteration
-    loss_trace <- results$location_groups$qra_fit[[1]]$loss_trace
-    saveRDS(loss_trace, file = loss_trace_filename)
+  # qfm_train and qfm_test are the same; copies of forecast_matrix
+  qfm_train <- qfm_test <- forecast_matrix
 
-    estimated_weights <- purrr::pmap_dfr(
-      results$location_groups %>% dplyr::select(locations, qra_fit),
-      function(locations, qra_fit) {
-        covidEnsembles:::extract_weights_qenspy_qra_fit(qra_fit) %>%
-          dplyr::mutate(join_field = "temp") %>%
-          dplyr::left_join(
-            data.frame(
-              location = locations,
-              join_field = "temp",
-              stringsAsFactors = FALSE
-            )
-          ) %>%
-          dplyr::select(-join_field)
-      }
-    )
-    write_csv(estimated_weights, weight_filename)
-  } else if (combine_method == "mean_weights_weighted_median") {
-    estimated_weights <- purrr::pmap_dfr(
-      results$location_groups %>% dplyr::select(locations, qra_fit),
-      function(locations, qra_fit) {
-        weights <- qra_fit$coefficients
+  # observed responses to date
+  y_train <- attr(qfm_train, 'row_index') %>%
+    dplyr::mutate(
+      target_end_date = as.character(
+        lubridate::ymd(forecast_week_end_date) +
+          as.numeric(substr(target, 1, regexpr(" ", target, fixed = TRUE) - 1)) *
+            ifelse(grepl("day", target), 1, 7)
+      ),
+      base_target = substr(target, regexpr(" ", target, fixed = TRUE) + 1, nchar(target))
+    ) %>%
+    dplyr::left_join(
+      observed_by_location_target_end_date,
+      by = c('location', 'target_end_date', 'base_target')
+    ) %>%
+    dplyr::pull(observed)
 
-        data.frame(
-          quantile = if ("quantile" %in% colnames(weights)) {
-              weights$quantile
-            } else {
-              rep(NA, nrow(weights))
-            },
-          model = weights$model,
-          weight = weights$beta, #[, 1],
-          join_field = "temp",
-          stringsAsFactors = FALSE
-        ) %>%
-          dplyr::left_join(
-            data.frame(
-              location = locations,
-              join_field = "temp",
-              stringsAsFactors = FALSE
-            )
-          ) %>%
-          dplyr::select(-join_field)
-      }
-    )
-    write_csv(estimated_weights, weight_filename)
+  # If any training data are missing, throw an error; the point is we're fitting post hoc weights...
+  if (any(is.na(y_train))) {
+    stop("Missing values in y_train")
   }
 
+  # fit model
+  qra_fit <- estimate_qra(
+    qfm_train = qfm_train,
+    y_train = y_train,
+    qfm_test = qfm_test,
+    intercept = intercept,
+    combine_method = combine_method,
+    quantile_groups = quantile_groups,
+    noncross = noncross,
+    backend = "qenspy",
+    max_weight = 1.0,
+    partial_save_frequency = Inf,
+    partial_save_filename = "")
+
+  # save estimated weights
+  estimated_weights <- extract_weights_qenspy_qra_fit(qra_fit)
+  write_csv(estimated_weights, weight_filename)
 
   # save csv formatted forecasts
-  if (missingness == "impute") {
-    c(model_eligibility, wide_model_eligibility, location_groups,
-      weight_transfer, component_forecasts) %<-% results
-    
-    col_index <- attr(location_groups$imputed_qfm_test[[1]], "col_index")
-    models_used <- purrr::map_dfc(
-      unique(col_index$model),
-      function(model) {
-        col_ind <- min(which(col_index$model == model))
-        result <- data.frame(
-          m = !is.na(unclass(location_groups$imputed_qfm_test[[1]])[, col_ind]))
-        colnames(result) <- model
-        return(result)
-      }
-    )
-    model_counts <- apply(
-      models_used,
-      1,
-      sum
-    )
-
-    ensemble_predictions <- location_groups$qra_forecast[[1]]
-  } else {
-    c(model_eligibility, wide_model_eligibility, location_groups,
-      component_forecasts) %<-% results
-    
-    model_counts <- apply(
-      location_groups %>% select_if(is.logical),
-      1,
-      sum)
-    location_groups <- location_groups[model_counts > 1, ]
-
-    if (nrow(location_groups) > 0) {
-      ensemble_predictions <- bind_rows(location_groups[['qra_forecast']])
-    }
-  }
+  ensemble_predictions <- predict(qra_fit, qfm_test, sort_quantiles = TRUE) %>%
+    as.data.frame()
 
   if (nrow(ensemble_predictions) > 0) {
     # save the results in required format
