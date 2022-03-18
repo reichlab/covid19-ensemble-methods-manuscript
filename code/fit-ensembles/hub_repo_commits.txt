@@ -9,7 +9,7 @@ corresponds to commit 278fbc04c15f4ca782d8af8074408c4b037adee7
 
 
 Commit used for prospective estimation fits -- covid19-forecast-hub:
-c6c24d2feabd9f9550d51e6de336dad87ffc9477
+3532bcba304cef2b4872dd2add1f83909f717d91
 
 
 Commit used for prospective estimation fits -- covid19-forecast-hub-europe:

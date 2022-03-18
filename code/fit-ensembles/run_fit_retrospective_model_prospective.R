@@ -24,7 +24,7 @@ num_cores <- 18L
 # define analysis combinations to run
 
 first_forecast_date <- lubridate::ymd("2021-05-03")
-last_forecast_date <- lubridate::ymd("2021-10-11")
+last_forecast_date <- lubridate::ymd("2022-03-14")
 
 num_forecast_weeks <-
   as.numeric(last_forecast_date - first_forecast_date) / 7 + 1
@@ -38,6 +38,7 @@ main_trained_analysis_combinations <- tidyr::expand_grid(
       seq(from = 0, length = num_forecast_weeks) * 7),
   intercept = "FALSE",
   combine_method = c(
+    "median",
     "rel_wis_weighted_median",
     "rel_wis_weighted_mean"
   ),
@@ -103,8 +104,8 @@ analysis_combinations <- analysis_combinations %>%
       forecasts_dir, "/",
       forecast_date, "-",
       case_str, ".csv"),
-    job_complete = file.exists(forecast_filename))# %>%
-#  dplyr::filter(!job_complete)
+    job_complete = file.exists(forecast_filename)) %>%
+  dplyr::filter(!job_complete)
 
 dim(analysis_combinations)
 
