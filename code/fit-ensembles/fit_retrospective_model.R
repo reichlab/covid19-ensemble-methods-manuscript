@@ -19,6 +19,7 @@ Sys.setenv(LANG = "en_US.UTF-8")
 #args <- c("cluster_single_node", "inc_death", "2020-07-27", "FALSE", "convex", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 #args <- c("local", "inc_death", "2021-04-05", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "4", "10", "TRUE", "FALSE", "FALSE", "state", "TRUE", "all")
 #args <- c("local", "inc_case", "2021-06-07", "FALSE", "rel_wis_weighted_median", "renormalize", "per_model", "sort", "12", "5", "TRUE", "FALSE", "FALSE", "euro_countries", "TRUE", "all")
+#args <- c("local", "inc_case", "2021-06-07", "FALSE", "arith_rel_wis_weighted_median", "renormalize", "per_model", "sort", "4", "5", "TRUE", "FALSE", "FALSE", "state", "TRUE", "all")
 #args <- c("local", "inc_death", "2021-03-01", "FALSE", "ew", "renormalize", "per_model", "sort", "12", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 #args <- c("local", "inc_death", "2021-03-15", "FALSE", "median", "renormalize", "per_model", "sort", "8", "0", "TRUE", "FALSE", "FALSE", "state", "FALSE", "all")
 
@@ -240,16 +241,16 @@ if (drop_anomalies) {
       "code/data-anomalies/outliers-inc-cases",
       ifelse(
         spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
+        "-EU",
+        "-US"
       ),
       ".csv")
     revisions_path <- paste0(
       "code/data-anomalies/revisions-to-drop-inc-cases",
       ifelse(
         spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
+        "-EU",
+        "-US"
       ),
       ".csv")
   } else if (response_var == "inc_death") {
@@ -257,16 +258,16 @@ if (drop_anomalies) {
       "code/data-anomalies/outliers-inc-deaths",
       ifelse(
         spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
+        "-EU",
+        "-US"
       ),
       ".csv")
     revisions_path <- paste0(
       "code/data-anomalies/revisions-to-drop-inc-deaths",
       ifelse(
         spatial_resolution_arg == "euro_countries",
-        "-euro",
-        ""
+        "-EU",
+        "-US"
       ),
       ".csv")
   }
@@ -325,7 +326,8 @@ if (TRUE) {
     missingness = missingness,
     impute_method = impute_method,
     backend = ifelse(
-      combine_method %in% c("rel_wis_weighted_median","rel_wis_weighted_mean"),
+      combine_method %in% c("rel_wis_weighted_median","rel_wis_weighted_mean",
+                            "arith_rel_wis_weighted_median","arith_rel_wis_weighted_mean"),
       "grid_search",
       "qenspy"),
     required_quantiles = required_quantiles,
