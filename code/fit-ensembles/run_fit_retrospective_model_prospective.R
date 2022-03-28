@@ -40,7 +40,9 @@ main_trained_analysis_combinations <- tidyr::expand_grid(
   combine_method = c(
     "median",
     "rel_wis_weighted_median",
-    "rel_wis_weighted_mean"
+    "rel_wis_weighted_mean",
+    "arith_rel_wis_weighted_median",
+    "arith_rel_wis_weighted_mean"
   ),
   quantile_group_str = "per_model",
   noncross = "sort",

@@ -357,7 +357,8 @@ if (TRUE) {
 
   # extract and save just the estimated weights in csv format
   if (!(combine_method %in% c("ew", "mean", "median", "rel_wis_weighted_median",
-    "rel_wis_weighted_mean", "mean_weights_weighted_median"))) {
+    "rel_wis_weighted_mean", "arith_rel_wis_weighted_median",
+    "arith_rel_wis_weighted_mean", "mean_weights_weighted_median"))) {
     # save loss trace as a function of optimization iteration
     loss_trace <- results$location_groups$qra_fit[[1]]$loss_trace
     saveRDS(loss_trace, file = loss_trace_filename)
