@@ -1,0 +1,168 @@
+library(tidyr)
+library(dplyr)
+library(readr)
+library(lubridate)
+library(zeallot)
+library(covidEnsembles)
+
+args <- commandArgs(trailingOnly = TRUE)
+run_setting <- args[1]
+
+if (is.na(run_setting)) {
+  run_setting <- "mghpcc_cluster"
+#  stop("no run setting")
+#  run_setting <- "cluster"
+  #run_setting <- "local"
+  #num_local_cores <- 16L
+}
+
+output_path <- "code/logs/"
+
+# number of cores to use for local runs
+num_cores <- 18L
+
+# define analysis combinations to run
+
+first_forecast_date <- lubridate::ymd("2020-07-27")
+#last_forecast_date <- lubridate::ymd("2021-05-03")
+#first_forecast_date <- lubridate::ymd("2021-05-03")
+last_forecast_date <- lubridate::ymd("2022-03-14")
+
+num_forecast_weeks <-
+  as.numeric(last_forecast_date - first_forecast_date) / 7 + 1
+
+# "main analysis" variations -- single weight per model, shared across all quantile levels and horizons
+analysis_combinations <- tidyr::expand_grid(
+  response_var = c("inc_case", "inc_death"),
+  forecast_date = as.character(
+    lubridate::ymd(first_forecast_date) +
+      seq(from = 0, length = num_forecast_weeks) * 7)
+  )
+
+# filter to keep only cases that have not successfully run previously
+#analysis_combinations <- analysis_combinations %>%
+#  dplyr::mutate(
+#    case_str = paste0(
+#      "combine_method_", combine_method,
+#      "-quantile_groups_", quantile_group_str,
+#      "-window_size_", window_size,
+#      "-top_models_", top_models,
+#      "-drop_anomalies_", drop_anomalies,
+#      "-horizon_group_", horizon_group
+#    ),
+#    spatial_resolution_path = dplyr::case_when(
+#      spatial_resolution == "all" ~ "",
+#      TRUE ~ spatial_resolution),
+#    forecasts_dir = file.path(
+#      "code/retrospective-forecasts",
+#      spatial_resolution_path,
+#      response_var,
+#      case_str),
+#    forecast_filename = paste0(
+#      forecasts_dir, "/",
+#      forecast_date, "-",
+#      case_str, ".csv"),
+#    job_complete = file.exists(forecast_filename)) %>%
+#  dplyr::filter(!job_complete)
+
+dim(analysis_combinations)
+
+
+# create jobs to run all analysis combinations
+if (run_setting %in% c("local", "midas_cluster_single_node")) {
+  library(doParallel)
+  registerDoParallel(cores = num_cores)
+
+  run_status <- #foreach(row_ind = seq_len(rev(nrow(analysis_combinations)))) %dopar% {
+    foreach(row_ind = seq_len(2)) %dopar% {
+    response_var <- analysis_combinations$response_var[row_ind]
+    forecast_date <- analysis_combinations$forecast_date[row_ind]
+    intercept <- analysis_combinations$intercept[row_ind]
+    combine_method <- analysis_combinations$combine_method[row_ind]
+    quantile_group_str <- analysis_combinations$quantile_group_str[row_ind]
+    noncross <- analysis_combinations$noncross[row_ind]
+    missingness <- analysis_combinations$missingness[row_ind]
+    window_size <- analysis_combinations$window_size[row_ind]
+    top_models <- analysis_combinations$top_models[row_ind]
+    check_missingness_by_target <-
+      analysis_combinations$check_missingness_by_target[row_ind]
+    do_standard_checks <- analysis_combinations$do_standard_checks[row_ind]
+    do_baseline_check <- analysis_combinations$do_baseline_check[row_ind]
+    spatial_resolution <- analysis_combinations$spatial_resolution[row_ind]
+    drop_anomalies <- analysis_combinations$drop_anomalies[row_ind]
+    horizon_group <- analysis_combinations$horizon_group[row_ind]
+
+    run_cmd <- paste0(
+      "R CMD BATCH --vanilla \'--args ",
+      run_setting, " ",
+      response_var, " ",
+      forecast_date, " ",
+      intercept, " ",
+      combine_method, " ",
+      missingness, " ",
+      quantile_group_str, " ",
+      noncross, " ",
+      window_size, " ",
+      top_models, " ",
+      check_missingness_by_target, " ",
+      do_standard_checks, " ",
+      do_baseline_check, " ",
+      spatial_resolution, " ",
+      drop_anomalies, " ",
+      horizon_group,
+      "\' code/fit-ensembles/fit_retrospective_model.R ",
+      output_path, "output-", response_var, "-", forecast_date, "-",
+      intercept, "-", combine_method, "-", missingness, "-", quantile_group_str,
+      "-", noncross, "-", window_size, "-", top_models, "-",
+      check_missingness_by_target, "-", do_standard_checks, "-",
+      do_baseline_check, "-", spatial_resolution, "-", drop_anomalies, "-",
+      horizon_group, ".Rout")
+
+    system(run_cmd)
+  }
+} else if (run_setting == "mghpcc_cluster") {
+  for(row_ind in seq_len(nrow(analysis_combinations))) {
+#  for(row_ind in seq_len(2)) {
+    response_var <- analysis_combinations$response_var[row_ind]
+    forecast_date <- analysis_combinations$forecast_date[row_ind]
+
+    model_case <- paste0(
+      response_var,
+      "-", forecast_date
+    )
+    
+    filename <- paste0(
+      "code/sh-scripts/submit_fit_retrospective_model_",
+      model_case, ".sh")
+
+    num_cores <- "1"
+    memory <- "6000"
+    
+    requestCmds <- "#!/bin/bash\n"
+    requestCmds <- paste0(requestCmds, "#BSUB -n ", num_cores, " # how many cores we want for our job\n",
+                "#BSUB -R span[hosts=1] # ask for all the cores on a single machine\n",
+                "#BSUB -R rusage[mem=", memory, "] # ask for memory\n",
+                "#BSUB -o covidEnsembles.out # log LSF output to a file\n",
+                "#BSUB -W 72:00 # run time\n",
+                "#BSUB -q long # which queue we want to run in\n")
+    
+    cat(requestCmds, file = filename)
+#    cat("module load gcc/8.1.0\n", file = filename, append = TRUE)
+#    cat("module load R/4.0.0_gcc\n", file = filename, append = TRUE)
+#    cat("module load gurobi/900\n", file = filename, append = TRUE)
+    cat("module load singularity/singularity-3.6.2\n", file = filename, append = TRUE)
+    cat(paste0(
+        "singularity exec code/fit-ensembles/singularity_tfp_cpu.sif ",
+        "R CMD BATCH --vanilla \'--args ",
+        "cluster_single_node ",
+        response_var, " ",
+        forecast_date,
+        "\' code/fit-ensembles/fit_post_hoc_weights.R ",
+        output_path, "output-", response_var, "-", forecast_date,
+        ".Rout"),
+      file = filename, append = TRUE)
+    
+    bsubCmd <- paste0("bsub < ", filename)
+    system(bsubCmd)
+  }
+}
