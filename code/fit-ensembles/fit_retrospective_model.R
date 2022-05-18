@@ -40,6 +40,15 @@ do_baseline_check <- as.logical(args[13])
 spatial_resolution_arg <- args[14]
 drop_anomalies <- as.logical(args[15])
 horizon_group <- args[16]
+max_weight <- as.numeric(args[17])
+
+print('max_weight is')
+print(max_weight)
+if (is.na(max_weight)) {
+  max_weight <- 1.0
+}
+print('max_weight is')
+print(max_weight)
 
 if (run_setting == "local") {
   # used by covidHubUtils::load_latest_forecasts for loading locally
@@ -183,6 +192,9 @@ case_str <- paste0(
   "-drop_anomalies_", drop_anomalies,
   "-horizon_group_", horizon_group
 )
+if (abs(max_weight - 1.0) > 0.001) {
+  case_str <- paste0(case_str, "-max_weight_", max_weight)
+}
 
 # create folder where model fits should be saved
 fits_dir <- file.path(
@@ -337,6 +349,7 @@ if (TRUE) {
     do_baseline_check = do_baseline_check,
     do_sd_check = "exclude_none",
     baseline_tol = 1.0,
+    max_weight = max_weight,
     top_models = top_models,
     manual_eligibility_adjust = NULL,
     return_eligibility = TRUE,

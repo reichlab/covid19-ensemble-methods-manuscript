@@ -38,6 +38,43 @@ main_trained_analysis_combinations <- tidyr::expand_grid(
       seq(from = 0, length = num_forecast_weeks) * 7),
   intercept = c("FALSE"),
   combine_method = c(
+    "ew",
+    "median",
+    "convex",
+    "rel_wis_weighted_median",
+    "rel_wis_weighted_mean"
+  ),
+  quantile_group_str = "per_model",
+  noncross = "sort",
+  missingness = "renormalize",
+  window_size = c(as.character(c(4, 8, 12)), "full_history"),
+  top_models = c("0", "5", "10"),
+  check_missingness_by_target = "TRUE",
+  do_standard_checks = "FALSE",
+  do_baseline_check = "FALSE",
+  drop_anomalies = "FALSE",
+  horizon_group = "all"
+) %>%
+  dplyr::filter(
+    (response_var %in% c("cum_death", "inc_death") &
+      spatial_resolution != "county" &
+      forecast_date >= "2020-06-22") |
+    (response_var == "inc_case" & forecast_date >= "2020-09-14") |
+    (response_var == "inc_hosp" & forecast_date >= "2020-11-23" &
+      spatial_resolution != "county"),
+    (spatial_resolution != "county") | window_size %in% c("3", "4")
+  ) %>%
+  dplyr::arrange(window_size, forecast_date)
+
+# anomaly sensitivity analysis variations -- single weight per model, shared across all quantile levels and horizons
+drop_anomaly_trained_analysis_combinations <- tidyr::expand_grid(
+  spatial_resolution = c("state"),
+  response_var = c("inc_case", "inc_death"),
+  forecast_date = as.character(
+    lubridate::ymd(first_forecast_date) +
+      seq(from = 0, length = num_forecast_weeks) * 7),
+  intercept = c("FALSE"),
+  combine_method = c(
     "convex",
     "rel_wis_weighted_median"
   ),
@@ -49,7 +86,7 @@ main_trained_analysis_combinations <- tidyr::expand_grid(
   check_missingness_by_target = "TRUE",
   do_standard_checks = "FALSE",
   do_baseline_check = "FALSE",
-  drop_anomalies = "FALSE",
+  drop_anomalies = "TRUE",
   horizon_group = "all"
 ) %>%
   dplyr::filter(
@@ -196,6 +233,7 @@ unweighted_analysis_combinations <- tidyr::expand_grid(
 
 analysis_combinations <- dplyr::bind_rows(
   main_trained_analysis_combinations,
+  drop_anomaly_trained_analysis_combinations,
   per_horizon_trained_analysis_combinations,
   per_quantile_level_trained_analysis_combinations,
   mean_weight_transfer_trained_analysis_combinations,
@@ -217,7 +255,7 @@ analysis_combinations <- analysis_combinations %>%
       spatial_resolution == "all" ~ "",
       TRUE ~ spatial_resolution),
     forecasts_dir = file.path(
-      "retrospective-forecasts",
+      "code/retrospective-forecasts",
       spatial_resolution_path,
       response_var,
       case_str),
