@@ -15,7 +15,7 @@ options(error = recover)
 
 # Dates of forecast submission for forecasts included in this analysis
 first_forecast_date <- lubridate::ymd("2020-07-27")
-last_forecast_date <- lubridate::ymd("2021-10-11")
+last_forecast_date <- lubridate::ymd("2022-03-14")
 num_forecast_weeks <- as.integer(last_forecast_date -
                          first_forecast_date) / 7 + 1
 
@@ -28,7 +28,7 @@ for (spatial_scale in c("euro_countries", "state")) {
 
   for (response_var in response_vars) {
     all_scores <- calc_retrospective_ensemble_scores(
-      submissions_root = "~/research/epi/covid/covid19-ensemble-methods-manuscript/code/retrospective-forecasts/",
+      submissions_root = "code/retrospective-forecasts/",
       forecast_dates = forecast_dates,
       spatial_scales = spatial_scale,
     #  spatial_scales = "state",
@@ -37,7 +37,7 @@ for (spatial_scale in c("euro_countries", "state")) {
     #  response_vars = "inc_case",
     #  response_vars = NULL,
     #  response_vars = c("inc_case", "inc_death", "cum_death", "inc_hosp"),
-      truth_as_of = as.Date("2021-12-05")
+      truth_as_of = as.Date("2022-05-16")
     )
 
     unique_models <- unique(all_scores$model)
@@ -49,11 +49,11 @@ for (spatial_scale in c("euro_countries", "state")) {
     ) %>%
       dplyr::mutate(
         top_models = ifelse(
-          is.na(top_models) | as.character(top_models) %in% c("0", "all"),
+          is.na(top_models) | as.character(top_models) %in% c("0", "all") | grepl("post_hoc_weights", model),
           "All Models",
           paste0('Top ', top_models)),
         horizon_group = ifelse(
-          horizon_group == "all",
+          horizon_group == "all" | grepl("post_hoc_weights", model),
           "All Horizons",
           "By Horizon"
         ),
@@ -67,16 +67,22 @@ for (spatial_scale in c("euro_countries", "state")) {
           combine_method == "median" ~ "Equal Weighted Median",
           combine_method == "rel_wis_weighted_mean" ~ "Rel. WIS Weighted Mean",
           combine_method == "rel_wis_weighted_median" ~ "Rel. WIS Weighted Median",
+          combine_method == "arith_rel_wis_weighted_mean" ~ "Arith. Rel. WIS Weighted Mean",
+          combine_method == "arith_rel_wis_weighted_median" ~ "Arith. Rel. WIS Weighted Median",
           combine_method == "convex" ~ "Weighted Mean",
-          combine_method == "mean_weights_weighted_median" ~ "Mean Weights Weighted Median"
+          combine_method == "mean_weights_weighted_median" ~ "Mean Weights Weighted Median",
+          grepl("post_hoc_weights", model) ~ "Post Hoc Weighted Mean"
         ),
         combine_method = factor(
           combine_method,
           levels = c("Equal Weighted Mean", "Equal Weighted Median",
             "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median",
-            "Weighted Mean", "Mean Weights Weighted Median")),
+            "Arith. Rel. WIS Weighted Mean", "Arith. Rel. WIS Weighted Median",
+            "Weighted Mean", "Mean Weights Weighted Median",
+            "Post Hoc Weighted Mean")),
         quantile_groups = dplyr::case_when(
           quantile_groups == "per_model" ~ "Per Model",
+          grepl("post_hoc_weights", model) ~ "Per Model",
           quantile_groups == "per_quantile" ~ "Per Quantile",
           quantile_groups == "3_groups" ~ "3 Groups"
         )
