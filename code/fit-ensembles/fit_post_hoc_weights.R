@@ -34,7 +34,7 @@ missingness <- "renormalize"
 quantile_group_str <- "per_model"
 noncross <- "sort"
 window_size_arg <- "0"
-top_models_arg <- "all"
+top_models_arg <- "all_models"
 check_missingness_by_target <- TRUE
 do_standard_checks <- FALSE
 do_baseline_check <- FALSE

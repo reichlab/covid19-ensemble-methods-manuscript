@@ -13,4 +13,4 @@ Commit used for prospective estimation fits -- covid19-forecast-hub:
 
 
 Commit used for prospective estimation fits -- covid19-forecast-hub-europe:
-6f8659c5a75ed42c2af93483807c1ee4177a8cd4
+c6761fc45c9c84a2df6cdfb84945562a4a23b8c2
