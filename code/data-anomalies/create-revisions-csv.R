@@ -34,14 +34,14 @@ load_one_as_of <- function(as_of, target_var, hub = "US") {
 # define Sundays to use for as_of dates
 first_as_of <- as.Date("2020-04-26")
 #last_as_of <- lubridate::floor_date(Sys.Date(), unit = "week")
-last_as_of <- as.Date("2021-12-05")
+last_as_of <- as.Date("2022-05-16")
 
 #for (hub in c("US", "EU")) {
 for (hub in "US") {
 #for (hub in "EU") {
-  # for (target_var in c("cases", "deaths")) {
+  for (target_var in c("cases", "deaths")) {
   # for (target_var in "cases") {
-  for (target_var in "deaths") {
+  # for (target_var in "deaths") {
     as_ofs <- seq.Date(
       from = first_as_of,
       to = last_as_of,

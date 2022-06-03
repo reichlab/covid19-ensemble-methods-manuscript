@@ -13,7 +13,7 @@ for (hub in "US") {
   } else {
     first_as_of_date <- as.Date("2021-05-02")
   }
-  last_as_of_date <- as.Date("2021-12-05")
+  last_as_of_date <- as.Date("2022-05-16")
   all_as_ofs <- seq.Date(
     from = first_as_of_date,
     to = last_as_of_date,
@@ -21,7 +21,8 @@ for (hub in "US") {
   )
 
   for (measure in c("cases", "deaths")) {
-#  for (measure in "cases") {
+  # for (measure in "cases") {
+  # for (measure in "deaths") {
     outliers <- readr::read_csv(
       paste0("code/data-anomalies/outliers-inc-",
         measure,
