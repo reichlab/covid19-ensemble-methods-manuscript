@@ -38,7 +38,11 @@ all_scores <- dplyr::bind_rows(
   readRDS("code/scores/retrospective_scores-state-inc_case.rds")
 ) %>%
   dplyr::filter(
+    true_value >= 0,
     horizon_group == "All Horizons",
+    is.na(max_weight),
+    # Keep subset of models for model development set
+    forecast_date < "2021-05-03",
     # (top_models == "All Models" & combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median")) |
     (top_models == "Top 10" & combine_method %in% c("Weighted Mean", "Rel. WIS Weighted Median"))) %>%
     # (top_models == "Top 10" & combine_method == "Rel. WIS Weighted Median")) %>%
@@ -113,7 +117,7 @@ print(p_coverage)
 dev.off()
 
 
-# code below may be out of date
+# code below may be out of date and is not used in the manuscript
 
 by_date_means <- all_scores %>%
   dplyr::group_by(model_brief, combine_method, quantile_groups, window_size,

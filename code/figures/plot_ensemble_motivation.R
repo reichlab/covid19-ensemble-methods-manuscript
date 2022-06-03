@@ -23,7 +23,7 @@ submissions_root <- paste0(hub_repo_path, "data-processed/")
 
 pwd <- setwd(hub_repo_path)
 if (hub == "US") {
-  system("git checkout 0d0dac949cd69c662acef964fbdcd2e99fa5d0bb")
+  system("git checkout 3532bcba304cef2b4872dd2add1f83909f717d91")
 } else if (hub == "ECDC") {
   system("git checkout 863d3ede001f1e17c4b97892f4bfb3ff721f779a")
 }
@@ -39,8 +39,8 @@ model_abbrs <-
   model_abbrs[
     !(model_abbrs %in%
       c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-ensemble",
-        "COVIDhub-trained_ensemble", "KITmetricslab-select_ensemble",
-        "EuroCOVIDhub-ensemble"))
+        "COVIDhub-trained_ensemble", "COVIDhub-4_week_ensemble", "COVIDhub_CDC-ensemble",
+        "KITmetricslab-select_ensemble", "EuroCOVIDhub-ensemble"))
   ]
 
 
@@ -66,7 +66,7 @@ if (target_var == "inc_death") {
 # Get observed values ("truth" in Zoltar's parlance)
 observed_by_location_target_end_date <-
   get_observed_by_location_target_end_date(
-    as_of = "2021-12-05",
+    as_of = "2022-05-16",
     targets = targets,
     spatial_resolution = spatial_resolution
   )
@@ -262,7 +262,7 @@ p_a <-
 # PANEL B
 
 start_monday <- as.Date("2020-07-27") - 12*7
-most_recent_monday <- as.Date("2021-11-01")
+most_recent_monday <- as.Date("2022-05-16")
 
 target_var <- "inc_case"
 #target_var <- "inc_death"
@@ -279,7 +279,7 @@ submissions_root <- paste0(hub_repo_path, "data-processed/")
 
 # check out version of hub repo used for analysis
 pwd <- setwd(hub_repo_path)
-system("git checkout c6c24d2feabd9f9550d51e6de336dad87ffc9477")
+system("git checkout 3532bcba304cef2b4872dd2add1f83909f717d91")
 setwd(pwd)
 
 model_abbrs <- get_candidate_models(
@@ -298,8 +298,8 @@ model_abbrs <-
   model_abbrs[
     !(model_abbrs %in%
       c("JHUAPL-SLPHospEns", "FDANIHASU-Sweight", "COVIDhub-ensemble",
-        "COVIDhub-trained_ensemble", "COVIDhub-4_week_ensemble", "KITmetricslab-select_ensemble",
-        "EuroCOVIDhub-ensemble"))
+        "COVIDhub-trained_ensemble", "COVIDhub-4_week_ensemble", "COVIDhub_CDC-ensemble",
+        "KITmetricslab-select_ensemble", "EuroCOVIDhub-ensemble"))
   ]
 
 
@@ -325,7 +325,7 @@ if (target_var == "inc_death") {
 # Get observed values ("truth" in Zoltar's parlance)
 observed_by_location_target_end_date <-
   get_observed_by_location_target_end_date(
-    as_of = "2021-12-05",
+    as_of = "2022-05-16",
     targets = targets,
     spatial_resolution = spatial_resolution
   )
@@ -630,7 +630,7 @@ if (target_var == "inc_death") {
 # Get observed values ("truth" in Zoltar's parlance)
 observed_by_location_target_end_date <-
   get_observed_by_location_target_end_date(
-    as_of = "2021-12-05",
+    as_of = "2022-05-16",
     targets = targets,
     spatial_resolution = spatial_resolution
   )

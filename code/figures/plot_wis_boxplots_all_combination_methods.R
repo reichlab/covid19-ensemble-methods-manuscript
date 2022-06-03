@@ -8,7 +8,6 @@ library(grid)
 library(gridExtra)
 library(knitr)
 library(here)
-library(scales)
 
 setwd(here())
 
@@ -42,31 +41,34 @@ all_scores_us <- dplyr::bind_rows(
     true_value >= 0,
     horizon_group == "All Horizons", quantile_groups == "Per Model",
     drop_anomalies == FALSE,
+    !(combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median") &
+      top_models == "All Models" &
+      window_size != "Untrained"),
     is.na(max_weight),
-    # first subset to considered combine methods for main figure
-    combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median", "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median"),
     # trained methods: all variations other than equal weighted, top 10
     # untrained methods: untrained, equal weighted
-    (window_size == "Trained on 12 weeks" &
-      !(top_models == "All Models" & combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median"))) | # & combine_method %in% c("Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")) |
-    (window_size == "Untrained" &
-      combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median")),
-    # Keep subset of models for prospective evaluation
-    (forecast_date < "2021-05-03" |
-      (top_models == "Top 10" &
-        combine_method %in% c("Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")) |
-      (top_models == "All Models" &
-        window_size == "Untrained" &
-        combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median")))
+    # (window_size == "Trained on 12 weeks" &
+    #   !(top_models == "All Models" & combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median"))) | # & combine_method %in% c("Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")) |
+    # (window_size == "Untrained" &
+    #   combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median")),
+    # Keep subset of forecasts for model development phase
+    forecast_date < "2021-05-03"
   ) %>%
   dplyr::mutate(
-    # window_size = factor(
-    #   window_size,
-    #   levels = c("Untrained", "Trained on 4 weeks", "Trained on 8 weeks", "Trained on 12 weeks", "Trained on full history")
-    # ),
     combine_method = factor(
       combine_method,
-      levels = c("Equal Weighted Mean", "Equal Weighted Median", "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")),
+      levels = c("Equal Weighted Mean", "Equal Weighted Median",
+                 "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median",
+                 "Weighted Mean", "Mean Weights Weighted Median")),
+    window_size = factor(
+      window_size,
+      levels = c("Untrained", "Trained on 4 weeks", "Trained on 8 weeks",
+                 "Trained on 12 weeks", "Trained on full history")
+    ),
+    top_models = factor(
+      top_models,
+      levels = c("All Models", "Top 10", "Top 5")
+    ),
     model_brief = paste0(combine_method, "-",
       quantile_groups, "-",
       window_size, "-",
@@ -74,8 +76,6 @@ all_scores_us <- dplyr::bind_rows(
       horizon_group),
     phase = ifelse(forecast_date >= "2021-05-03", "Prospective Evaluation: US", "Model Development: US")
   )
-
-#unique(all_scores_us$model_brief)
 
 # ensure that we have the same scores for all model variations
 orig_score_count <- nrow(all_scores_us)
@@ -88,91 +88,6 @@ all_scores_us <- dplyr::bind_rows(
 common_score_count <- nrow(all_scores_us)
 orig_score_count == common_score_count
 
-
-# subset to scores not affected by data anomalies:
-# - target end date is an outlier
-# - forecast date is on or shortly after a date for which a substantial revision was made
-outliers <- dplyr::bind_rows(
-  readr::read_csv("code/data-anomalies/outliers-inc-cases-US.csv") %>%
-    dplyr::mutate(target_variable = "Cases"),
-  readr::read_csv("code/data-anomalies/outliers-inc-deaths-US.csv") %>%
-    dplyr::mutate(target_variable = "Deaths")
-) %>%
-  dplyr::transmute(
-    location = location,
-    target_end_date = date,
-    target_variable = target_variable)
-
-revisions <- dplyr::bind_rows(
-  readr::read_csv("code/data-anomalies/revisions-to-drop-inc-cases-US.csv") %>%
-    dplyr::mutate(target_variable = "Cases"),
-  readr::read_csv("code/data-anomalies/revisions-to-drop-inc-deaths-US.csv") %>%
-    dplyr::mutate(target_variable = "Deaths")
-) %>%
-  dplyr::transmute(
-    location = location,
-    forecast_date = date + 2, # sat -> mon
-    target_variable = target_variable)
-
-non_anomalous_scores_us <- all_scores_us %>%
-  dplyr::anti_join(
-    outliers,
-    by = c("location", "target_end_date", "target_variable")
-  ) %>%
-  dplyr::anti_join(
-    revisions,
-    by = c("location", "forecast_date", "target_variable")
-  )
-
-
-
-# plot of scores for Europe
-# read in scores
-all_scores_eu <- dplyr::bind_rows(
-  readRDS("code/scores/retrospective_scores-euro_countries-inc_death.rds"),
-  readRDS("code/scores/retrospective_scores-euro_countries-inc_case.rds")
-) %>%
-  dplyr::filter(
-    true_value >= 0,
-    horizon_group == "All Horizons", quantile_groups == "Per Model",
-    (top_models == "Top 10" &
-      window_size == "Trained on 12 weeks" &
-      combine_method %in% c("Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")) |
-    (top_models == "All Models" &
-      window_size == "Untrained" &
-      combine_method %in% c("Equal Weighted Mean", "Equal Weighted Median"))
-  ) %>%
-  dplyr::mutate(
-    # window_size = factor(
-    #   window_size,
-    #   levels = c("Untrained", "Trained on 4 weeks", "Trained on 8 weeks", "Trained on 12 weeks", "Trained on full history")
-    # ),
-    combine_method = factor(
-      combine_method,
-      levels = c("Equal Weighted Mean", "Equal Weighted Median", "Rel. WIS Weighted Mean", "Rel. WIS Weighted Median")),
-    model_brief = paste0(combine_method, "-",
-      quantile_groups, "-",
-      window_size, "-",
-      top_models, "-",
-      horizon_group),
-    phase = "Prospective Evaluation: EU"
-  )
-
-# ensure that we have the same scores for all model variations
-orig_score_count <- nrow(all_scores_eu)
-all_scores_eu <- subset_scores_to_common(all_scores_eu)
-common_score_count <- nrow(all_scores_eu)
-orig_score_count == common_score_count
-
-# all_scores <- dplyr::bind_rows(
-#   all_scores_us,
-#   all_scores_eu
-# )
-
-# non_anomalous_scores <- dplyr::bind_rows(
-#   non_anomalous_scores_us,
-#   non_anomalous_scores_eu
-# )
 
 make_wis_boxplots_by_phase <- function(
   scores_others,
@@ -260,8 +175,7 @@ make_wis_boxplots_by_phase <- function(
         dplyr::left_join(plot_limits, by = c("phase", "target_variable")),
       mapping = aes(
         x = combine_method,
-        y = min_mwis),
-        # y = pmax(min_mwis, wis_diff_unweighted_median)),
+        y = pmax(min_mwis, wis_diff_unweighted_median)),
       shape = NA, size = 0
     ) +
     geom_point(
@@ -270,8 +184,7 @@ make_wis_boxplots_by_phase <- function(
         dplyr::left_join(plot_limits, by = c("phase", "target_variable")),
       mapping = aes(
         x = combine_method,
-        y = max_mwis),
-        # y = pmin(max_mwis, wis_diff_unweighted_median)),
+        y = pmin(max_mwis, wis_diff_unweighted_median)),
       shape = NA, size = 0
     )
 
@@ -279,19 +192,10 @@ make_wis_boxplots_by_phase <- function(
     geom_point(
       data = overall_means_others %>%
         dplyr::filter(phase %in% UQ(phases)) %>%
-        dplyr::left_join(plot_limits, by = c("phase", "target_variable")) %>%
-        dplyr::ungroup() %>%
-        dplyr::mutate(
-          wis_diff_censored = dplyr::case_when(
-            wis_diff_unweighted_median > max_mwis ~ rep(NA_real_, nrow(.)),
-            wis_diff_unweighted_median < min_mwis ~ rep(NA_real_, nrow(.)),
-            TRUE ~ wis_diff_unweighted_median)#,
-#          value_censored = (wis_diff_unweighted_median > max_mwis) | (wis_diff_unweighted_median < min_mwis)
-        ),
+        dplyr::left_join(plot_limits, by = c("phase", "target_variable")),
       mapping = aes(
         x = combine_method,
-        y = wis_diff_censored,
-        # y = scales::oob_censor(wis_diff_unweighted_median, range = c(-Inf, max_mwis)),
+        y = scales::oob_squish(wis_diff_unweighted_median, range = c(-Inf, max_mwis)),
         group = top_models),
       shape = "+", size = 5,
       position = position_dodge(width = 0.75)
@@ -306,7 +210,6 @@ make_wis_boxplots_by_phase <- function(
         "Top 10" = "#2A788EFF",
         "Top 5" = "#440154FF")
     ) +
-    scale_y_continuous(labels = comma) +
   #  facet_grid(phase ~ target_variable, scales = "free_y") +
     # facet_wrap( ~ geography, scales = "free_y", ncol = 1) +
     xlab("Combination Method") +
@@ -315,22 +218,15 @@ make_wis_boxplots_by_phase <- function(
   #  ggtitle("Cases") +
     theme_bw() +
     theme(
-      axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1.0),
+      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
       # axis.title.x = element_blank(),
       axis.title.y = element_blank(),
-      plot.title = element_text(hjust = 0.5),
-      panel.grid.major.y = element_line(colour = "grey", size = 0.5),
-      panel.grid.minor.y = element_line(colour = "grey", size = 0.5),
-      panel.grid.major.x = element_blank(),
-      panel.grid.minor.x = element_blank())
+      plot.title = element_text(hjust = 0.5))
 
-  if (num_phases > 1) {
-    p_wis_boxplots <- p_wis_boxplots +
-      facet_grid(rows = vars(target_variable), cols = vars(phase), scales = "free_y")
-  } else {
-    p_wis_boxplots <- p_wis_boxplots +
-      facet_wrap(facets = vars(target_variable), scales = "free_y")
-  }
+  p_wis_boxplots <- p_wis_boxplots +
+    facet_grid(rows = vars(target_variable),
+               cols = vars(window_size),
+               scales = "free_y")
 
   return(p_wis_boxplots)
 }
@@ -375,8 +271,6 @@ make_wis_boxplots_calibration_one_setting <- function(
     dplyr::mutate(
       wis_diff_unweighted_median = mwis - base_mwis,
     )
-  print("overall_means_others")
-  print(as.data.frame(overall_means_others))
 
   # mean across locations for each forecast date and horizon
   summarized_scores <- all_scores %>%
@@ -401,24 +295,24 @@ make_wis_boxplots_calibration_one_setting <- function(
     )
 
   p_wis_boxplots <- make_wis_boxplots_by_phase(
-    scores_others = scores_others %>%
-      dplyr::mutate(
-        combine_method = dplyr::case_when(
-          combine_method == "Equal Weighted Mean" ~ "Equal Weighted\nMean",
-          combine_method == "Equal Weighted Median" ~ "Equal Weighted\nMedian",
-          combine_method == "Rel. WIS Weighted Mean" ~ "Rel. WIS Weighted\nMean",
-          combine_method == "Rel. WIS Weighted Median" ~ "Rel. WIS Weighted\nMedian",
-        )
-      ),
-    overall_means_others = overall_means_others %>%
-      dplyr::mutate(
-        combine_method = dplyr::case_when(
-          combine_method == "Equal Weighted Mean" ~ "Equal Weighted\nMean",
-          combine_method == "Equal Weighted Median" ~ "Equal Weighted\nMedian",
-          combine_method == "Rel. WIS Weighted Mean" ~ "Rel. WIS Weighted\nMean",
-          combine_method == "Rel. WIS Weighted Median" ~ "Rel. WIS Weighted\nMedian",
-        )
-      ),
+    scores_others = scores_others, #%>%
+      # dplyr::mutate(
+      #   combine_method = dplyr::case_when(
+      #     combine_method == "Equal Weighted Mean" ~ "Equal Weighted\nMean",
+      #     combine_method == "Equal Weighted Median" ~ "Equal Weighted\nMedian",
+      #     combine_method == "Rel. WIS Weighted Mean" ~ "Rel. WIS Weighted\nMean",
+      #     combine_method == "Rel. WIS Weighted Median" ~ "Rel. WIS Weighted\nMedian",
+      #   )
+      # ),
+    overall_means_others = overall_means_others, #%>%
+      # dplyr::mutate(
+      #   combine_method = dplyr::case_when(
+      #     combine_method == "Equal Weighted Mean" ~ "Equal Weighted\nMean",
+      #     combine_method == "Equal Weighted Median" ~ "Equal Weighted\nMedian",
+      #     combine_method == "Rel. WIS Weighted Mean" ~ "Rel. WIS Weighted\nMean",
+      #     combine_method == "Rel. WIS Weighted Median" ~ "Rel. WIS Weighted\nMedian",
+      #   )
+      # ),
     plot_limits = plot_limits,
     central_only = central_only,
     phases = unique(scores_others$phase)
@@ -426,7 +320,7 @@ make_wis_boxplots_calibration_one_setting <- function(
 
   legend_top_models <- ggpubr::get_legend(
     p_wis_boxplots,
-    position = "right")
+    position = "bottom")
   p_wis_boxplots <- p_wis_boxplots +
     theme(legend.position = "none")
   # p_wis_boxplots <- p_wis_boxplots +
@@ -462,11 +356,7 @@ make_wis_boxplots_calibration_one_setting <- function(
   p_coverage <- ggplot(
     data = overall_means_coverage
     ) +
-    geom_line(mapping = aes(
-      x = nominal_coverage, y = empirical_coverage_diff,
-      color = combine_method,
-      # linetype = combine_method,
-      group = paste0(combine_method, top_models))) +
+    geom_line(mapping = aes(x = nominal_coverage, y = empirical_coverage_diff, color = combine_method, linetype = combine_method, group = paste0(combine_method, top_models))) +
     geom_point(mapping = aes(x = nominal_coverage, y = empirical_coverage_diff, color = combine_method, shape = combine_method)) +
   #  facet_wrap( ~ target_variable) +
     # facet_grid(phase ~ target_variable) +
@@ -475,9 +365,9 @@ make_wis_boxplots_calibration_one_setting <- function(
     scale_color_manual(
       "Combination Method",
       values = c(
-        "Equal Weighted Mean" = "#ff9041",
+        "Equal Weighted Mean" = "#ef8a62",
         "Equal Weighted Median" = "#67a9cf",
-        "Rel. WIS Weighted Mean" = "#bd0026",
+        "Rel. WIS Weighted Mean" = "#b2182b",
         "Rel. WIS Weighted Median" = "#2166ac")
     ) +
     scale_linetype_manual(
@@ -489,19 +379,15 @@ make_wis_boxplots_calibration_one_setting <- function(
         "Rel. WIS Weighted Median" = 1)
     ) +
     scale_shape_discrete("Combination Method") +
-    scale_y_continuous(limits = c(-0.22, 0.22), expand = expansion()) +
+    # ylim(c(0, 1)) +
     xlim(c(0, 1)) +
     xlab("Nominal Quantile Level") +
     # ylab("Empirical Coverage Rate Minus Nominal Coverage Rate") +
     theme_bw() +
     theme(
-      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1),
       axis.title.y = element_blank(),
-      legend.position = "right",
-      panel.grid.major.y = element_line(colour = "grey", size = 0.5),
-      panel.grid.minor.y = element_line(colour = "grey", size = 0.5),
-      panel.grid.major.x = element_blank(),
-      panel.grid.minor.x = element_blank())
+      legend.position = "right")
 
   if (num_phases > 1) {
     p_coverage <- p_coverage +
@@ -513,7 +399,7 @@ make_wis_boxplots_calibration_one_setting <- function(
 
   legend_combine_methods <- ggpubr::get_legend(
     p_coverage,
-    position = "right")
+    position = "bottom")
   p_coverage <- p_coverage +
     theme(legend.position = "none")
 
@@ -526,21 +412,21 @@ make_wis_boxplots_calibration_one_setting <- function(
       last_row_height <- 0.85
     }
   } else {
-    fig_height <- 6
+    fig_height <- 9
     last_row_height <- 0.75
   }
 
   if (include_calibration && include_wis) {
     row_units <- unit(c(1, 0.8, 0.2, 1, last_row_height), c("lines", "null", "null", "lines", "null"))
   } else {
-    row_units <- unit(c(0.8, 0.2), c("null", "null"))
+    row_units <- unit(c(0.8, 0.2, 2), c("null", "null", "lines"))
   }
 
   pdf(save_path, width = 8, height = fig_height)
   plot_layout <- grid.layout(
     nrow = length(row_units),
-    ncol = 5,
-    widths = unit(c(1, 1, 0.02, 1, 0.4), c("lines", "lines", rep("null", 3))),
+    ncol = 4,
+    widths = unit(c(1, 1, 0.02, 1), c("lines", "lines", rep("null", 2))),
     heights = row_units)
 
   grid.newpage()
@@ -564,14 +450,14 @@ make_wis_boxplots_calibration_one_setting <- function(
       extra_spaces <- ""
     }
     grid.text(
-      paste0(extra_spaces, "                Ensemble Method Mean WIS Minus"),
+      paste0(extra_spaces, "                                    Ensemble Method Mean WIS Minus"),
       just = "center",
       rot = 90,
       gp = gpar(fontsize = 11),
       vp = viewport(layout.pos.row = 1:2 + include_calibration, layout.pos.col = 1))
 
     grid.text(
-      paste0(extra_spaces, "                Equally Weighted Median Mean WIS"),
+      paste0(extra_spaces, "                                    Equally Weighted Median Mean WIS"),
       just = "center",
       rot = 90,
       gp = gpar(fontsize = 11),
@@ -584,8 +470,8 @@ make_wis_boxplots_calibration_one_setting <- function(
     print(as_ggplot(legend_top_models),
       vp = viewport(
         y = unit(0, "npc"),
-        layout.pos.row = 1 + include_calibration,
-        layout.pos.col = 5,
+        layout.pos.row = 3,
+        layout.pos.col = 3:4,
         just = c("top")))
   }
 
@@ -657,21 +543,8 @@ make_wis_boxplots_calibration_one_setting(
     max_mwis = c( 1000,  10,  1000,  10,  10000,  100000)
   ),
   central_only = TRUE,
-  include_calibration = TRUE,
-  save_path = 'manuscript/figures/wis_boxplots_and_calibration_by_phase_US_central_only.pdf')
-
-make_wis_boxplots_calibration_one_setting(
-  all_scores = all_scores_us,
-  plot_limits = data.frame(
-    phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-    target_variable = rep(c("Cases", "Deaths"), times = 3),
-    min_mwis = c(-1000, -10, -1000, -10, -10000, -100000),
-    max_mwis = c( 1000,  10,  1000,  10,  10000,  100000)
-  ),
-  central_only = TRUE,
   include_calibration = FALSE,
-  save_path = 'manuscript/figures/wis_boxplots_by_phase_US_central_only_for_poster.pdf',
-  size_for_poster = TRUE)
+  save_path = 'manuscript/figures/wis_boxplots_all_combos_central_only.pdf')
 
 make_wis_boxplots_calibration_one_setting(
   all_scores = all_scores_us,
@@ -683,114 +556,4 @@ make_wis_boxplots_calibration_one_setting(
   ),
   central_only = FALSE,
   include_calibration = FALSE,
-  save_path = 'manuscript/figures/wis_boxplots_by_phase_US_all_points.pdf')
-
-
-make_wis_boxplots_calibration_one_setting(
-  all_scores = non_anomalous_scores_us,
-  plot_limits = data.frame(
-    phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-    target_variable = rep(c("Cases", "Deaths"), times = 3),
-    min_mwis = c(-1000, -10, -1000, -10, -10000, -100000),
-    max_mwis = c( 1000,  10,  1000,  10,  10000,  100000)
-  ),
-  central_only = TRUE,
-  include_calibration = TRUE,
-  save_path = 'manuscript/figures/wis_boxplots_and_calibration_by_phase_US_central_only_non_anomalous.pdf')
-
-
-make_wis_boxplots_calibration_one_setting(
-  all_scores = non_anomalous_scores_us,
-  plot_limits = data.frame(
-    phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-    target_variable = rep(c("Cases", "Deaths"), times = 3),
-    min_mwis = c(-Inf, -Inf, -Inf, -Inf, -Inf, -Inf),
-    max_mwis = c( Inf,  Inf,  Inf,  Inf,  Inf,  Inf)
-  ),
-  central_only = FALSE,
-  include_calibration = FALSE,
-  save_path = 'manuscript/figures/wis_boxplots_by_phase_US_all_points_non_anomalous.pdf')
-
-
-# make_wis_boxplots_calibration_one_setting(
-#   all_scores = non_anomalous_scores_us,
-#   plot_limits = data.frame(
-#     phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-#     target_variable = rep(c("Cases", "Deaths"), times = 3),
-#     min_mwis = c(-Inf, -Inf, -Inf, -Inf, -Inf, -Inf),
-#     max_mwis = c( Inf,  Inf,  Inf,  Inf,  Inf,  Inf)
-#   ),
-#   central_only = FALSE,
-#   include_wis = FALSE,
-#   include_calibration = TRUE,
-#   save_path = 'manuscript/figures/calibration_by_phase_US_all_points_non_anomalous.pdf')
-
-
-make_wis_boxplots_calibration_one_setting(
-  all_scores = all_scores_eu,
-  plot_limits = data.frame(
-    phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-    target_variable = rep(c("Cases", "Deaths"), times = 3),
-    min_mwis = c(-1000, -10, -1000, -10, -10000, -10),
-    max_mwis = c( 1000,  10,  1000,  10,  10000,  10)
-  ),
-  central_only = TRUE,
-  include_calibration = TRUE,
-  save_path = 'manuscript/figures/wis_boxplots_and_calibration_by_phase_EU_central_only.pdf')
-
-make_wis_boxplots_calibration_one_setting(
-  all_scores = all_scores_eu,
-  plot_limits = data.frame(
-    phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-    target_variable = rep(c("Cases", "Deaths"), times = 3),
-    min_mwis = c(-Inf, -Inf, -Inf, -Inf, -Inf, -Inf),
-    max_mwis = c( Inf,  Inf,  Inf,  Inf,  Inf,  Inf)
-  ),
-  central_only = FALSE,
-  include_calibration = FALSE,
-  save_path = 'manuscript/figures/wis_boxplots_by_phase_EU_all_points.pdf')
-
-
-# decided not to use a version with partial censoring of outliers
-
-# make_wis_boxplots_one_setting(
-#   all_scores = all_scores_us,
-#   plot_limits = data.frame(
-#     phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-#     target_variable = rep(c("Cases", "Deaths"), times = 3),
-#     min_mwis = c(-5000, -50, -5000, -50, -10000, -100000),
-#     max_mwis = c( 5000,  50,  5000,  50,  10000,  100000)
-#   ),
-#   central_only = FALSE,
-#   save_path = 'manuscript/figures/wis_boxplots_by_phase_US_some_censored.pdf')
-
-
-
-
-
-# make_wis_boxplots_by_phase(
-#   non_anomalous_scores,
-#   data.frame(
-#     phase = rep(c("Model Development: US", "Prospective Evaluation: US", "Prospective Evaluation: EU"), each = 2),
-#     target_variable = rep(c("Cases", "Deaths"), times = 3),
-#     min_mwis = c(-5000, -50, -1000, -100, -10000, -100000),
-#     max_mwis = c( 5000,  50,  1000,  100,  10000,  100000)
-#   ),
-#   'manuscript/figures/wis_boxplots_by_phase_drop_data_anomalies.pdf')
-
-
-
-
-
-# counts of how many scores were dropped
-n_all <- all_scores_us %>%
-  dplyr::filter(model == "combine_method_rel_wis_weighted_median-quantile_groups_per_model-window_size_12-top_models_10-drop_anomalies_FALSE-horizon_group_all-estimation_scale_state") %>%
-  dplyr::distinct(forecast_date, location, horizon) %>%
-  nrow()
-n_non_anomalous <- non_anomalous_scores_us %>%
-  dplyr::filter(model == "combine_method_rel_wis_weighted_median-quantile_groups_per_model-window_size_12-top_models_10-drop_anomalies_FALSE-horizon_group_all-estimation_scale_state") %>%
-  dplyr::distinct(forecast_date, location, horizon) %>%
-  nrow()
-
-n_all - n_non_anomalous
-n_all
+  save_path = 'manuscript/figures/wis_boxplots_all_combos_all_points.pdf')

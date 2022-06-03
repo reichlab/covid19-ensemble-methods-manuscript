@@ -60,9 +60,9 @@ data_forecasts_weights <- purrr::pmap(
 
     pwd <- setwd(hub_repo_path)
     if (hub == "US") {
-      system("git checkout c6c24d2feabd9f9550d51e6de336dad87ffc9477")
+      system("git checkout 3532bcba304cef2b4872dd2add1f83909f717d91")
     } else if (hub == "ECDC") {
-      system("git checkout 6f8659c5a75ed42c2af93483807c1ee4177a8cd4")
+      system("git checkout c6761fc45c9c84a2df6cdfb84945562a4a23b8c2")
     }
     setwd(pwd)
 
@@ -83,7 +83,7 @@ data_forecasts_weights <- purrr::pmap(
       ]
 
     start_monday <- as.Date("2020-07-27") - 12 * 7
-    last_monday <- as.Date("2021-10-11")
+    last_monday <- as.Date("2022-03-14")
 
 
     if (target_var == "inc_death") {
@@ -108,7 +108,7 @@ data_forecasts_weights <- purrr::pmap(
     # Get observed values ("truth" in Zoltar's parlance)
     observed_by_location_target_end_date <-
       get_observed_by_location_target_end_date(
-        as_of = "2021-11-07",
+        as_of = "2022-05-16",
         targets = targets,
         spatial_resolution = spatial_resolution
       )

@@ -27,7 +27,7 @@ data_and_forecasts <- purrr::map(
     # load data and misc. set up
     if (measure == 'deaths') {
       data <- covidData::load_jhu_data(
-        as_of = as.Date("2021-11-07"),
+        as_of = as.Date("2022-05-16"),
         spatial_resolution = 'state',
         temporal_resolution = 'weekly',
         measure = measure,
@@ -40,12 +40,12 @@ data_and_forecasts <- purrr::map(
       types <- 'inc'
       required_quantiles <- c(0.01, 0.025, seq(0.05, 0.95, by = 0.05), 0.975, 0.99)
       first_forecast_date <- lubridate::ymd("2020-07-27")
-      last_forecast_date <- lubridate::ymd("2021-10-11")
+      last_forecast_date <- lubridate::ymd("2022-03-14")
       num_forecast_weeks <-
         as.numeric(last_forecast_date - first_forecast_date) / 7 + 1
     } else if (measure == 'cases') {
       data <- covidData::load_jhu_data(
-        as_of = as.Date("2021-11-07"),
+        as_of = as.Date("2022-05-16"),
         spatial_resolution = 'state',
         temporal_resolution = 'weekly',
         measure = measure,
@@ -58,7 +58,7 @@ data_and_forecasts <- purrr::map(
       types <- 'inc'
       required_quantiles <- c(0.01, 0.025, seq(0.05, 0.95, by = 0.05), 0.975, 0.99)
       first_forecast_date <- lubridate::ymd("2020-09-14")
-      last_forecast_date <- lubridate::ymd("2021-10-11")
+      last_forecast_date <- lubridate::ymd("2022-03-14")
       num_forecast_weeks <-
         as.numeric(last_forecast_date - first_forecast_date) / 7 + 1
     }
@@ -99,14 +99,12 @@ top_n_maxima <- function(location_name, n, local_maxima) {
 plot_identified_maxima <- function(data, local_maxima, measure) {
   if (measure == "cases") {
     ylabel <- "Weekly Cases"
-    analysis_limits <- as.Date(c("2020-09-14", "2021-10-11"))
+    analysis_limits <- as.Date(c("2020-09-14", "2022-03-14"))
   } else {
     ylabel <- "Weekly Deaths"
-    analysis_limits <- as.Date(c("2020-07-27", "2021-10-11"))
+    analysis_limits <- as.Date(c("2020-07-27", "2022-03-14"))
   }
   p <- ggplot() +
-    geom_line(data = data,
-              mapping = aes(x = date, y = inc)) +
     geom_vline(
       data = local_maxima,
       mapping = aes(xintercept = date),
@@ -116,6 +114,8 @@ plot_identified_maxima <- function(data, local_maxima, measure) {
       xintercept = analysis_limits,
       linetype = 2
     ) +
+    geom_line(data = data,
+              mapping = aes(x = date, y = inc)) +
     # scale_x_date(date_breaks = "1 month", date_labels = "%b %Y") +
     scale_x_date(date_labels = "%b %Y") +
     ylab(ylabel) +
@@ -128,7 +128,7 @@ plot_identified_maxima <- function(data, local_maxima, measure) {
 # identify local maxima for cases:
 # week with largest incidence in a rolling 11 week window
 first_forecast_date <- lubridate::ymd("2020-09-14")
-last_forecast_date <- lubridate::ymd("2021-10-11")
+last_forecast_date <- lubridate::ymd("2022-03-14")
 
 all_forecast_dates_cases <- data_and_forecasts[["cases"]]$data %>%
   dplyr::filter(
@@ -136,14 +136,16 @@ all_forecast_dates_cases <- data_and_forecasts[["cases"]]$data %>%
     date <= (last_forecast_date - 2)
   )
 
+window <- 11
 local_maxima_cases <- data_and_forecasts[["cases"]]$data %>%
   dplyr::group_by(location, location_name) %>%
 #  dplyr::filter(location_name == "Oregon") %>%
   dplyr::mutate(
-    rolling_max_inc = zoo::rollmax(inc,
-                                   k = 11,
-                                   fill = NA,
-                                   align = "center")
+    rolling_max_inc = slider::slide_index_max(
+      inc,
+      date,
+      before = lubridate::weeks((window - 1) / 2),
+      after = lubridate::weeks((window - 1) / 2)),
   ) %>%
   dplyr::filter(
     !is.na(rolling_max_inc),
@@ -158,128 +160,123 @@ local_maxima_cases <- local_maxima_cases %>%
   dplyr::ungroup() %>%
   dplyr::filter(
     !(location_name == "Alabama" &
-      !(date %in% top_n_maxima("Alabama", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Alabama", n = 3, local_maxima_cases))),
     !(location_name == "Alaska" &
-      !(date %in% top_n_maxima("Alaska", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Alaska", n = 3, local_maxima_cases))),
     !(location_name == "Arizona" &
-      !(date %in% top_n_maxima("Arizona", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Arizona", n = 4, local_maxima_cases))),
     !(location_name == "Arkansas" &
-      !(date %in% top_n_maxima("Arkansas", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Arkansas", n = 3, local_maxima_cases))),
     !(location_name == "California" &
-      !(date %in% top_n_maxima("California", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("California", n = 3, local_maxima_cases))),
     !(location_name == "Colorado" &
-      !(date %in% top_n_maxima("Colorado", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Colorado", n = 4, local_maxima_cases))),
     !(location_name == "Connecticut" &
-      !(date %in% top_n_maxima("Connecticut", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Connecticut", n = 4, local_maxima_cases))),
     !(location_name == "Delaware" &
       !(date %in% top_n_maxima("Delaware", n = 3, local_maxima_cases))),
     !(location_name == "District of Columbia" &
-      !(date %in% top_n_maxima("District of Columbia", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("District of Columbia", n = 3, local_maxima_cases))),
     !(location_name == "Florida" &
       !(date %in% top_n_maxima("Florida", n = 3, local_maxima_cases))),
     !(location_name == "Georgia" &
-      !(date %in% top_n_maxima("Georgia", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Georgia", n = 3, local_maxima_cases))),
     !(location_name == "Hawaii" &
-      !(date %in% top_n_maxima("Hawaii", n = 1, local_maxima_cases))),
+      !(date %in% top_n_maxima("Hawaii", n = 2, local_maxima_cases))),
     !(location_name == "Idaho" &
-      !(date %in% top_n_maxima("Idaho", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Idaho", n = 3, local_maxima_cases))),
     !(location_name == "Illinois" &
-      !(date %in% top_n_maxima("Illinois", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Illinois", n = 4, local_maxima_cases))),
     !(location_name == "Indiana" &
       !(date %in% top_n_maxima("Indiana", n = 3, local_maxima_cases))),
     !(location_name == "Iowa" &
       !(date %in% top_n_maxima("Iowa", n = 2, local_maxima_cases))),
     !(location_name == "Kansas" &
-      !(date %in% top_n_maxima("Kansas", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Kansas", n = 3, local_maxima_cases))),
     !(location_name == "Kentucky" &
-      !(date %in% top_n_maxima("Kentucky", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Kentucky", n = 3, local_maxima_cases))),
     !(location_name == "Louisiana" &
-      !(date %in% top_n_maxima("Louisiana", n = 2, local_maxima_cases))),
-    !(location_name == "Maine" &
-      !(date %in% top_n_maxima("Maine", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Louisiana", n = 3, local_maxima_cases))),
+    # !(location_name == "Maine" &
+    #   !(date %in% top_n_maxima("Maine", n = 4, local_maxima_cases))),
+    !(location_name == "Maine" & date %in% as.Date(c("2021-10-02", "2022-02-19"))),
     !(location_name == "Maryland" &
-      !(date %in% top_n_maxima("Maryland", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Maryland", n = 4, local_maxima_cases))),
     !(location_name == "Massachusetts" &
       !(date %in% top_n_maxima("Massachusetts", n = 3, local_maxima_cases))),
     !(location_name == "Michigan" &
-      !(date %in% top_n_maxima("Michigan", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Michigan", n = 3, local_maxima_cases))),
     !(location_name == "Minnesota" &
-      !(date %in% top_n_maxima("Minnesota", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Minnesota", n = 3, local_maxima_cases))),
     !(location_name == "Mississippi" &
-      !(date %in% top_n_maxima("Mississippi", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Mississippi", n = 3, local_maxima_cases))),
     !(location_name == "Missouri" &
-      !(date %in% top_n_maxima("Missouri", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Missouri", n = 3, local_maxima_cases))),
     !(location_name == "Montana" &
-      !(date %in% top_n_maxima("Montana", n = 1, local_maxima_cases))),
+      !(date %in% top_n_maxima("Montana", n = 3, local_maxima_cases))),
     !(location_name == "Nebraska" &
-      !(date %in% top_n_maxima("Nebraska", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Nebraska", n = 3, local_maxima_cases))),
+    !(location_name == "Nebraska" & date %in% as.Date(c("2022-03-05"))),
     !(location_name == "Nevada" &
-      !(date %in% top_n_maxima("Nevada", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Nevada", n = 3, local_maxima_cases))),
     !(location_name == "New Hampshire" &
-      !(date %in% top_n_maxima("New Hampshire", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("New Hampshire", n = 3, local_maxima_cases))),
     !(location_name == "New Jersey" &
-      !(date %in% top_n_maxima("New Jersey", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("New Jersey", n = 4, local_maxima_cases))),
+    !(location_name == "New Jersey" & date %in% as.Date(c("2021-04-03"))),
     !(location_name == "New Mexico" &
       !(date %in% top_n_maxima("New Mexico", n = 2, local_maxima_cases))),
     !(location_name == "New York" &
-      !(date %in% top_n_maxima("New York", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("New York", n = 2, local_maxima_cases))),
     !(location_name == "North Carolina" &
-      !(date %in% top_n_maxima("North Carolina", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("North Carolina", n = 3, local_maxima_cases))),
     !(location_name == "North Dakota" &
-      !(date %in% top_n_maxima("North Dakota", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("North Dakota", n = 3, local_maxima_cases))),
     !(location_name == "Ohio" &
-      !(date %in% top_n_maxima("Ohio", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Ohio", n = 3, local_maxima_cases))),
     !(location_name == "Oklahoma" &
-      !(date %in% top_n_maxima("Oklahoma", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Oklahoma", n = 4, local_maxima_cases))),
     !(location_name == "Oklahoma" & date == "2020-11-28"),
     !(location_name == "Oregon" &
-      !(date %in% top_n_maxima("Oregon", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Oregon", n = 4, local_maxima_cases))),
     !(location_name == "Pennsylvania" &
-      !(date %in% top_n_maxima("Pennsylvania", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Pennsylvania", n = 4, local_maxima_cases))),
+    !(location_name == "Pennsylvania" & date == "2021-10-09"),
     !(location_name == "Rhode Island" &
-      !(date %in% top_n_maxima("Rhode Island", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Rhode Island", n = 2, local_maxima_cases))),
     !(location_name == "South Carolina" &
-      !(date %in% top_n_maxima("South Carolina", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("South Carolina", n = 3, local_maxima_cases))),
     !(location_name == "South Dakota" &
-      !(date %in% top_n_maxima("South Dakota", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("South Dakota", n = 3, local_maxima_cases))),
     !(location_name == "Tennessee" &
-      !(date %in% top_n_maxima("Tennessee", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Tennessee", n = 3, local_maxima_cases))),
     !(location_name == "Texas" &
-      !(date %in% top_n_maxima("Texas", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Texas", n = 3, local_maxima_cases))),
     !(location_name == "Utah" &
-      !(date %in% top_n_maxima("Utah", n = 3, local_maxima_cases))),
+      !(date %in% top_n_maxima("Utah", n = 4, local_maxima_cases))),
+    !(location_name == "Utah" & date == "2021-01-09"),
     !(location_name == "Vermont" &
       !(date %in% top_n_maxima("Vermont", n = 2, local_maxima_cases))),
     !(location_name == "Virginia" &
-      !(date %in% top_n_maxima("Virginia", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Virginia", n = 3, local_maxima_cases))),
     !(location_name == "Washington" &
       !(date %in% top_n_maxima("Washington", n = 3, local_maxima_cases))),
     !(location_name == "West Virginia" &
-      !(date %in% top_n_maxima("West Virginia", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("West Virginia", n = 3, local_maxima_cases))),
     !(location_name == "Wisconsin" &
       !(date %in% top_n_maxima("Wisconsin", n = 2, local_maxima_cases))),
     !(location_name == "Wyoming" &
-      !(date %in% top_n_maxima("Wyoming", n = 2, local_maxima_cases))),
+      !(date %in% top_n_maxima("Wyoming", n = 3, local_maxima_cases))),
     !(location_name == "American Samoa"),
     !(location_name == "Guam" &
-      !(date %in% top_n_maxima("Guam", n = 2, local_maxima_cases))),
-    !(location_name == "Northern Mariana Islands"),
+      !(date %in% top_n_maxima("Guam", n = 3, local_maxima_cases))),
+    !(location_name == "Northern Mariana Islands" &
+      !(date %in% top_n_maxima("Northern Mariana Islands", n = 1, local_maxima_cases))),
     !(location_name == "Puerto Rico" &
       !(date %in% top_n_maxima("Puerto Rico", n = 3, local_maxima_cases))),
     !(location_name == "Virgin Islands" &
-      !(date %in% top_n_maxima("Virgin Islands", n = 1, local_maxima_cases)))
+      !(date %in% top_n_maxima("Virgin Islands", n = 2, local_maxima_cases)))
   )
-
-# manually add in rows for Montana and Pennsylvania that didn't get caught
-# because they were too close to the end of the time series (couldn't figure out
-# how to use zoo::rollmax() inside of mutate in a way that would find it)
-local_maxima_cases <- dplyr::bind_rows(
-  local_maxima_cases,
-  data_and_forecasts[["cases"]]$data %>%
-    dplyr::filter(location_name %in% c("Montana", "Pennsylvania"),
-                  date == "2021-10-09") %>%
-    dplyr::mutate(rolling_max_inc = inc)
-)
 
 p <- plot_identified_maxima(data_and_forecasts[["cases"]]$data, local_maxima_cases, "cases")
 print(p)
@@ -294,7 +291,7 @@ readr::write_csv(local_maxima_cases, file = "code/figures/local_maxima_cases.csv
 # identify local maxima for deaths:
 # week with largest incidence in a rolling 11 week window
 first_forecast_date <- lubridate::ymd("2020-07-27")
-last_forecast_date <- lubridate::ymd("2021-10-11")
+last_forecast_date <- lubridate::ymd("2022-03-14")
 
 all_forecast_dates_deaths <- data_and_forecasts[["deaths"]]$data %>%
   dplyr::filter(
@@ -304,12 +301,12 @@ all_forecast_dates_deaths <- data_and_forecasts[["deaths"]]$data %>%
 
 local_maxima_deaths <- data_and_forecasts[["deaths"]]$data %>%
   dplyr::group_by(location, location_name) %>%
-#  dplyr::filter(location_name == "Oregon") %>%
   dplyr::mutate(
-    rolling_max_inc = zoo::rollmax(inc,
-                                   k = 11,
-                                   fill = NA,
-                                   align = "center")
+    rolling_max_inc = slider::slide_index_max(
+      inc,
+      date,
+      before = lubridate::weeks((window - 1) / 2),
+      after = lubridate::weeks((window - 1) / 2)),
   ) %>%
   dplyr::filter(
     !is.na(rolling_max_inc),
@@ -324,122 +321,135 @@ local_maxima_deaths <- local_maxima_deaths %>%
   dplyr::ungroup() %>%
   dplyr::filter(
     !(location_name == "Alabama" &
-      !(date %in% top_n_maxima("Alabama", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Alabama", n = 3, local_maxima_deaths))),
     !(location_name == "Alaska" &
-      !(date %in% top_n_maxima("Alaska", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Alaska", n = 3, local_maxima_deaths))),
+    !(location_name == "Alaska" & date == "2022-01-22"),
     !(location_name == "Arizona" &
-      !(date %in% top_n_maxima("Arizona", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Arizona", n = 2, local_maxima_deaths))),
     !(location_name == "Arkansas" &
-      !(date %in% top_n_maxima("Arkansas", n = 3, local_maxima_deaths))),
-    !(location_name == "Arkansas" & date == "2020-09-19"),
+      !(date %in% top_n_maxima("Arkansas", n = 4, local_maxima_deaths))),
+    !(location_name == "Arkansas" & date %in% as.Date(c("2020-09-19", "2021-10-16"))),
     !(location_name == "California" &
-      !(date %in% top_n_maxima("California", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("California", n = 4, local_maxima_deaths))),
     !(location_name == "Colorado" &
-      !(date %in% top_n_maxima("Colorado", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Colorado", n = 4, local_maxima_deaths))),
+    !(location_name == "Colorado" & date == "2022-02-12"),
     !(location_name == "Connecticut" &
       !(date %in% top_n_maxima("Connecticut", n = 2, local_maxima_deaths))),
     !(location_name == "Delaware" &
-      !(date %in% top_n_maxima("Delaware", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Delaware", n = 3, local_maxima_deaths))),
     !(location_name == "Delaware" & date == "2021-07-31"),
     !(location_name == "District of Columbia" &
-      !(date %in% top_n_maxima("District of Columbia", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("District of Columbia", n = 2, local_maxima_deaths))),
     !(location_name == "Florida" &
-      !(date %in% top_n_maxima("Florida", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Florida", n = 4, local_maxima_deaths))),
     !(location_name == "Georgia" &
-      !(date %in% top_n_maxima("Georgia", n = 4, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Georgia", n = 5, local_maxima_deaths))),
     !(location_name == "Georgia" & date == "2020-11-07"),
     !(location_name == "Hawaii" &
-      !(date %in% top_n_maxima("Hawaii", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Hawaii", n = 4, local_maxima_deaths))),
     !(location_name == "Hawaii" & date == "2021-01-30"),
     !(location_name == "Idaho" &
-      !(date %in% top_n_maxima("Idaho", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Idaho", n = 3, local_maxima_deaths))),
     !(location_name == "Illinois" &
-      !(date %in% top_n_maxima("Illinois", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Illinois", n = 4, local_maxima_deaths))),
     !(location_name == "Indiana" &
-      !(date %in% top_n_maxima("Indiana", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Indiana", n = 3, local_maxima_deaths))),
     !(location_name == "Iowa" &
-      !(date %in% top_n_maxima("Iowa", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Iowa", n = 3, local_maxima_deaths))),
+    !(location_name == "Iowa" & date == "2021-02-06"),
     !(location_name == "Kansas" &
-      !(date %in% top_n_maxima("Kansas", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Kansas", n = 2, local_maxima_deaths))),
     !(location_name == "Kentucky" &
       !(date %in% top_n_maxima("Kentucky", n = 4, local_maxima_deaths))),
-    !(location_name == "Kentucky" & date %in% as.Date(c("2021-03-20", "2021-06-05"))),
+    !(location_name == "Kentucky" & date %in% as.Date(c("2021-03-20", "2021-06-05", "2021-10-02"))),
     !(location_name == "Louisiana" &
-      !(date %in% top_n_maxima("Louisiana", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Louisiana", n = 4, local_maxima_deaths))),
     !(location_name == "Maine" &
-      !(date %in% top_n_maxima("Maine", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Maine", n = 3, local_maxima_deaths))),
     !(location_name == "Maryland" &
-      !(date %in% top_n_maxima("Maryland", n = 2, local_maxima_deaths))),
-    !(location_name == "Maryland" & date == "2021-05-29"),
+      !(date %in% top_n_maxima("Maryland", n = 4, local_maxima_deaths))),
+    !(location_name == "Maryland" & date %in% as.Date(c("2021-05-29", "2022-01-01"))),
     !(location_name == "Massachusetts" &
-      !(date %in% top_n_maxima("Massachusetts", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Massachusetts", n = 2, local_maxima_deaths))),
     !(location_name == "Michigan" &
-      !(date %in% top_n_maxima("Michigan", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Michigan", n = 3, local_maxima_deaths))),
     !(location_name == "Michigan" & date == "2021-05-08"),
     !(location_name == "Minnesota" &
-      !(date %in% top_n_maxima("Minnesota", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Minnesota", n = 2, local_maxima_deaths))),
     !(location_name == "Mississippi" &
-      !(date %in% top_n_maxima("Mississippi", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Mississippi", n = 4, local_maxima_deaths))),
     !(location_name == "Missouri" &
-      !(date %in% top_n_maxima("Missouri", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Missouri", n = 4, local_maxima_deaths))),
+    !(location_name == "Missouri" & date == "2021-12-04"),
     !(location_name == "Montana" &
-      !(date %in% top_n_maxima("Montana", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Montana", n = 5, local_maxima_deaths))),
+    !(location_name == "Montana" & date %in% as.Date(c("2021-01-30", "2021-12-04"))),
     !(location_name == "Nebraska" &
-      !(date %in% top_n_maxima("Nebraska", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Nebraska", n = 3, local_maxima_deaths))),
     !(location_name == "Nebraska" & date == "2021-10-02"),
     !(location_name == "Nevada" &
-      !(date %in% top_n_maxima("Nevada", n = 4, local_maxima_deaths))),
-    !(location_name == "Nevada" & date == "2021-08-14"),
+      !(date %in% top_n_maxima("Nevada", n = 6, local_maxima_deaths))),
+    !(location_name == "Nevada" & date %in% as.Date(c("2021-08-14", "2021-12-11"))),
     !(location_name == "New Hampshire" &
-      !(date %in% top_n_maxima("New Hampshire", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("New Hampshire", n = 2, local_maxima_deaths))),
     !(location_name == "New Jersey" &
-      !(date %in% top_n_maxima("New Jersey", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("New Jersey", n = 2, local_maxima_deaths))),
     !(location_name == "New Mexico" &
-      !(date %in% top_n_maxima("New Mexico", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("New Mexico", n = 2, local_maxima_deaths))),
     !(location_name == "New Mexico" & date == "2021-05-29"),
     !(location_name == "New York" &
-      !(date %in% top_n_maxima("New York", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("New York", n = 2, local_maxima_deaths))),
     !(location_name == "North Carolina" &
-      !(date %in% top_n_maxima("North Carolina", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("North Carolina", n = 3, local_maxima_deaths))),
     !(location_name == "North Dakota" &
-      !(date %in% top_n_maxima("North Dakota", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("North Dakota", n = 2, local_maxima_deaths))),
     !(location_name == "Ohio" &
-      !(date %in% top_n_maxima("Ohio", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Ohio", n = 3, local_maxima_deaths))),
     !(location_name == "Oklahoma" &
-      !(date %in% top_n_maxima("Oklahoma", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Oklahoma", n = 4, local_maxima_deaths))),
     !(location_name == "Oklahoma" &
-      date %in% as.Date(c("2021-04-10", "2021-05-29"))),
+      date %in% as.Date(c("2021-04-10", "2021-05-29", "2021-10-23"))),
     !(location_name == "Oregon" &
-      !(date %in% top_n_maxima("Oregon", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Oregon", n = 2, local_maxima_deaths))),
     !(location_name == "Pennsylvania" &
-      !(date %in% top_n_maxima("Pennsylvania", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Pennsylvania", n = 2, local_maxima_deaths))),
     !(location_name == "Rhode Island" &
-      !(date %in% top_n_maxima("Rhode Island", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Rhode Island", n = 2, local_maxima_deaths))),
     !(location_name == "South Carolina" &
-      !(date %in% top_n_maxima("South Carolina", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("South Carolina", n = 4, local_maxima_deaths))),
     !(location_name == "South Dakota" &
-      !(date %in% top_n_maxima("South Dakota", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("South Dakota", n = 2, local_maxima_deaths))),
     !(location_name == "Tennessee" &
-      !(date %in% top_n_maxima("Tennessee", n = 2, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Tennessee", n = 4, local_maxima_deaths))),
+    !(location_name == "Tennessee" & date == "2021-12-25"),
     !(location_name == "Texas" &
-      !(date %in% top_n_maxima("Texas", n = 3, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Texas", n = 4, local_maxima_deaths))),
     !(location_name == "Utah" &
       !(date %in% top_n_maxima("Utah", n = 3, local_maxima_deaths))),
+    !(location_name == "Utah" & date %in% as.Date(c("2022-01-08"))),
     !(location_name == "Vermont" &
-      !(date %in% top_n_maxima("Vermont", n = 1, local_maxima_deaths))),
-    !(location_name == "Virginia"), # automatically identified peaks not successful
+      !(date %in% top_n_maxima("Vermont", n = 4, local_maxima_deaths))),
+    !(location_name == "Vermont" & date %in% as.Date(c("2021-11-06", "2021-12-18"))),
+    !(location_name == "Virginia" &
+      !(date %in% top_n_maxima("Virginia", n = 2, local_maxima_deaths))),
+    !(location_name == "Virginia" & date %in% as.Date(c("2021-02-27"))),
     !(location_name == "Washington" &
       !(date %in% top_n_maxima("Washington", n = 3, local_maxima_deaths))),
     !(location_name == "West Virginia" &
-      !(date %in% top_n_maxima("West Virginia", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("West Virginia", n = 4, local_maxima_deaths))),
+    !(location_name == "West Virginia" & date %in% as.Date(c("2021-03-13"))),
     !(location_name == "Wisconsin" &
-      !(date %in% top_n_maxima("Wisconsin", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Wisconsin", n = 2, local_maxima_deaths))),
     !(location_name == "Wyoming" &
-      !(date %in% top_n_maxima("Wyoming", n = 1, local_maxima_deaths))),
+      !(date %in% top_n_maxima("Wyoming", n = 3, local_maxima_deaths))),
+    !(location_name == "Wyoming" & date %in% as.Date(c("2021-12-04"))),
     !(location_name == "American Samoa"),
     !(location_name == "Guam" &
-      !(date %in% top_n_maxima("Guam", n = 2, local_maxima_deaths))),
-    !(location_name == "Northern Mariana Islands"),
+      !(date %in% top_n_maxima("Guam", n = 3, local_maxima_deaths))),
+    !(location_name == "Northern Mariana Islands" &
+      !(date %in% top_n_maxima("Northern Mariana Islands", n = 1, local_maxima_deaths))),
     !(location_name == "Puerto Rico" &
       !(date %in% top_n_maxima("Puerto Rico", n = 3, local_maxima_deaths))),
     !(location_name == "Puerto Rico" & date == "2021-09-11"),
@@ -447,24 +457,24 @@ local_maxima_deaths <- local_maxima_deaths %>%
       !(date %in% top_n_maxima("Virgin Islands", n = 1, local_maxima_deaths)))
   )
 
-# manually add in rows for Montana and Pennsylvania that didn't get caught
-# because they were too close to the end of the time series (couldn't figure out
-# how to use zoo::rollmax() inside of mutate in a way that would find it)
+# manually add in peaks that were not identified because of neighboring outliers
 local_maxima_deaths <- dplyr::bind_rows(
   local_maxima_deaths,
   data_and_forecasts[["deaths"]]$data %>%
-    dplyr::filter(location_name == "Virginia",
-                  date == "2021-01-23") %>%
+    dplyr::filter(date == "2021-08-28", location_name == "Arkansas") %>%
     dplyr::mutate(rolling_max_inc = inc),
   data_and_forecasts[["deaths"]]$data %>%
-    dplyr::filter(location_name == "West Virginia",
-                  date == "2021-10-09") %>%
+    dplyr::filter(date == "2022-01-22", location_name == "Maryland") %>%
     dplyr::mutate(rolling_max_inc = inc),
   data_and_forecasts[["deaths"]]$data %>%
-    dplyr::filter(location_name == "Oklahoma",
-                  date == "2021-09-25") %>%
+    dplyr::filter(date %in% as.Date(c("2021-01-23", "2021-09-25")), location_name == "Oklahoma") %>%
+    dplyr::mutate(rolling_max_inc = inc),
+  data_and_forecasts[["deaths"]]$data %>%
+    dplyr::filter(date %in% as.Date(c("2021-01-23", "2021-10-16")), location_name == "Virginia") %>%
     dplyr::mutate(rolling_max_inc = inc)
 )
+
+
 
 p <- plot_identified_maxima(data_and_forecasts[["deaths"]]$data, local_maxima_deaths, "deaths")
 print(p)

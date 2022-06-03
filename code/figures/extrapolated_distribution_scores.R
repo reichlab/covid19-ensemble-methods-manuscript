@@ -1,5 +1,6 @@
 library(tidyverse)
 library(ggpubr)
+library(grid)
 
 #' Extrapolate density
 d_ext_factory <- function(ps, qs, dist) {
@@ -101,7 +102,7 @@ approx_pdf_from_quantiles <- function(x, ps, qs, tail_dist_lower, tail_dist_uppe
     
     # short-circuit if less than two unique value in qs
     if (length(unique(qs)) < 2) {
-        return(rep(qs, length(p)))
+        return(rep(qs, length(x)))
     }
     
     # sort ps and qs
@@ -109,7 +110,7 @@ approx_pdf_from_quantiles <- function(x, ps, qs, tail_dist_lower, tail_dist_uppe
     qs <- sort(qs)
     
     # instantiate result
-    result <- rep(NA_real_, length(p))
+    result <- rep(NA_real_, length(x))
     
     # interior points
     interior_idx <- (x >= qs[1]) & (x <= tail(qs, 1))
@@ -161,7 +162,7 @@ approx_cdf_from_quantiles <- function(x, ps, qs, tail_dist_lower, tail_dist_uppe
     
     # short-circuit if less than two unique value in qs
     if (length(unique(qs)) < 2) {
-        return(rep(qs, length(p)))
+        return(rep(qs[1], length(x)))
     }
     
     # sort ps and qs
@@ -169,7 +170,7 @@ approx_cdf_from_quantiles <- function(x, ps, qs, tail_dist_lower, tail_dist_uppe
     qs <- sort(qs)
     
     # instantiate result
-    result <- rep(NA_real_, length(p))
+    result <- rep(NA_real_, length(x))
     
     # interior points
     interior_idx <- (x >= qs[1]) & (x <= tail(qs, 1))
@@ -482,6 +483,7 @@ p_wis <- dplyr::bind_rows(
         # coord_cartesian(ylim = c(-15.0, 0.0)) +
         facet_wrap(~ facet_label) +
         # ylab("Weighted Interval Score") +
+        xlab("y") +
         theme_bw() +
         theme(
             legend.position = "none",

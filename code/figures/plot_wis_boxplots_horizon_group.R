@@ -39,7 +39,11 @@ all_scores <- dplyr::bind_rows(
   dplyr::filter(
     quantile_groups == "Per Model",
     combine_method == "Rel. WIS Weighted Median",
-    top_models == "Top 10") %>%
+    top_models == "Top 10",
+    is.na(max_weight),
+    # Keep subset of models for model development set
+    forecast_date < "2021-05-03"
+  ) %>%
   dplyr::mutate(
     window_size = factor(
       window_size,

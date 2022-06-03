@@ -1,91 +1,147 @@
-location,date,inc,cum,location_name,location_name_with_state,abbreviation,rolling_max_inc
-01,2021-02-06,947,8513,Alabama,Alabama,AL,947
-01,2021-09-25,813,14022,Alabama,Alabama,AL,813
-02,2020-12-12,33,176,Alaska,Alaska,AK,33
-04,2021-01-16,1212,11248,Arizona,Arizona,AZ,1212
-05,2020-12-12,291,2911,Arkansas,Arkansas,AR,291
-05,2021-08-28,209,6854,Arkansas,Arkansas,AR,209
-06,2020-08-15,927,11044,California,California,CA,927
-06,2021-01-30,3690,39878,California,California,CA,3690
-08,2020-12-12,514,3871,Colorado,Colorado,CO,514
-09,2021-01-02,308,6099,Connecticut,Connecticut,CT,308
-09,2021-10-02,149,8650,Connecticut,Connecticut,CT,149
-10,2021-01-23,66,1254,Delaware,Delaware,DE,66
-11,2021-01-30,39,909,District of Columbia,District of Columbia,DC,39
-12,2020-08-01,1245,7022,Florida,Florida,FL,1245
-12,2021-02-06,1239,27599,Florida,Florida,FL,1239
-12,2021-09-18,2468,51240,Florida,Florida,FL,2468
-13,2020-08-29,484,5576,Georgia,Georgia,GA,484
-13,2021-01-23,955,13246,Georgia,Georgia,GA,955
-13,2021-09-25,901,25478,Georgia,Georgia,GA,901
-15,2021-10-02,54,801,Hawaii,Hawaii,HI,54
-16,2020-12-12,137,1169,Idaho,Idaho,ID,137
-16,2021-10-02,211,2964,Idaho,Idaho,ID,211
-17,2020-12-12,1215,15232,Illinois,Illinois,IL,1215
-17,2021-09-18,285,26979,Illinois,Illinois,IL,285
-18,2020-12-12,701,7600,Indiana,Indiana,IN,701
-18,2021-10-02,309,15686,Indiana,Indiana,IN,309
-19,2020-12-12,526,3208,Iowa,Iowa,IA,526
-20,2021-01-02,373,2893,Kansas,Kansas,KS,373
-21,2021-01-30,328,3714,Kentucky,Kentucky,KY,328
-21,2021-10-02,312,8804,Kentucky,Kentucky,KY,312
-22,2020-08-08,258,4207,Louisiana,Louisiana,LA,258
-22,2021-01-23,403,8483,Louisiana,Louisiana,LA,403
-22,2021-08-28,441,12359,Louisiana,Louisiana,LA,441
-23,2021-01-16,75,507,Maine,Maine,ME,75
-24,2020-12-19,312,5412,Maryland,Maryland,MD,312
-25,2021-01-09,572,13074,Massachusetts,Massachusetts,MA,572
-26,2020-12-19,879,12074,Michigan,Michigan,MI,879
-26,2021-05-01,484,18893,Michigan,Michigan,MI,484
-27,2020-12-12,439,4418,Minnesota,Minnesota,MN,439
-28,2020-08-01,215,1693,Mississippi,Mississippi,MS,215
-28,2021-01-16,335,5481,Mississippi,Mississippi,MS,335
-28,2021-09-11,365,8905,Mississippi,Mississippi,MS,365
-29,2020-12-19,446,5077,Missouri,Missouri,MO,446
-29,2021-09-25,269,11817,Missouri,Missouri,MO,269
-30,2021-01-30,91,1232,Montana,Montana,MT,91
-31,2020-12-05,205,1194,Nebraska,Nebraska,NE,205
-32,2020-08-22,128,1197,Nevada,Nevada,NV,128
-32,2021-01-16,311,3761,Nevada,Nevada,NV,311
-32,2021-09-25,170,7015,Nevada,Nevada,NV,170
-33,2021-01-09,93,862,New Hampshire,New Hampshire,NH,93
-34,2021-01-09,667,19854,New Jersey,New Jersey,NJ,667
-35,2020-12-19,242,2155,New Mexico,New Mexico,NM,242
-35,2021-09-25,74,4749,New Mexico,New Mexico,NM,74
-36,2021-01-16,1333,40621,New York,New York,NY,1333
-37,2021-01-30,701,9287,North Carolina,North Carolina,NC,701
-37,2021-09-18,540,15615,North Carolina,North Carolina,NC,540
-38,2020-12-12,139,1152,North Dakota,North Dakota,ND,139
-39,2020-12-19,1365,11584,Ohio,Ohio,OH,1365
-39,2021-09-25,577,23109,Ohio,Ohio,OH,577
-40,2021-01-23,279,3231,Oklahoma,Oklahoma,OK,279
-41,2021-01-16,196,1799,Oregon,Oregon,OR,196
-42,2021-01-16,1513,19223,Pennsylvania,Pennsylvania,PA,1513
-44,2020-12-12,140,1622,Rhode Island,Rhode Island,RI,140
-45,2020-07-25,330,1465,South Carolina,South Carolina,SC,330
-45,2021-02-06,597,7611,South Carolina,South Carolina,SC,597
-45,2021-10-02,490,12570,South Carolina,South Carolina,SC,490
-46,2020-11-28,165,942,South Dakota,South Dakota,SD,165
-47,2021-02-06,889,10463,Tennessee,Tennessee,TN,889
-47,2021-09-25,485,14817,Tennessee,Tennessee,TN,485
-48,2020-08-01,1921,7927,Texas,Texas,TX,1921
-48,2021-01-23,2297,34725,Texas,Texas,TX,2297
-48,2021-09-25,2073,63934,Texas,Texas,TX,2073
-49,2020-08-01,36,310,Utah,Utah,UT,36
-49,2020-12-19,110,1148,Utah,Utah,UT,110
-49,2021-09-25,82,2869,Utah,Utah,UT,82
-50,2021-01-02,18,139,Vermont,Vermont,VT,18
-53,2020-08-01,97,1619,Washington,Washington,WA,97
-53,2021-01-02,277,3461,Washington,Washington,WA,277
-53,2021-09-25,293,7494,Washington,Washington,WA,293
-54,2021-01-09,197,1570,West Virginia,West Virginia,WV,197
-55,2020-12-05,470,3934,Wisconsin,Wisconsin,WI,470
-56,2021-01-02,65,438,Wyoming,Wyoming,WY,65
-66,2020-11-21,11,104,Guam,Guam,GU,11
-66,2021-09-18,20,179,Guam,Guam,GU,20
-72,2020-12-05,102,1185,Puerto Rico,Puerto Rico,PR,102
-72,2021-08-28,88,2826,Puerto Rico,Puerto Rico,PR,88
-78,2021-08-28,8,53,Virgin Islands,Virgin Islands,VI,8
-51,2021-01-23,373,6079,Virginia,Virginia,VA,373
-54,2021-10-09,213,3935,West Virginia,West Virginia,WV,213
-40,2021-09-25,275,8715,Oklahoma,Oklahoma,OK,275
+location,date,inc,cum,location_name,population,geo_type,geo_value,abbreviation,full_location_name,location_name_with_state,rolling_max_inc
+01,2021-02-06,947,8513,Alabama,4903185,state,al,AL,Alabama,Alabama,947
+01,2021-09-25,813,14022,Alabama,4903185,state,al,AL,Alabama,Alabama,813
+01,2022-02-19,362,17933,Alabama,4903185,state,al,AL,Alabama,Alabama,362
+02,2020-12-12,33,176,Alaska,731545,state,ak,AK,Alaska,Alaska,33
+02,2021-11-13,90,831,Alaska,731545,state,ak,AK,Alaska,Alaska,90
+04,2021-01-16,1212,11248,Arizona,7278717,state,az,AZ,Arizona,Arizona,1212
+04,2022-01-29,626,26183,Arizona,7278717,state,az,AZ,Arizona,Arizona,626
+05,2020-12-12,291,2911,Arkansas,3017804,state,ar,AR,Arkansas,Arkansas,291
+05,2022-02-19,266,10291,Arkansas,3017804,state,ar,AR,Arkansas,Arkansas,266
+06,2020-08-08,926,10204,California,39512223,state,ca,CA,California,California,926
+06,2021-01-30,3674,40031,California,39512223,state,ca,CA,California,California,3674
+06,2021-10-23,960,71291,California,39512223,state,ca,CA,California,California,960
+06,2022-02-12,1498,82478,California,39512223,state,ca,CA,California,California,1498
+08,2020-12-12,514,3871,Colorado,5758736,state,co,CO,Colorado,Colorado,514
+08,2021-05-15,87,6442,Colorado,5758736,state,co,CO,Colorado,Colorado,87
+08,2021-12-11,283,9627,Colorado,5758736,state,co,CO,Colorado,Colorado,283
+09,2021-01-02,308,6099,Connecticut,3565287,state,ct,CT,Connecticut,Connecticut,308
+09,2022-01-08,217,9377,Connecticut,3565287,state,ct,CT,Connecticut,Connecticut,217
+10,2021-01-23,66,1254,Delaware,973764,state,de,DE,Delaware,Delaware,66
+10,2022-01-08,79,2365,Delaware,973764,state,de,DE,Delaware,Delaware,79
+11,2021-01-30,39,909,District of Columbia,705749,state,dc,DC,District of Columbia,District of Columbia,39
+11,2022-01-15,28,1255,District of Columbia,705749,state,dc,DC,District of Columbia,District of Columbia,28
+12,2020-08-01,1245,7022,Florida,21477737,state,fl,FL,Florida,Florida,1245
+12,2021-02-06,1239,27599,Florida,21477737,state,fl,FL,Florida,Florida,1239
+12,2021-09-18,2468,51240,Florida,21477737,state,fl,FL,Florida,Florida,2468
+12,2022-02-19,1330,68902,Florida,21477737,state,fl,FL,Florida,Florida,1330
+13,2020-08-29,484,5576,Georgia,10617423,state,ga,GA,Georgia,Georgia,484
+13,2021-01-23,955,13246,Georgia,10617423,state,ga,GA,Georgia,Georgia,955
+13,2021-09-25,901,25478,Georgia,10617423,state,ga,GA,Georgia,Georgia,901
+13,2022-02-19,681,34757,Georgia,10617423,state,ga,GA,Georgia,Georgia,681
+15,2020-10-24,26,212,Hawaii,1415872,state,hi,HI,Hawaii,Hawaii,26
+15,2021-10-02,54,801,Hawaii,1415872,state,hi,HI,Hawaii,Hawaii,54
+15,2022-02-05,49,1222,Hawaii,1415872,state,hi,HI,Hawaii,Hawaii,49
+16,2020-12-12,137,1169,Idaho,1787065,state,id,ID,Idaho,Idaho,137
+16,2021-10-02,211,2964,Idaho,1787065,state,id,ID,Idaho,Idaho,211
+16,2022-02-19,124,4676,Idaho,1787065,state,id,ID,Idaho,Idaho,124
+17,2020-12-12,1215,15232,Illinois,12671821,state,il,IL,Illinois,Illinois,1215
+17,2021-05-15,224,24770,Illinois,12671821,state,il,IL,Illinois,Illinois,224
+17,2021-09-18,285,26979,Illinois,12671821,state,il,IL,Illinois,Illinois,285
+17,2022-01-29,843,33121,Illinois,12671821,state,il,IL,Illinois,Illinois,843
+18,2020-12-12,701,7600,Indiana,6732219,state,in,IN,Indiana,Indiana,701
+18,2021-10-02,309,15686,Indiana,6732219,state,in,IN,Indiana,Indiana,309
+18,2022-01-15,612,20226,Indiana,6732219,state,in,IN,Indiana,Indiana,612
+19,2020-12-12,526,3208,Iowa,3155070,state,ia,IA,Iowa,Iowa,526
+19,2022-01-29,184,8501,Iowa,3155070,state,ia,IA,Iowa,Iowa,184
+20,2021-01-02,373,2893,Kansas,2913314,state,ks,KS,Kansas,Kansas,373
+20,2021-10-30,202,6417,Kansas,2913314,state,ks,KS,Kansas,Kansas,202
+21,2021-01-30,328,3714,Kentucky,4467673,state,ky,KY,Kentucky,Kentucky,328
+21,2021-12-11,439,11597,Kentucky,4467673,state,ky,KY,Kentucky,Kentucky,439
+22,2020-08-08,258,4207,Louisiana,4648794,state,la,LA,Louisiana,Louisiana,258
+22,2021-01-23,403,8483,Louisiana,4648794,state,la,LA,Louisiana,Louisiana,403
+22,2021-08-28,441,12359,Louisiana,4648794,state,la,LA,Louisiana,Louisiana,441
+22,2022-01-29,307,15631,Louisiana,4648794,state,la,LA,Louisiana,Louisiana,307
+23,2021-01-16,75,507,Maine,1344212,state,me,ME,Maine,Maine,75
+23,2021-12-18,74,1441,Maine,1344212,state,me,ME,Maine,Maine,74
+23,2022-02-19,132,1960,Maine,1344212,state,me,ME,Maine,Maine,132
+24,2020-12-19,312,5412,Maryland,6045680,state,md,MD,Maryland,Maryland,312
+24,2021-10-16,120,10703,Maryland,6045680,state,md,MD,Maryland,Maryland,120
+25,2021-01-09,482,11071,Massachusetts,6892503,state,ma,MA,Massachusetts,Massachusetts,482
+25,2022-01-29,503,18322,Massachusetts,6892503,state,ma,MA,Massachusetts,Massachusetts,503
+26,2020-12-19,879,12074,Michigan,9986857,state,mi,MI,Michigan,Michigan,879
+26,2021-05-01,484,18893,Michigan,9986857,state,mi,MI,Michigan,Michigan,484
+26,2022-01-08,935,29955,Michigan,9986857,state,mi,MI,Michigan,Michigan,935
+27,2020-12-12,439,4418,Minnesota,5639632,state,mn,MN,Minnesota,Minnesota,439
+27,2021-12-04,278,9740,Minnesota,5639632,state,mn,MN,Minnesota,Minnesota,278
+28,2020-08-01,215,1693,Mississippi,2976149,state,ms,MS,Mississippi,Mississippi,215
+28,2021-01-16,335,5481,Mississippi,2976149,state,ms,MS,Mississippi,Mississippi,335
+28,2021-09-11,365,8905,Mississippi,2976149,state,ms,MS,Mississippi,Mississippi,365
+28,2022-02-05,419,11250,Mississippi,2976149,state,ms,MS,Mississippi,Mississippi,419
+29,2020-12-19,446,5077,Missouri,6626371,state,mo,MO,Missouri,Missouri,446
+29,2021-09-25,269,11817,Missouri,6626371,state,mo,MO,Missouri,Missouri,269
+29,2022-02-05,453,17855,Missouri,6626371,state,mo,MO,Missouri,Missouri,453
+30,2020-11-21,86,600,Montana,1068778,state,mt,MT,Montana,Montana,86
+30,2021-10-23,119,2247,Montana,1068778,state,mt,MT,Montana,Montana,119
+30,2022-02-26,67,3172,Montana,1068778,state,mt,MT,Montana,Montana,67
+31,2020-12-05,205,1194,Nebraska,1934408,state,ne,NE,Nebraska,Nebraska,205
+31,2022-01-08,130,3468,Nebraska,1934408,state,ne,NE,Nebraska,Nebraska,130
+32,2020-08-22,128,1197,Nevada,3080156,state,nv,NV,Nevada,Nevada,128
+32,2021-01-16,311,3761,Nevada,3080156,state,nv,NV,Nevada,Nevada,311
+32,2021-09-25,170,7015,Nevada,3080156,state,nv,NV,Nevada,Nevada,170
+32,2022-02-05,230,9143,Nevada,3080156,state,nv,NV,Nevada,Nevada,230
+33,2021-01-09,93,862,New Hampshire,1359711,state,nh,NH,New Hampshire,New Hampshire,93
+33,2022-01-01,84,1961,New Hampshire,1359711,state,nh,NH,New Hampshire,New Hampshire,84
+34,2021-01-09,667,19854,New Jersey,8882190,state,nj,NJ,New Jersey,New Jersey,667
+34,2022-01-22,667,30746,New Jersey,8882190,state,nj,NJ,New Jersey,New Jersey,667
+35,2020-12-19,242,2155,New Mexico,2096829,state,nm,NM,New Mexico,New Mexico,242
+35,2021-12-25,168,5745,New Mexico,2096829,state,nm,NM,New Mexico,New Mexico,168
+36,2021-01-16,1333,40621,New York,19453561,state,ny,NY,New York,New York,1333
+36,2022-01-29,1527,64718,New York,19453561,state,ny,NY,New York,New York,1527
+37,2021-01-30,701,9287,North Carolina,10488084,state,nc,NC,North Carolina,North Carolina,701
+37,2021-09-18,540,15615,North Carolina,10488084,state,nc,NC,North Carolina,North Carolina,540
+37,2022-02-12,568,21665,North Carolina,10488084,state,nc,NC,North Carolina,North Carolina,568
+38,2020-12-12,139,1152,North Dakota,762062,state,nd,ND,North Dakota,North Dakota,139
+38,2021-10-30,45,1798,North Dakota,762062,state,nd,ND,North Dakota,North Dakota,45
+39,2020-12-19,1365,11584,Ohio,11689100,state,oh,OH,Ohio,Ohio,1365
+39,2021-09-25,609,23197,Ohio,11689100,state,oh,OH,Ohio,Ohio,609
+39,2022-01-15,1109,34148,Ohio,11689100,state,oh,OH,Ohio,Ohio,1109
+40,2022-02-19,376,14223,Oklahoma,3956971,state,ok,OK,Oklahoma,Oklahoma,376
+41,2021-01-16,196,1799,Oregon,4217737,state,or,OR,Oregon,Oregon,196
+41,2021-11-27,202,5116,Oregon,4217737,state,or,OR,Oregon,Oregon,202
+42,2021-01-16,1513,19223,Pennsylvania,12801989,state,pa,PA,Pennsylvania,Pennsylvania,1513
+42,2022-01-29,1061,40548,Pennsylvania,12801989,state,pa,PA,Pennsylvania,Pennsylvania,1061
+44,2020-12-12,140,1622,Rhode Island,1059361,state,ri,RI,Rhode Island,Rhode Island,140
+44,2022-01-22,65,3240,Rhode Island,1059361,state,ri,RI,Rhode Island,Rhode Island,65
+45,2020-07-25,330,1465,South Carolina,5148714,state,sc,SC,South Carolina,South Carolina,330
+45,2021-02-06,597,7611,South Carolina,5148714,state,sc,SC,South Carolina,South Carolina,597
+45,2021-10-02,490,12570,South Carolina,5148714,state,sc,SC,South Carolina,South Carolina,490
+45,2022-02-05,525,15791,South Carolina,5148714,state,sc,SC,South Carolina,South Carolina,525
+46,2020-11-28,165,942,South Dakota,884659,state,sd,SD,South Dakota,South Dakota,165
+46,2022-02-05,50,2687,South Dakota,884659,state,sd,SD,South Dakota,South Dakota,50
+47,2021-02-06,889,10463,Tennessee,6829174,state,tn,TN,Tennessee,Tennessee,889
+47,2021-09-25,521,14880,Tennessee,6829174,state,tn,TN,Tennessee,Tennessee,521
+47,2022-02-19,648,23933,Tennessee,6829174,state,tn,TN,Tennessee,Tennessee,648
+48,2020-08-01,1921,7927,Texas,28995881,state,tx,TX,Texas,Texas,1921
+48,2021-01-23,2297,34725,Texas,28995881,state,tx,TX,Texas,Texas,2297
+48,2021-09-25,2073,63934,Texas,28995881,state,tx,TX,Texas,Texas,2073
+48,2022-02-19,1588,83648,Texas,28995881,state,tx,TX,Texas,Texas,1588
+49,2020-12-19,110,1148,Utah,3205958,state,ut,UT,Utah,Utah,110
+49,2021-09-25,82,2869,Utah,3205958,state,ut,UT,Utah,Utah,82
+50,2021-01-02,18,139,Vermont,623989,state,vt,VT,Vermont,Vermont,18
+50,2022-02-05,20,553,Vermont,623989,state,vt,VT,Vermont,Vermont,20
+51,2022-02-12,779,17482,Virginia,8535519,state,va,VA,Virginia,Virginia,779
+53,2021-01-02,277,3461,Washington,7614893,state,wa,WA,Washington,Washington,277
+53,2021-09-25,293,7494,Washington,7614893,state,wa,WA,Washington,Washington,293
+53,2022-02-12,349,11316,Washington,7614893,state,wa,WA,Washington,Washington,349
+54,2021-01-09,197,1570,West Virginia,1792147,state,wv,WV,West Virginia,West Virginia,197
+54,2021-10-09,213,3935,West Virginia,1792147,state,wv,WV,West Virginia,West Virginia,213
+54,2022-02-19,170,6162,West Virginia,1792147,state,wv,WV,West Virginia,West Virginia,170
+55,2020-12-05,470,3934,Wisconsin,5822434,state,wi,WI,Wisconsin,Wisconsin,470
+55,2021-12-25,350,11017,Wisconsin,5822434,state,wi,WI,Wisconsin,Wisconsin,350
+56,2021-01-02,65,438,Wyoming,578759,state,wy,WY,Wyoming,Wyoming,65
+56,2021-10-23,69,1149,Wyoming,578759,state,wy,WY,Wyoming,Wyoming,69
+66,2020-11-21,11,104,Guam,164229,state,gu,GU,Guam,Guam,11
+66,2021-09-18,20,179,Guam,164229,state,gu,GU,Guam,Guam,20
+66,2022-02-05,11,296,Guam,164229,state,gu,GU,Guam,Guam,11
+69,2022-01-01,6,14,Northern Mariana Islands,55144,state,mp,MP,Northern Mariana Islands,Northern Mariana Islands,6
+72,2020-12-05,102,1185,Puerto Rico,3754939,state,pr,PR,Puerto Rico,Puerto Rico,102
+72,2021-08-28,88,2826,Puerto Rico,3754939,state,pr,PR,Puerto Rico,Puerto Rico,88
+72,2022-01-22,180,3673,Puerto Rico,3754939,state,pr,PR,Puerto Rico,Puerto Rico,180
+78,2021-08-28,8,53,Virgin Islands,107268,state,vi,VI,Virgin Islands,Virgin Islands,8
+05,2021-08-28,209,6854,Arkansas,3017804,state,ar,AR,Arkansas,Arkansas,209
+24,2022-01-22,493,13101,Maryland,6045680,state,md,MD,Maryland,Maryland,493
+40,2021-01-23,279,3231,Oklahoma,3956971,state,ok,OK,Oklahoma,Oklahoma,279
+40,2021-09-25,275,8715,Oklahoma,3956971,state,ok,OK,Oklahoma,Oklahoma,275
+51,2021-01-23,373,6079,Virginia,8535519,state,va,VA,Virginia,Virginia,373
+51,2021-10-16,316,13391,Virginia,8535519,state,va,VA,Virginia,Virginia,316

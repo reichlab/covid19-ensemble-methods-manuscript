@@ -13,14 +13,15 @@ library(plotly)
 # target_var <- "inc_case"
 # spatial_resolution <- "state"
 
-data_as_of <- "2021-12-05"
+# data_as_of <- "2021-12-05"
+data_as_of <- "2022-05-16"
 
 euro_hub_locations <- c("BE", "BG", "CZ", "DK", "DE", "EE", "IE", "GR",
   "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT",
   "PL", "PT", "RO", "SI", "SK", "FI", "SE", "GB", "IS", "LI", "NO", "CH")
 
-#for (spatial_resolution in c("state", "euro_countries")) {
-for (spatial_resolution in "euro_countries") {
+for (spatial_resolution in c("state", "euro_countries")) {
+#for (spatial_resolution in "euro_countries") {
   if (spatial_resolution == "euro_countries") {
     hub <- "ECDC"
     hub_repo_path <- "../covid19-forecast-hub-europe/"
@@ -34,16 +35,16 @@ for (spatial_resolution in "euro_countries") {
 
   pwd <- setwd(hub_repo_path)
   if (hub == "US") {
-    system("git checkout c6c24d2feabd9f9550d51e6de336dad87ffc9477")
+    system("git checkout 3532bcba304cef2b4872dd2add1f83909f717d91")
   } else if (hub == "ECDC") {
-    system("git checkout 6f8659c5a75ed42c2af93483807c1ee4177a8cd4")
+    system("git checkout c6761fc45c9c84a2df6cdfb84945562a4a23b8c2")
   }
   setwd(pwd)
 
   model_abbrs <- baseline
 
   start_monday <- as.Date("2020-07-27") - 12 * 7
-  last_monday <- as.Date("2021-10-11")
+  last_monday <- as.Date("2022-03-14")
 
   # Get observed values ("truth" in Zoltar's parlance) for both cases and deaths
   # across all data as of dates needed below
@@ -266,9 +267,9 @@ for (spatial_resolution in "euro_countries") {
     )
 
   if (hub == "US") {
-    scores_ylim <- c(0.2, 5.0)
+    scores_ylim <- c(0.14, 8.0)
   } else {
-    scores_ylim <- c(0.1, 20.5)
+    scores_ylim <- c(0.09, 15)
   }
 
   p_cases_data <- ggplot() +
@@ -282,7 +283,7 @@ for (spatial_resolution in "euro_countries") {
     geom_vline(xintercept = as.Date("2021-05-01"), linetype = 2) +
     facet_wrap( ~ quantity, scales = "free_y", ncol = 1) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
-      limits = c(as.Date("2020-07-25"), as.Date("2021-11-15")),
+      limits = c(as.Date("2020-07-25"), as.Date("2022-05-30")),
       expand = expansion()) +
     scale_y_continuous(labels = comma) +
     ylab("") +
@@ -325,14 +326,15 @@ for (spatial_resolution in "euro_countries") {
         "Rel. WIS Weighted Median" = 1)
     ) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
-      limits = c(as.Date("2020-07-25"), as.Date("2021-11-15")),
+      limits = c(as.Date("2020-07-25"), as.Date("2022-05-30")),
       expand = expansion()) +
-    scale_y_log10(limits = scores_ylim) +
+    scale_y_log10() +
+    coord_cartesian(ylim = scores_ylim) +
     ylab("") +
     xlab("") +
     theme_bw() +
     theme(
-      axis.text.x = element_text(angle = 45, hjust = 1.05),
+      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1.25),
       plot.title = element_blank(),
       plot.margin = margin(0, 0, -0.5, -0.25, "cm"),
       legend.position = "none")
@@ -348,7 +350,7 @@ for (spatial_resolution in "euro_countries") {
     geom_vline(xintercept = as.Date("2021-05-01"), linetype = 2) +
     facet_wrap( ~ quantity, scales = "free_y", ncol = 1) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
-      limits = c(as.Date("2020-07-25"), as.Date("2021-11-15")),
+      limits = c(as.Date("2020-07-25"), as.Date("2022-05-30")),
       expand = expansion()) +
     scale_y_continuous(labels = comma) +
     ylab("") +
@@ -391,14 +393,15 @@ for (spatial_resolution in "euro_countries") {
         "Rel. WIS Weighted Median" = 1)
     ) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b %Y",
-      limits = c(as.Date("2020-07-25"), as.Date("2021-11-15")),
+      limits = c(as.Date("2020-07-25"), as.Date("2022-05-30")),
       expand = expansion()) +
-    scale_y_log10(limits = scores_ylim) +
+    scale_y_log10() +
+    coord_cartesian(ylim = scores_ylim) +
     ylab("") +
     xlab("") +
     theme_bw() +
     theme(
-      axis.text.x = element_text(angle = 45, hjust = 1.05),
+      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1.25),
       plot.title = element_blank(),
       plot.margin = margin(0, 0, -0.5, -0.25, "cm"),
       legend.position = "none")
@@ -461,12 +464,12 @@ for (spatial_resolution in "euro_countries") {
   if (hub == "US") {
     panel_padding <- c(0.113, 0.073)
   } else {
-    panel_padding <- c(0.095, 0.055)
+    panel_padding <- c(0.113, 0.055)
   }
   plot_layout <- grid.layout(
     nrow = 10, ncol = 5,
     widths = unit(c(2, panel_padding[1], 0.8, panel_padding[2], 0.8), c("lines", rep("null", 4))),
-    heights = unit(c(1.1, 1.2, 0.2, rep(1, 5), 1.5, 2), c("lines", "null", "lines", rep("null", 5), "lines", "lines")))
+    heights = unit(c(1.1, 1.1, 0.2, rep(1, 5), 1.5, 2), c("lines", "null", "lines", rep("null", 5), "lines", "lines")))
 
   grid.newpage()
   pushViewport(viewport(layout = plot_layout))
@@ -500,17 +503,17 @@ for (spatial_resolution in "euro_countries") {
     ggplot() +
       geom_line(
         data = data.frame(x = c(1, 1), y = c(0.095, 0.97)),
-        mapping = aes(x = x, y = y)) +
+        mapping = aes(x = x, y = y), size = 0.1) +
       xlim(0, 1) +
       scale_y_continuous(limits = c(0, 1), expand = expansion(0, 0)) +
       theme_void(),
-    vp = viewport(layout.pos.row = 1 + 3:7, layout.pos.col = 1)
+    vp = viewport(layout.pos.row = 1 + 3:7, layout.pos.col = 1:2)
   )
   grid.text("       Relative WIS (log scale)",
     just = "center",
     rot = 90,
     gp = gpar(fontsize = 11),
-    vp = viewport(layout.pos.row = 1 + 3:8, layout.pos.col = 1))
+    vp = viewport(layout.pos.row = 1 + 3:8, layout.pos.col = 1:2))
 
   dev.off()
 }

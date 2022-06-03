@@ -18,7 +18,7 @@ setwd(here())
 us_locations <- c("29", "48")
 euro_locations <- c("FR")
 
-last_as_of <- as.Date("2021-12-05")
+last_as_of <- as.Date("2022-05-16")
 as_ofs <- seq.Date(
   from = as.Date("2020-03-29"),
   to = last_as_of,
@@ -37,12 +37,13 @@ get_first_and_final_revisions <- function(setting, as_ofs) {
     location_name_map <- covidData::global_locations
   }
 
+  available_issues <- covidData::available_issue_dates(
+    measure = "cases",
+    geography = geography)
+
   result <- purrr::map_dfr(
     as_ofs,
     function(as_of) {
-      available_issues <- covidData::available_issue_dates(
-        measure = "cases",
-        geography = geography)
       as_of <- max(as_of, min(available_issues))
       one_as_of_result <- dplyr::bind_rows(
         covidData::load_data(
@@ -81,8 +82,8 @@ get_first_and_final_revisions <- function(setting, as_ofs) {
     dplyr::mutate(
       as_of_binary = ifelse(
         as_of == max(as_of),
-        paste0("Reported as of ", last_as_of),
-        "First Reported"
+        paste0("Report as of ", last_as_of),
+        "First Report"
       )
     )
 
@@ -92,6 +93,9 @@ get_first_and_final_revisions <- function(setting, as_ofs) {
 us_data <- get_first_and_final_revisions(
   setting = "US",
   as_ofs = as_ofs)
+# temp_us_data <- get_first_and_final_revisions(
+#   setting = "US",
+#   as_ofs = tail(as_ofs, 1))
 
 combined_data <- us_data %>%
   dplyr::mutate(location_name = paste0(location_name, ", U.S."))
@@ -100,9 +104,10 @@ combined_data <- dplyr::bind_rows(
   combined_data %>%
     ungroup() %>%
     slice_max(date) %>%
-    mutate(as_of_binary = "First Reported")
+    mutate(as_of_binary = "First Report")
 )
 
+#us_data %>% filter(date == "2022-02-12")
 
 # load component forecasts
 # Location of main covid19-forecast-hub repo where component model submissions
@@ -110,7 +115,7 @@ combined_data <- dplyr::bind_rows(
 submissions_root <- paste0(
   "code/retrospective-forecasts/")
 first_forecast_date <- lubridate::ymd("2020-07-27")
-last_forecast_date <- lubridate::ymd("2021-10-11")
+last_forecast_date <- lubridate::ymd("2022-03-14")
 num_forecast_weeks <-
   as.numeric(last_forecast_date - first_forecast_date) / 7 + 1
 
@@ -144,9 +149,11 @@ combined_forecasts <- us_forecasts %>%
   )
 
 forecast_dates_to_plot <- seq.Date(
-  from = as.Date("2021-10-11"),
-  by = -35*4,
+  from = as.Date("2022-03-14"),
+  # by = -14*4,
+  by = -42,
   length = 100)
+
 forecast_dates_to_plot <- forecast_dates_to_plot[
   forecast_dates_to_plot %in% combined_forecasts$forecast_date]
 forecast_medians <- combined_forecasts %>%
@@ -165,19 +172,19 @@ forecast_medians <- combined_forecasts %>%
         target_variable = c("Cases", "Deaths")),
       combined_data %>%
         dplyr::filter(
-          as_of_binary == "First Reported",
+          as_of_binary == "First Report",
           date %in% (forecast_dates_to_plot - 2)
         ),
       by = "target_variable"
     ) %>%
-      dplyr::transmute(
-        model_brief = model_brief,
-        target_variable = target_variable,
-        forecast_date = date + 2,
-        target_end_date = date,
-        location = location, location_name = location_name,
-        value = inc
-      )
+    dplyr::transmute(
+      model_brief = model_brief,
+      target_variable = target_variable,
+      forecast_date = date + 2,
+      target_end_date = date,
+      location = location, location_name = location_name,
+      value = inc
+    )
   )
 
 forecast_intervals <- combined_forecasts %>%
@@ -198,7 +205,7 @@ forecast_intervals <- combined_forecasts %>%
       ),
       combined_data %>%
         dplyr::filter(
-          as_of_binary == "First Reported",
+          as_of_binary == "First Report",
           date %in% (forecast_dates_to_plot - 2)
         ),
       by = "target_variable"
@@ -257,11 +264,11 @@ p_both <- ggplot() +
     mapping = aes(x = date, y = inc, color = as_of_binary, size = as_of_binary)) +
   scale_color_manual(
     "Data Report Date",
-    values = c("First Reported" = "#5aae61", "Reported as of 2021-12-05" = "black")
+    values = c("First Report" = "#5aae61", "Report as of 2022-05-16" = "black")
   ) +
   scale_size_manual(
     "Data Report Date",
-    values = c("First Reported" = 1, "Reported as of 2021-12-05" = 0.3)
+    values = c("First Report" = 1, "Report as of 2022-05-16" = 0.3)
   ) +
   ggnewscale::new_scale_color() +
   geom_line(
@@ -320,9 +327,10 @@ p_both <- ggplot() +
   theme(
     axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
     axis.title.x = element_blank(),
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    legend.position = "bottom"
   )
 
-pdf("manuscript/figures/data_eval_phases_with_forecasts.pdf", width = 8, height = 8)
+pdf("manuscript/figures/data_eval_phases_with_forecasts.pdf", width = 8.25, height = 8)
 print(p_both)
 dev.off()
